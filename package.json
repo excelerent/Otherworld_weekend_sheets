@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "ts-node generate_party_paths.ts",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
