@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "robinhood": "npm run build && npm start",
     "start": "ts-node generate_party_paths.ts",
     "test": "jest"
   },
