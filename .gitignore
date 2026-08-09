@@ -1,1 +1,8 @@
 node_modules/
+dist/
+*.js.map
+*.d.ts
+*.d.ts.map
+# Exclude the generated JS if we are strictly TS now, but tsc puts it in dist/
+# However, if tsc was run without rootDir/outDir correctly it might be in root.
+# Currently tsconfig.json has outDir: ./dist
