@@ -5,7 +5,7 @@
   "main": "src/sheet_creator.ts",
   "scripts": {
     "start": "ts-node src/sheet_creator.ts",
-    "push": "tsc && copy src\\appsscript.json dist\\appsscript.json && clasp push"
+    "push": "tsc && copy src\\appsscript.json dist\\appsscript.json && copy src\\*.html dist\\ && clasp push"
   },
   "dependencies": {
     "exceljs": "^4.4.0"
