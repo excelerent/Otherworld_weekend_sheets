@@ -195,7 +195,7 @@ function getPathsData() {
   },
   {
     "party": "Arden",
-    "staff": "riddle item found?",
+    "staff": "RiddleFound",
     "time": "--",
     "item": "--",
     "Riddle": true
@@ -301,7 +301,7 @@ function getPathsData() {
   },
   {
     "party": "Clairia",
-    "staff": "riddle item found?",
+    "staff": "RiddleFound",
     "time": "--",
     "item": "--",
     "Riddle": true
@@ -400,7 +400,7 @@ function getPathsData() {
   },
   {
     "party": "Dolorón",
-    "staff": "riddle item found?",
+    "staff": "RiddleFound",
     "time": "--",
     "item": "--",
     "Riddle": true
@@ -505,7 +505,7 @@ function getPathsData() {
   },
   {
     "party": "Elsewhich",
-    "staff": "riddle item found?",
+    "staff": "RiddleFound",
     "time": "--",
     "item": "--",
     "Riddle": true
@@ -612,7 +612,7 @@ function getPathsData() {
   },
   {
     "party": "Glendeep",
-    "staff": "riddle item found?",
+    "staff": "RiddleFound",
     "time": "--",
     "item": "--",
     "Riddle": true
@@ -718,7 +718,7 @@ function getPathsData() {
   },
   {
     "party": "Keer",
-    "staff": "riddle item found?",
+    "staff": "RiddleFound",
     "time": "--",
     "item": "--",
     "Riddle": true
@@ -824,7 +824,7 @@ function getPathsData() {
   },
   {
     "party": "Noctara",
-    "staff": "riddle item found?",
+    "staff": "RiddleFound",
     "time": "--",
     "item": "--",
     "Riddle": true
@@ -930,7 +930,7 @@ function getPathsData() {
   },
   {
     "party": "P'loa",
-    "staff": "riddle item found?",
+    "staff": "RiddleFound",
     "time": "--",
     "item": "--",
     "Riddle": true
@@ -1037,7 +1037,7 @@ function getPathsData() {
   },
   {
     "party": "Sythwan",
-    "staff": "riddle item found?",
+    "staff": "RiddleFound",
     "time": "--",
     "item": "--",
     "Riddle": true
@@ -1143,7 +1143,7 @@ function getPathsData() {
   },
   {
     "party": "Uri-Kesh",
-    "staff": "riddle item found?",
+    "staff": "RiddleFound",
     "time": "--",
     "item": "--",
     "Riddle": true
@@ -1249,9 +1249,86 @@ function getPathsData() {
   },
   {
     "party": "Waylon",
-    "staff": "riddle item found?",
+    "staff": "RiddleFound",
     "time": "--",
     "item": "--",
+    "Riddle": true
+  },
+  {
+    "party": "Arden",
+    "staff": "Endymion",
+    "time": "9am-5:30pm",
+    "item": "Riddle",
+    "Riddle": true
+  },
+  {
+    "party": "Clairia",
+    "staff": "Endymion",
+    "time": "9am-5:30pm",
+    "item": "Riddle",
+    "Riddle": true
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Endymion",
+    "time": "9am-5:30pm",
+    "item": "Riddle",
+    "Riddle": true
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Endymion",
+    "time": "9am-5:30pm",
+    "item": "Riddle",
+    "Riddle": true
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Endymion",
+    "time": "9am-5:30pm",
+    "item": "Riddle",
+    "Riddle": true
+  },
+  {
+    "party": "Keer",
+    "staff": "Endymion",
+    "time": "9am-5:30pm",
+    "item": "Riddle",
+    "Riddle": true
+  },
+  {
+    "party": "Noctara",
+    "staff": "Endymion",
+    "time": "9am-5:30pm",
+    "item": "Riddle",
+    "Riddle": true
+  },
+  {
+    "party": "P'loa",
+    "staff": "Endymion",
+    "time": "9am-5:30pm",
+    "item": "Riddle",
+    "Riddle": true
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Endymion",
+    "time": "9am-5:30pm",
+    "item": "Riddle",
+    "Riddle": true
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Endymion",
+    "time": "9am-5:30pm",
+    "item": "Riddle",
+    "Riddle": true
+  },
+  {
+    "party": "Waylon",
+    "staff": "Endymion",
+    "time": "9am-5:30pm",
+    "item": "Riddle",
     "Riddle": true
   }
 ];
