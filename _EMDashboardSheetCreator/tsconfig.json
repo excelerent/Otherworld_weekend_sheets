@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": [
+      "google-apps-script"
+    ],
+    "lib": [
+      "esnext"
+    ]
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}

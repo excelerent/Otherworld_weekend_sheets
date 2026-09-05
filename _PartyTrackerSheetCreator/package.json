@@ -1,0 +1,20 @@
+{
+  "name": "party-tracker-sheet-creator",
+  "version": "1.0.0",
+  "description": "Tool to create the Party Tracker Google Sheet from JSON exports",
+  "main": "src/sheet_creator.ts",
+  "scripts": {
+    "start": "ts-node src/sheet_creator.ts",
+    "push": "tsc && copy src\\appsscript.json dist\\appsscript.json && clasp push"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "@google/clasp": "^3.3.0",
+    "@types/google-apps-script": "^2.0.12",
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}

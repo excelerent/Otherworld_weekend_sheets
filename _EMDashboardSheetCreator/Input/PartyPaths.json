@@ -1,0 +1,1162 @@
+[
+  {
+    "party": "Arden",
+    "staff": "Maddox Lynne",
+    "time": "Contact",
+    "item": "--"
+  },
+  {
+    "party": "Arden",
+    "staff": "Ursula Smirch",
+    "time": "2nd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Arden",
+    "staff": "Kismet O'Connor",
+    "time": "3rd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Arden",
+    "staff": "Dominique Bliss",
+    "time": "4th Friday",
+    "item": "list of items"
+  },
+  {
+    "party": "Arden",
+    "staff": "Kira",
+    "time": "1st Saturday",
+    "item": "locus root",
+    "Insight": true,
+    "PathItem": true
+  },
+  {
+    "party": "Arden",
+    "staff": "Nix Valerius",
+    "time": "8:30am-4pm, 10:15pm-12am",
+    "item": "black diamond shards",
+    "PathItem": true
+  },
+  {
+    "party": "Arden",
+    "staff": "Kazmira",
+    "time": "11am-5pm, 10:15pm-12am",
+    "item": "cowry shell",
+    "PathItem": true
+  },
+  {
+    "party": "Arden",
+    "staff": "Lena Hawk",
+    "time": "12pm-7:15pm, 10:15pm-12am",
+    "item": "spiritstone",
+    "PathItem": true
+  },
+  {
+    "party": "Arden",
+    "staff": "Harrison Armstrong",
+    "time": "10am-12pm, 2pm-7pm",
+    "item": "star of direction",
+    "PathItem": true
+  },
+  {
+    "party": "Arden",
+    "staff": "John Doe",
+    "time": "10am-2pm, 4pm-5:30pm, 10:15pm-12am",
+    "item": "chaos pendant",
+    "PathItem": true
+  },
+  {
+    "party": "Arden",
+    "staff": "Etta Mae Stapleton",
+    "time": "10am-3pm, 5pm-7:30pm, 10:15pm-12am",
+    "item": "riverglass jewelbox",
+    "PathItem": true
+  },
+  {
+    "party": "Arden",
+    "staff": "Denison Bannister",
+    "time": "12pm-7:15pm",
+    "item": "none until tomorrow"
+  },
+  {
+    "party": "Arden",
+    "staff": "Ghost Theater",
+    "time": "4-7pm (last entry at 6:45pm)",
+    "item": "limelight",
+    "PathItem": true
+  },
+  {
+    "party": "Arden",
+    "staff": "Denison Bannister",
+    "time": "9:45am Sunday",
+    "item": "argentum heart"
+  },
+  {
+    "party": "Arden",
+    "staff": "battling Morgoth for the Sconce of the Wood",
+    "time": "10am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "Arden",
+    "staff": "riddle item found?",
+    "time": "--",
+    "item": "--",
+    "Riddle": true
+  },
+  {
+    "party": "Clairia",
+    "staff": "Dex Dempsey",
+    "time": "Contact",
+    "item": "--"
+  },
+  {
+    "party": "Clairia",
+    "staff": "Bazooka",
+    "time": "2nd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Clairia",
+    "staff": "Chester Valerius",
+    "time": "3rd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Clairia",
+    "staff": "Daphne Dalrymple",
+    "time": "4th Friday",
+    "item": "list of items"
+  },
+  {
+    "party": "Clairia",
+    "staff": "Evelyn",
+    "time": "1st Saturday",
+    "item": "phoenix egg",
+    "PathItem": true
+  },
+  {
+    "party": "Clairia",
+    "staff": "Kable Worldwatcher",
+    "time": "10am-4pm",
+    "item": "featherflame herb",
+    "Insight": true,
+    "PathItem": true
+  },
+  {
+    "party": "Clairia",
+    "staff": "Sonja Eastwind",
+    "time": "10am-4pm, 10:15pm-12am",
+    "item": "fool's gold",
+    "PathItem": true
+  },
+  {
+    "party": "Clairia",
+    "staff": "Septimus Quill",
+    "time": "10am-4pm, 10:15pm-12am",
+    "item": "none until tomorrow"
+  },
+  {
+    "party": "Clairia",
+    "staff": "Trent Caldwell",
+    "time": "8am-2pm, 4pm-7:15pm, 10:15pm-12am",
+    "item": "gold essence",
+    "PathItem": true
+  },
+  {
+    "party": "Clairia",
+    "staff": "Jacob Constantine",
+    "time": "8am-11am, 1pm-4pm",
+    "item": "carbon key",
+    "PathItem": true
+  },
+  {
+    "party": "Clairia",
+    "staff": "Morrissey Grimwood",
+    "time": "10am-4pm, 10:15pm-12am",
+    "item": "winterheart gem",
+    "PathItem": true
+  },
+  {
+    "party": "Clairia",
+    "staff": "Solomon Stillwater",
+    "time": "8am-10am, 12pm-4pm, 10:15pm-12am",
+    "item": "dragon's-egg ring",
+    "PathItem": true
+  },
+  {
+    "party": "Clairia",
+    "staff": "the Court of Mirrors",
+    "time": "4-7pm (last entry at 6:45pm)",
+    "item": "favor from the Court of Mirrors",
+    "PathItem": true
+  },
+  {
+    "party": "Clairia",
+    "staff": "Septimus Quill",
+    "time": "10am Sunday",
+    "item": "silver snowflake amulets"
+  },
+  {
+    "party": "Clairia",
+    "staff": "summoning the Staff of Ignatius and Ignatius himself",
+    "time": "10:15am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "Clairia",
+    "staff": "riddle item found?",
+    "time": "--",
+    "item": "--",
+    "Riddle": true
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Dimitri",
+    "time": "Contact",
+    "item": "--"
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Denison Bannister",
+    "time": "2nd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Kyson Wayseeker",
+    "time": "3rd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Kiko Truthspeaker",
+    "time": "4th Friday",
+    "item": "list of items"
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Kismet O'Connor",
+    "time": "1st Saturday",
+    "item": "seafoam sphere",
+    "PathItem": true
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Carmen",
+    "time": "10am-4pm, 6pm-7:30pm, 10:15pm-12am",
+    "item": "silver incense burner",
+    "PathItem": true
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Chester Valerius",
+    "time": "11am-4pm, 10:15pm-12am",
+    "item": "whiteleaf sage",
+    "PathItem": true
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Elliot Ash",
+    "time": "8am-3pm, 10:15pm-12am",
+    "item": "water from the River Sigh",
+    "PathItem": true
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Phaedra Pax",
+    "time": "11am-4pm, 10:15pm-12am",
+    "item": "snakes-eye talisman",
+    "PathItem": true
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Edwina Duttmiler",
+    "time": "8:30am-2pm, 10:15pm-12am",
+    "item": "signalstone ring",
+    "PathItem": true
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Bitty Smirch",
+    "time": "8am-11am, 1pm-5pm",
+    "item": "gemwing butterfly",
+    "PathItem": true
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Cade Wyatt",
+    "time": "4-7pm (last entry at 6:45pm)",
+    "item": "folly dust",
+    "PathItem": true
+  },
+  {
+    "party": "Dolorón",
+    "staff": "Chester Valerius",
+    "time": "9:45am Sunday",
+    "item": "merula-fruit cordial"
+  },
+  {
+    "party": "Dolorón",
+    "staff": "conjuring the pixie dust",
+    "time": "10am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "Dolorón",
+    "staff": "riddle item found?",
+    "time": "--",
+    "item": "--",
+    "Riddle": true
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Hazel Hess",
+    "time": "Contact",
+    "item": "--"
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Magnolia",
+    "time": "2nd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Kira",
+    "time": "3rd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Kerrick Dealbinder",
+    "time": "4th Friday",
+    "item": "list of items"
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Gabriela Valerius",
+    "time": "1st Saturday",
+    "item": "heliotrope candle",
+    "PathItem": true
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Wren Sorenson",
+    "time": "11am-5pm, 10:15pm-12am",
+    "item": "doveroot seeds",
+    "PathItem": true
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Tinker Bill",
+    "time": "12pm-7:15pm, 10:15pm-12am",
+    "item": "none until tomorrow"
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Throg",
+    "time": "8am-3pm, 10:15pm-12am",
+    "item": "crummy magic chalice",
+    "PathItem": true
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Beckett Knightsbridge",
+    "time": "10am-4pm, 5:30pm-7:15pm, 10:15pm-12am",
+    "item": "gold laceleaf pendant",
+    "PathItem": true
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Maddox Lynne",
+    "time": "10am-4pm, 10:15pm-12am",
+    "item": "gospel weed",
+    "PathItem": true
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Dex Dempsey",
+    "time": "8am-1pm, 3pm-5:30pm",
+    "item": "amethyst obelisk",
+    "PathItem": true
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Cat Morse",
+    "time": "8am-1pm",
+    "item": "cats-eye jewelbox",
+    "PathItem": true
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Ghost Theater",
+    "time": "4-7pm (last entry at 6:45pm)",
+    "item": "limelight",
+    "PathItem": true
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "Tinker Bill",
+    "time": "9:45am Sunday",
+    "item": "Elsewhichian wine"
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "consecrating the magical healing cup with Kira",
+    "time": "10am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "Elsewhich",
+    "staff": "riddle item found?",
+    "time": "--",
+    "item": "--",
+    "Riddle": true
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Leo North",
+    "time": "Contact",
+    "item": "--"
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Harrison Armstrong",
+    "time": "2nd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Evelyn",
+    "time": "3rd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Jonathan",
+    "time": "4th Friday",
+    "item": "list of items"
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Cade Wyatt",
+    "time": "1st Saturday",
+    "item": "devil's-fire whiskey",
+    "PathItem": true
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Bethany Bradford",
+    "time": "8am-12pm, 2pm-5:30pm, 10:15pm-12am",
+    "item": "rose-quartz orb",
+    "PathItem": true
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Cassidy Adams",
+    "time": "8am-11am, 1pm-7:15pm, 10:15pm-12am",
+    "item": "none (she'll meet them at 9:30am in the tavern wearing the shadow ward)",
+    "PathItem": true
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Acadia Glen",
+    "time": "8am-2pm, 4pm-7pm, 10:15pm-12am",
+    "item": "ghost key",
+    "PathItem": true
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Trina Sunday",
+    "time": "8am-2pm, 10:15pm-12am",
+    "item": "revel's cup",
+    "PathItem": true
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Beck",
+    "time": "8am-3pm, 5pm-7:30pm, 10:15pm-12am",
+    "item": "brimstone egg",
+    "PathItem": true
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Natasha",
+    "time": "8am-2pm, 10:15pm-12am",
+    "item": "viper's-eye pendant",
+    "PathItem": true
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Kyli Talespinner",
+    "time": "10am-4pm",
+    "item": "spring tambourine",
+    "Insight": true,
+    "PathItem": true
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Cade Wyatt",
+    "time": "4-7pm (last entry at 6:45pm)",
+    "item": "folly dust",
+    "PathItem": true
+  },
+  {
+    "party": "Glendeep",
+    "staff": "Cassidy Adams (",
+    "time": "9:30am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "Glendeep",
+    "staff": "doing the Ritual of Reclamation",
+    "time": "9:45am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "Glendeep",
+    "staff": "riddle item found?",
+    "time": "--",
+    "item": "--",
+    "Riddle": true
+  },
+  {
+    "party": "Keer",
+    "staff": "Wren Sorenson",
+    "time": "Contact",
+    "item": "--"
+  },
+  {
+    "party": "Keer",
+    "staff": "Kyli Talespinner",
+    "time": "2nd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Keer",
+    "staff": "Throg",
+    "time": "3rd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Keer",
+    "staff": "Winky Butterman",
+    "time": "4th Friday",
+    "item": "list of items"
+  },
+  {
+    "party": "Keer",
+    "staff": "Sergei",
+    "time": "1st Saturday",
+    "item": "perfect sphere of air bubble necklace",
+    "PathItem": true
+  },
+  {
+    "party": "Keer",
+    "staff": "Seth Cove",
+    "time": "8am-12pm, 2pm-4pm",
+    "item": "perfect sphere of water bottle",
+    "PathItem": true
+  },
+  {
+    "party": "Keer",
+    "staff": "Kisa V'noth",
+    "time": "8:30am-4pm, 10:15pm-12am",
+    "item": "none until tomorrow"
+  },
+  {
+    "party": "Keer",
+    "staff": "Kyson Wayseeker",
+    "time": "8am-2pm, 10:15pm-12am",
+    "item": "perfect sphere of earth stone orb",
+    "Insight": true,
+    "PathItem": true
+  },
+  {
+    "party": "Keer",
+    "staff": "Jebediah Dithers",
+    "time": "8am-12pm, 2pm-4pm",
+    "item": "nightstone ring",
+    "PathItem": true
+  },
+  {
+    "party": "Keer",
+    "staff": "Brent Bradford",
+    "time": "8am-10am, 2pm-7:15pm, 10:15pm-12am",
+    "item": "ring set with a glimmergem",
+    "PathItem": true
+  },
+  {
+    "party": "Keer",
+    "staff": "Bumble",
+    "time": "8am-10am, 2pm-7:15pm, 10:15pm-12am",
+    "item": "fortune's wheel pendant",
+    "PathItem": true
+  },
+  {
+    "party": "Keer",
+    "staff": "Leo North",
+    "time": "8am-2pm, 4pm-7:15pm, 10:15pm-12am",
+    "item": "perfect sphere of fire candle",
+    "PathItem": true
+  },
+  {
+    "party": "Keer",
+    "staff": "Ghost Theater",
+    "time": "4-7pm (last entry at 6:45pm)",
+    "item": "limelight",
+    "PathItem": true
+  },
+  {
+    "party": "Keer",
+    "staff": "Kisa V'noth",
+    "time": "9:30am Sunday",
+    "item": "horn of summoning"
+  },
+  {
+    "party": "Keer",
+    "staff": "summoning the Knights of the Golden Circle",
+    "time": "9:45am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "Keer",
+    "staff": "riddle item found?",
+    "time": "--",
+    "item": "--",
+    "Riddle": true
+  },
+  {
+    "party": "Noctara",
+    "staff": "Buzz Quigley",
+    "time": "Contact",
+    "item": "--"
+  },
+  {
+    "party": "Noctara",
+    "staff": "Bonnie Stillwater",
+    "time": "2nd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Noctara",
+    "staff": "Malachi",
+    "time": "3rd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Noctara",
+    "staff": "Aleeya Witchborn",
+    "time": "4th Friday",
+    "item": "list of items"
+  },
+  {
+    "party": "Noctara",
+    "staff": "Henri LaFontaine",
+    "time": "1st Saturday",
+    "item": "emerald star",
+    "PathItem": true
+  },
+  {
+    "party": "Noctara",
+    "staff": "Claudette LaFontaine",
+    "time": "12pm-7:15pm, 10:15pm-12am",
+    "item": "heart of darkness",
+    "PathItem": true
+  },
+  {
+    "party": "Noctara",
+    "staff": "Korin Peacekeeper",
+    "time": "9am-4pm, 6pm-8pm",
+    "item": "mortality dust",
+    "Insight": true,
+    "PathItem": true
+  },
+  {
+    "party": "Noctara",
+    "staff": "Julian Valerius",
+    "time": "8:30am-4pm, 6pm-7:15pm",
+    "item": "copperstone crown",
+    "PathItem": true
+  },
+  {
+    "party": "Noctara",
+    "staff": "Cat Morse",
+    "time": "8am-1pm",
+    "item": "none until tomorrow"
+  },
+  {
+    "party": "Noctara",
+    "staff": "Bailey",
+    "time": "8am-2pm, 4pm-7:15pm, 10:15pm-12am",
+    "item": "jester's egg",
+    "PathItem": true
+  },
+  {
+    "party": "Noctara",
+    "staff": "Taylor or Tyler Bradford",
+    "time": "11am-7:15pm, 10:15pm-12am",
+    "item": "aventurine shards",
+    "PathItem": true
+  },
+  {
+    "party": "Noctara",
+    "staff": "Edwina Duttmiler",
+    "time": "8:30am-2pm, 10:15pm-12am",
+    "item": "amethyst obelisk",
+    "PathItem": true
+  },
+  {
+    "party": "Noctara",
+    "staff": "Ghost Theater",
+    "time": "4-7pm (last entry at 6:45pm)",
+    "item": "limelight",
+    "PathItem": true
+  },
+  {
+    "party": "Noctara",
+    "staff": "Cat Morse",
+    "time": "9:15am Sunday",
+    "item": "azure riverstone"
+  },
+  {
+    "party": "Noctara",
+    "staff": "Bonnie Stillwater",
+    "time": "9:30am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "Noctara",
+    "staff": "riddle item found?",
+    "time": "--",
+    "item": "--",
+    "Riddle": true
+  },
+  {
+    "party": "P'loa",
+    "staff": "Julian Valerius",
+    "time": "Contact",
+    "item": "--"
+  },
+  {
+    "party": "P'loa",
+    "staff": "Obsidian",
+    "time": "2nd Friday",
+    "item": "--"
+  },
+  {
+    "party": "P'loa",
+    "staff": "Fuchsia",
+    "time": "3rd Friday",
+    "item": "--"
+  },
+  {
+    "party": "P'loa",
+    "staff": "Jelly",
+    "time": "4th Friday",
+    "item": "list of items"
+  },
+  {
+    "party": "P'loa",
+    "staff": "Milo Morningstar",
+    "time": "1st Saturday",
+    "item": "seekingstone",
+    "PathItem": true
+  },
+  {
+    "party": "P'loa",
+    "staff": "Bonnie Stillwater",
+    "time": "7:45am-10am, 12pm-3pm, 5pm-7:30pm, 10:15pm-12am",
+    "item": "none until tomorrow"
+  },
+  {
+    "party": "P'loa",
+    "staff": "Frost",
+    "time": "8am-3pm, 10:15pm-12am",
+    "item": "moonstone shards",
+    "PathItem": true
+  },
+  {
+    "party": "P'loa",
+    "staff": "Kemma Runereader",
+    "time": "8am-3pm, 7:30pm-12am",
+    "item": "leatherleaf herb",
+    "Insight": true,
+    "PathItem": true
+  },
+  {
+    "party": "P'loa",
+    "staff": "Dimitri",
+    "time": "8am-4pm, 10:15pm-12am",
+    "item": "ashes of a lightning-struck oak",
+    "PathItem": true
+  },
+  {
+    "party": "P'loa",
+    "staff": "Alexandra Rayfield",
+    "time": "8am-1pm, 3pm-5pm, 10:15pm-12am",
+    "item": "tortoiseshell comb (formerly Elani Edgewater's)",
+    "PathItem": true
+  },
+  {
+    "party": "P'loa",
+    "staff": "Denison Bannister",
+    "time": "12pm-7:15pm",
+    "item": "flourite crystal",
+    "PathItem": true
+  },
+  {
+    "party": "P'loa",
+    "staff": "Phineas Smirch",
+    "time": "8am-2pm, 10:15pm-12am",
+    "item": "shimmerstone orb",
+    "PathItem": true
+  },
+  {
+    "party": "P'loa",
+    "staff": "the Court of Mirrors",
+    "time": "4-7pm (last entry at 6:45pm)",
+    "item": "favor from the Court of Mirrors",
+    "PathItem": true
+  },
+  {
+    "party": "P'loa",
+    "staff": "Atlantis Pendragon (who stays with the party for their party path",
+    "time": "10:15am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "P'loa",
+    "staff": "doing the ritual of togethering",
+    "time": "10:30am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "P'loa",
+    "staff": "riddle item found?",
+    "time": "--",
+    "item": "--",
+    "Riddle": true
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Septimus Quill",
+    "time": "Contact",
+    "item": "--"
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Acadia Glen",
+    "time": "2nd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Trina Sunday",
+    "time": "3rd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Kurt Mills",
+    "time": "4th Friday",
+    "item": "list of items"
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Tad Smirch",
+    "time": "1st Saturday",
+    "item": "riddlestone ring",
+    "PathItem": true,
+    "Riddle": true
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Valentina",
+    "time": "12pm-7:15pm, 10:15pm-12am",
+    "item": "citrine shards",
+    "PathItem": true
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Orlando Fairfax",
+    "time": "8am-2pm",
+    "item": "eternity pendant",
+    "PathItem": true
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Kullis Toolforger",
+    "time": "8am-2pm",
+    "item": "ashes from an ancient fire",
+    "Insight": true,
+    "PathItem": true
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Alonzo Glen",
+    "time": "8am-2pm, 4pm-7pm, 10:15pm-12am",
+    "item": "none until tomorrow"
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Clara Newbury",
+    "time": "8am-9am, 11am-5pm, 10:15pm-12am",
+    "item": "cloudite ring",
+    "PathItem": true
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Astrid Holt",
+    "time": "10am-4pm",
+    "item": "celadon egg",
+    "PathItem": true
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Crabtree",
+    "time": "8am-10am, 2pm-7:15pm",
+    "item": "filigree'd mule pendant",
+    "PathItem": true
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Cade Wyatt",
+    "time": "4-7pm (last entry at 6:45pm)",
+    "item": "folly dust",
+    "PathItem": true
+  },
+  {
+    "party": "Sythwan",
+    "staff": "Alonzo Glen",
+    "time": "10am Sunday",
+    "item": "jeweled chalice"
+  },
+  {
+    "party": "Sythwan",
+    "staff": "the ghost of Jon Golden and the ghostly chorus",
+    "time": "10:15am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "Sythwan",
+    "staff": "riddle item found?",
+    "time": "--",
+    "item": "--",
+    "Riddle": true
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Cat Morse",
+    "time": "Contact",
+    "item": "--"
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Tad Smirch",
+    "time": "2nd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Sergei",
+    "time": "3rd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Esmerelda",
+    "time": "4th Friday",
+    "item": "list of items"
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Leo North",
+    "time": "1st Saturday",
+    "item": "silver shield pendant",
+    "PathItem": true
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Dylan Underhill",
+    "time": "12pm-7:15pm, 10:15pm-12am",
+    "item": "none until tomorrow"
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Christophe Valerius",
+    "time": "8am-12pm",
+    "item": "cryptstone brandy cork",
+    "PathItem": true
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Kazim Firestarter",
+    "time": "10am-4pm, 6pm-8pm, 10pm-12am",
+    "item": "pendant set with a fire gem",
+    "Insight": true,
+    "PathItem": true
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Ursula Smirch",
+    "time": "8am-10am, 2pm-7:15pm, 10:15pm-12am",
+    "item": "love potion in a fancy bottle",
+    "PathItem": true
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Jules Frank",
+    "time": "8am-4pm, 10:15pm-12am",
+    "item": "gilded conchshell",
+    "PathItem": true
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Obsidian",
+    "time": "8am-11am, 2pm-4pm, 6pm-10pm, 10:15pm-12am",
+    "item": "sterling silver heart box",
+    "PathItem": true
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Hazel Hess",
+    "time": "9am-1pm, 3pm-7:15pm, 10:15pm-12am",
+    "item": "aquamarine lookingglass",
+    "PathItem": true
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "the Court of Mirrors",
+    "time": "4-7pm (last entry at 6:45pm)",
+    "item": "favor from the Court of Mirrors",
+    "PathItem": true
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Dylan Underhill",
+    "time": "10:15am Sunday",
+    "item": "callibogus rum"
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "Esmerelda",
+    "time": "10:30am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "Uri-Kesh",
+    "staff": "riddle item found?",
+    "time": "--",
+    "item": "--",
+    "Riddle": true
+  },
+  {
+    "party": "Waylon",
+    "staff": "Christophe Valerius",
+    "time": "Contact",
+    "item": "--"
+  },
+  {
+    "party": "Waylon",
+    "staff": "Beckett Knightsbridge",
+    "time": "2nd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Waylon",
+    "staff": "Orlando Fairfax",
+    "time": "3rd Friday",
+    "item": "--"
+  },
+  {
+    "party": "Waylon",
+    "staff": "Aruna Valerius",
+    "time": "4th Friday",
+    "item": "list of items"
+  },
+  {
+    "party": "Waylon",
+    "staff": "Velveeta",
+    "time": "1st Saturday",
+    "item": "eternity mirror",
+    "PathItem": true
+  },
+  {
+    "party": "Waylon",
+    "staff": "Malachi",
+    "time": "8am-2pm, 5:30pm-7:15pm, 10:15pm-12am",
+    "item": "smokestone jar",
+    "PathItem": true
+  },
+  {
+    "party": "Waylon",
+    "staff": "Buzz Quigley",
+    "time": "8am-2pm, 10:15pm-12am",
+    "item": "agate orb",
+    "PathItem": true
+  },
+  {
+    "party": "Waylon",
+    "staff": "Kovi Woundtender",
+    "time": "8am-3pm, 10pm-12am",
+    "item": "bloodroot essence",
+    "Insight": true,
+    "PathItem": true
+  },
+  {
+    "party": "Waylon",
+    "staff": "Ophelia Glen",
+    "time": "8:30am-11am, 3pm-8pm",
+    "item": "water from the Talian Sea",
+    "PathItem": true
+  },
+  {
+    "party": "Waylon",
+    "staff": "Rosalie McPhee",
+    "time": "10am-2pm, 4pm-7:15pm",
+    "item": "jade egg",
+    "PathItem": true
+  },
+  {
+    "party": "Waylon",
+    "staff": "Ray Mulligan",
+    "time": "8am-9am, 1pm-7:15pm, 10:15pm-12am",
+    "item": "none until tomorrow"
+  },
+  {
+    "party": "Waylon",
+    "staff": "Jack Brigham",
+    "time": "11am-3pm, 5pm-7:15pm",
+    "item": "skull cup",
+    "PathItem": true
+  },
+  {
+    "party": "Waylon",
+    "staff": "Cade Wyatt",
+    "time": "4-7pm (last entry at 6:45pm)",
+    "item": "folly dust",
+    "PathItem": true
+  },
+  {
+    "party": "Waylon",
+    "staff": "Ray Mulligan",
+    "time": "9:30am Sunday",
+    "item": "elderberry wine"
+  },
+  {
+    "party": "Waylon",
+    "staff": "giving the Testimony wine to Ursula Smirch",
+    "time": "9:45am Sunday",
+    "item": "--"
+  },
+  {
+    "party": "Waylon",
+    "staff": "riddle item found?",
+    "time": "--",
+    "item": "--",
+    "Riddle": true
+  }
+]

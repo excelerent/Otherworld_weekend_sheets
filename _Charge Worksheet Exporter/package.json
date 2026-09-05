@@ -1,0 +1,1 @@
+{ "name": "charge-worksheet-exporter", "version": "1.0.0", "description": "", "main": "charge_exporter.ts", "scripts": { "start": "ts-node charge_exporter.ts" }, "keywords": [], "author": "", "license": "ISC", "dependencies": { "xlsx": "^0.18.5" }, "devDependencies": { "ts-node": "^10.9.2", "typescript": "^5.5.4", "@types/node": "^20.0.0" } }

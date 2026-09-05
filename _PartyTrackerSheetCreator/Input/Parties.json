@@ -1,0 +1,92 @@
+{
+  "Parties": [
+    {
+      "Party": "Arden",
+      "StaffMemberName": "Sherri Rinell",
+      "CompanionName": "Ari",
+      "BackgroundColor": "Green (#266141)",
+      "TableColor": "Green (#266141)",
+      "TextColor": "White (#ffffff)"
+    },
+    {
+      "Party": "Clairia",
+      "StaffMemberName": "James Surano",
+      "CompanionName": "Clem",
+      "BackgroundColor": "White (#ffffff)",
+      "TableColor": "Gray (#f3f3f3)",
+      "TextColor": "Black (#000000)"
+    },
+    {
+      "Party": "Dolorón",
+      "StaffMemberName": "Maisie Sturtevant",
+      "CompanionName": "Dodi",
+      "BackgroundColor": "Pink (#dda6aa)",
+      "TableColor": "Pink (#dda6aa)",
+      "TextColor": "Black (#000000)"
+    },
+    {
+      "Party": "Elsewhich",
+      "StaffMemberName": "Lori Nadig",
+      "CompanionName": "Elvie",
+      "BackgroundColor": "Gray (##888a8d)",
+      "TableColor": "Gray (#d9d9d9)",
+      "TextColor": "Black (#000000)"
+    },
+    {
+      "Party": "Glendeep",
+      "StaffMemberName": "Steve Spodaryk",
+      "CompanionName": "Gloucester",
+      "BackgroundColor": "Seafoam (#a6d2ba)",
+      "TableColor": "Seafoam (#a6d2ba)",
+      "TextColor": "Black (#000000)"
+    },
+    {
+      "Party": "Keer",
+      "StaffMemberName": "Bill Sabram",
+      "CompanionName": "Keifer",
+      "BackgroundColor": "Blue (#7faed1)",
+      "TableColor": "Blue (#7faed1)",
+      "TextColor": "Black (#000000)"
+    },
+    {
+      "Party": "Noctara",
+      "StaffMemberName": "Chelsea Hadlock",
+      "CompanionName": "Nadia",
+      "BackgroundColor": "Purple (#763cbc)",
+      "TableColor": "Light Purple (#af9ac9)",
+      "TextColor": "White (#ffffff)"
+    },
+    {
+      "Party": "P'loa",
+      "StaffMemberName": "Bob Marriott",
+      "CompanionName": "Polo",
+      "BackgroundColor": "Light Blue (#008fbe)",
+      "TableColor": "Light Blue (#9dcede)",
+      "TextColor": "Black (#000000)"
+    },
+    {
+      "Party": "Sythwan",
+      "StaffMemberName": "Joyce Farnsworth",
+      "CompanionName": "Silla",
+      "BackgroundColor": "Yellow (#feda00)",
+      "TableColor": "Yellow (#fff2cc)",
+      "TextColor": "Black (#000000)"
+    },
+    {
+      "Party": "Uri-Kesh",
+      "StaffMemberName": "Brian Neff",
+      "CompanionName": "Urving",
+      "BackgroundColor": "Red (#cc0000)",
+      "TableColor": "Red (#ea9999)",
+      "TextColor": "White (#ffffff)"
+    },
+    {
+      "Party": "Waylon",
+      "StaffMemberName": "Britt Rothauser",
+      "CompanionName": "Waverly",
+      "BackgroundColor": "Orange (#f36c21)",
+      "TableColor": "Orange (#f9cb9c)",
+      "TextColor": "Black (#000000)"
+    }
+  ]
+}
