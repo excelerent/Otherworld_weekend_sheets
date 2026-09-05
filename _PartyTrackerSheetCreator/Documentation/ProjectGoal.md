@@ -54,7 +54,7 @@ Every other sheet is a **Party sheet**, named and colored according to the party
   * H: 250px
 
 #### Character Info Section (Top Right, F3 - H9)
-* The Header should shart at F:3 and be 10pt bold.
+* The Header should start at F:3 and be 10pt bold.
 * Starting at cell **F:4**, create a section for Character names/descriptions for each of the participants in the party, for each role:
     * Caster
     * Keeper
