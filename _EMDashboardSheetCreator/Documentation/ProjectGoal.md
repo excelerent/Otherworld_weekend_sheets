@@ -1,50 +1,55 @@
 ﻿# Project Goal: EM Dashboard Sheet Creator (Google Sheets)
 
-Our goal is to create a central hub for EM's and other staff to use during the event to get a bird's eye view of party progress. This tool will generate a Google Sheet using Google Apps Script.
+Our goal is to create a central monitoring dashboard for Event Managers (EMs) to track party progress, meal participation, combat status, and open issues during the event. This tool generates a Google Sheet using Google Apps Script.
 
 ## Inputs
-We will take in information from the following JSON files:
-* `Parties.json`: General information about each party (Companion, Staff Member, Background Color, Table Color, Text Color).
-* `PartyPaths.json`: Encounter steps for each party.
-* `ChargeTable.json`: Charge information for each party.
+We take in information from the following JSON files (sourced from `src/data.ts`):
+* `PartyPaths.json`: Encounter flags for each party (PathItem, Riddle, Insight).
+* `ChargeTable.json`: Charge summaries and character requirements.
+* `Parties.json`: General party info (Companion, Staff, Colors).
+* Imported Data: Data is automatically pushed from individual Party Trackers to `_Import` sheets in this dashboard.
 
 ## Output
-A Google Sheet created via Google Apps Script.
-When rebuilding the sheets, all created sheets should be deleted, and the script should rebuild them.
+A Google Sheet created via Google Apps Script. The script is written in TypeScript and deployed using `clasp`.
 
 ## Sheet Structure
 
 ### Dashboard Sheet
-* First sheet in the workbook.
-* Party colors should be:
-  * Arden #b6d7a8
-  * Clairia #ffffff
-  * Dolorón #ff9b9b
-  * Elsewhich #cccccc
-  * Glendeep #b7e1cd
-  * Keer #c9daf8
-  * Noctara #b4a7d6
-  * P'loa #d0e0e3
-  * Sythwan #fff2cc
-  * Uri-Kesh #f4cccc
-  * Waylon #fce5cd
-* Central table showing Saturday/Sunday meal/vision status (checkboxes).
-* Progress tracking:
-    * **Party Path**: Shows "X/8" completed steps.
-    * **Cup of Insight / Got Riddle?**: Shows "Yes!" or "No".
-    * **Combat**: Counts completed monster groups.
-    * **Open Issues**: Counts unresolved issues from the `Participants-Parties` sheet.
+The main hub for event oversight.
+* **Frozen Rows:** First two rows are frozen.
+* **Saturday/Sunday tracking:** Checkboxes for Breakfast, Vision, Lunch, and Dinner.
+* **Party Path Progress:** Calculated as `X/8` based on completed steps in imported party sheets that have the `PathItem` flag.
+* **Cup of Insight / Got Riddle?:** Displays "Yes!" or "No" based on whether any completed steps in the party sheet have the `Insight` or `Riddle` flags.
+* **Combat:** Counts the number of successful combats from the `Combat_Import` sheet.
+* **Open Issues:** Counts unresolved issues for each party from the `Participants-Parties` tracking sheet.
+* **Formatting:**
+  * Each party row is colored using its `BackgroundColor` and `TextColor`.
+  * "Yes!" cells in Insight and Riddle columns are highlighted in bright green (`#00ff00`).
 
 ### Party Sheets
-* One sheet per party.
-* **Header**: Large party name and companion info.
-* **Character Info Section (F2:H8)**:
-    * Table starting at F2 with headers: Role, Name, Description.
-    * Pushes character information (Caster, Keeper, etc.) from the imported tracker data.
-    * Formatting: No border around the title row, no internal borders, but a solid 2pt border around the rest of the table (data rows F3:H8).
-* **Party Path Table**: Starts at Row 9, Column A.
-* **Charge Table**: Starts at Row 9, Column F.
-* **Comments**: Aggregate notes from path, charge, and general notes sections.
+Individual sheets for each party (named `{PartyName}_Party Sheet`).
+* **Header:** Displays Party Name, Charge title, Companion, and dream/riddle placeholders.
+* **Character Info Table (F2:H8):** Pulls Role, Name, and Description from imported tracker data.
+* **Party Path Table (Column A:9):** Displays "Yes!/No" status for encounters, staff name, time, and items.
+* **Charge Table (Column F:9):** Groups charge characters, shows completion status, and highlights if "Need" requirements are met.
+* **Comments Section:** Aggregates all notes and comments from the party tracker.
+* **Formatting:**
+  * Tables (Character Info, Party Path, Charge, Comments) have a solid thick black border (2pt) around data rows.
+  * Headers are bold and centered.
+  * Conditional formatting highlights completed steps in green and missing requirements in red.
 
-### Tracking Sheets (Participants-Parties & Staff/Camp)
-* Manually managed tables for issue tracking with automated formatting (conditional highlighting for long text, status-based coloring, etc.).
+### Tracking Sheets
+Centralized logs for issues and medical entries.
+* **Participants-Parties:** Tracks participant issues (Opened Day/Time, Party, Job, Status, Priority, Situation, Medical Log, Type).
+* **Staff/Camp:** Tracks staff-related issues.
+* **Formatting:**
+  * Row heights are set to 80px for readability.
+  * Conditional formatting for "High" priority (Red), "Hopefully fixed" status (Grey), and long text in Situation/Medical Log (Orange).
+  * Situation and Medical Log columns have standard borders.
+
+## Script Functions & Menu
+The tool adds an **EM Dashboard** menu to the spreadsheet:
+* **Rebuild All Sheets:** Performs a full reconstruction of all dashboard, party, and tracking sheets.
+* **Rebuild Dashboard Tab ONLY:** Refreshes only the main Dashboard summary without touching other sheets.
+* **Setup Tracking Sheets:** Dedicated options to format and validate the `Participants-Parties` and `Staff/Camp` sheets.
+* **Automation:** The dashboard relies on data imported via hidden `_Import` sheets, which are populated by the Party Trackers' export routine.
