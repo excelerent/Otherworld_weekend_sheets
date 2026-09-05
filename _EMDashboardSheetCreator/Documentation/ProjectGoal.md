@@ -16,6 +16,18 @@ When rebuilding the sheets, all created sheets should be deleted, and the script
 
 ### Dashboard Sheet
 * First sheet in the workbook.
+* Party colors should be:
+  * Arden #b6d7a8
+  * Clairia #ffffff
+  * Dolorón #ff9b9b
+  * Elsewhich #cccccc
+  * Glendeep #b7e1cd
+  * Keer #c9daf8
+  * Noctara #b4a7d6
+  * P'loa #d0e0e3
+  * Sythwan #fff2cc
+  * Uri-Kesh #f4cccc
+  * Waylon #fce5cd
 * Central table showing Saturday/Sunday meal/vision status (checkboxes).
 * Progress tracking:
     * **Party Path**: Shows "X/8" completed steps.

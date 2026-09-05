@@ -244,9 +244,9 @@ function createTrackerSheet() {
 
             // Grey out Character name when checkbox is checked
             const rule = SpreadsheetApp.newConditionalFormatRule()
-                .whenFormulaSatisfied(`=$B${currentRow}`)
+                .whenFormulaSatisfied(`=$B${partyPathStartRow}`)
                 .setFontColor('#999999')
-                .setRanges([sheet.getRange(currentRow, 1, values.length, 1)])
+                .setRanges([sheet.getRange(partyPathStartRow, 1, values.length, 1)])
                 .build();
             const rules = sheet.getConditionalFormatRules();
             rules.push(rule);

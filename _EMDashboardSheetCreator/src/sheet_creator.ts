@@ -136,6 +136,7 @@ function buildDashboardSheet(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, parti
         const row = index + 3;
         const partyName = party.Party;
         const importSheetName = `${partyName}_Import`;
+        const escapedImportSheetName = importSheetName.replace(/'/g, "''");
         const bgColor = getHexColor(party.BackgroundColor);
         const textColor = getHexColor(party.TextColor);
 
@@ -165,15 +166,15 @@ function buildDashboardSheet(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, parti
             if (e.Riddle) rIndices.push(rowIdx);
         });
 
-        const pFormula = pIndices.length > 0 ? pIndices.map(idx => `IF('${importSheetName}'!B${idx}, 1, 0)`).join("+") : "0";
+        const pFormula = pIndices.length > 0 ? pIndices.map(idx => `IF('${escapedImportSheetName}'!B${idx}, 1, 0)`).join("+") : "0";
         sheet.getRange(row, 8).setFormula(`=(${pFormula}) & "/8"`).setHorizontalAlignment("center");
 
         // Cup of Insight (Yes!/No)
-        const iFormula = iIndices.length > 0 ? iIndices.map(idx => `IF('${importSheetName}'!B${idx}, 1, 0)`).join("+") : "0";
+        const iFormula = iIndices.length > 0 ? iIndices.map(idx => `IF('${escapedImportSheetName}'!B${idx}, 1, 0)`).join("+") : "0";
         sheet.getRange(row, 9).setFormula(`=IF((${iFormula})>0, "Yes!", "No")`).setHorizontalAlignment("center");
 
         // Got Riddle? (Yes!/No)
-        const rFormula = rIndices.length > 0 ? rIndices.map(idx => `IF('${importSheetName}'!B${idx}, 1, 0)`).join("+") : "0";
+        const rFormula = rIndices.length > 0 ? rIndices.map(idx => `IF('${escapedImportSheetName}'!B${idx}, 1, 0)`).join("+") : "0";
         sheet.getRange(row, 10).setFormula(`=IF((${rFormula})>0, "Yes!", "No")`).setHorizontalAlignment("center");
 
         // Combat
@@ -205,6 +206,7 @@ function buildDashboardSheet(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, parti
 function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: Party, pathsData: PathEncounter[], chargesData: { Charges: Charge[] }) {
     const partyName = party.Party;
     const importSheetName = `${partyName}_Import`;
+    const escapedImportSheetName = importSheetName.replace(/'/g, "''");
     const partySheetName = `${partyName}_Party Sheet`;
 
     // 2. Ensure Import Sheet exists
@@ -260,9 +262,9 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     
     roles.forEach((role, i) => {
         const row = 3 + i;
-        sheet.getRange(row, 6).setFormula(`='${importSheetName}'!F${4 + i}`);
-        sheet.getRange(row, 7).setFormula(`='${importSheetName}'!G${4 + i}`);
-        sheet.getRange(row, 8).setFormula(`='${importSheetName}'!H${4 + i}`);
+        sheet.getRange(row, 6).setFormula(`='${escapedImportSheetName}'!F${4 + i}`);
+        sheet.getRange(row, 7).setFormula(`='${escapedImportSheetName}'!G${4 + i}`);
+        sheet.getRange(row, 8).setFormula(`='${escapedImportSheetName}'!H${4 + i}`);
     });
     // Border around the data rows (F3:H8) - solid 2pt (SOLID_THICK)
     sheet.getRange(3, 6, 6, 3).setBorder(true, true, true, true, false, false, "black", SpreadsheetApp.BorderStyle.SOLID_THICK);
@@ -280,7 +282,7 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
             const rowIdx = trackerDataStartRow + i;
             
             return [
-                `=IF('${importSheetName}'!B${rowIdx}, "Yes!", "No")`,
+                `=IF('${escapedImportSheetName}'!B${rowIdx}, "Yes!", "No")`,
                 e.staff,
                 e.time,
                 e.item || "--"
@@ -353,7 +355,7 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
                 const row = currentRow + i;
                 const trackerRow = trackerCurrentChargeRow + i;
 
-                sheet.getRange(row, 6).setFormula(`=IF('${importSheetName}'!B${trackerRow}, "Yes!", "No")`).setHorizontalAlignment("center");
+                sheet.getRange(row, 6).setFormula(`=IF('${escapedImportSheetName}'!B${trackerRow}, "Yes!", "No")`).setHorizontalAlignment("center");
                 sheet.getRange(row, 7).setValue(char.CharacterName).setFontWeight("bold");
             }
 
@@ -427,13 +429,13 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     
     // Take from the notes section of the Import Sheet.
     // Calculate dynamic ranges for the comments formula
-    const pathNotesRange = `'${importSheetName}'!C5:C${5 + pathEncountersCount - 1}`;
+    const pathNotesRange = `'${escapedImportSheetName}'!C5:C${5 + pathEncountersCount - 1}`;
     
     const trackerChargeDataStartRow = 5 + pathEncountersCount + 3;
-    const chargeNotesRange = `'${importSheetName}'!C${trackerChargeDataStartRow}:C${trackerChargeDataStartRow + totalChargeRows - 1}`;
+    const chargeNotesRange = `'${escapedImportSheetName}'!C${trackerChargeDataStartRow}:C${trackerChargeDataStartRow + totalChargeRows - 1}`;
     
     const trackerGeneralNotesStartRow = trackerChargeDataStartRow + totalChargeRows + 2 + 1;
-    const generalNotesRange = `'${importSheetName}'!A${trackerGeneralNotesStartRow}:A${trackerGeneralNotesStartRow + 35 - 1}`;
+    const generalNotesRange = `'${escapedImportSheetName}'!A${trackerGeneralNotesStartRow}:A${trackerGeneralNotesStartRow + 35 - 1}`;
 
     const flattenArr = `{${pathNotesRange}; ${chargeNotesRange}; ${generalNotesRange}}`;
     const formula = `=IFERROR(FILTER(FLATTEN(${flattenArr}), FLATTEN(${flattenArr}) <> ""), "")`;

@@ -5,92 +5,92 @@
       "Party": "Arden",
       "StaffMemberName": "Sherri Rinell",
       "CompanionName": "Ari",
-      "BackgroundColor": "Green (#266141)",
-      "TableColor": "Green (#266141)",
-      "TextColor": "White (#ffffff)"
+      "BackgroundColor": "#b6d7a8",
+      "TableColor": "#b6d7a8",
+      "TextColor": "#000000"
     },
     {
       "Party": "Clairia",
       "StaffMemberName": "James Surano",
       "CompanionName": "Clem",
-      "BackgroundColor": "White (#ffffff)",
-      "TableColor": "Gray (#f3f3f3)",
-      "TextColor": "Black (#000000)"
+      "BackgroundColor": "#ffffff",
+      "TableColor": "#ffffff",
+      "TextColor": "#000000"
     },
     {
       "Party": "Dolorón",
       "StaffMemberName": "Maisie Sturtevant",
       "CompanionName": "Dodi",
-      "BackgroundColor": "Pink (#dda6aa)",
-      "TableColor": "Pink (#dda6aa)",
-      "TextColor": "Black (#000000)"
+      "BackgroundColor": "#ff9b9b",
+      "TableColor": "#ff9b9b",
+      "TextColor": "#000000"
     },
     {
       "Party": "Elsewhich",
       "StaffMemberName": "Lori Nadig",
       "CompanionName": "Elvie",
-      "BackgroundColor": "Gray (##888a8d)",
-      "TableColor": "Gray (#d9d9d9)",
-      "TextColor": "Black (#000000)"
+      "BackgroundColor": "#cccccc",
+      "TableColor": "#cccccc",
+      "TextColor": "#000000"
     },
     {
       "Party": "Glendeep",
       "StaffMemberName": "Steve Spodaryk",
       "CompanionName": "Gloucester",
-      "BackgroundColor": "Seafoam (#a6d2ba)",
-      "TableColor": "Seafoam (#a6d2ba)",
-      "TextColor": "Black (#000000)"
+      "BackgroundColor": "#b7e1cd",
+      "TableColor": "#b7e1cd",
+      "TextColor": "#000000"
     },
     {
       "Party": "Keer",
       "StaffMemberName": "Bill Sabram",
       "CompanionName": "Keifer",
-      "BackgroundColor": "Blue (#7faed1)",
-      "TableColor": "Blue (#7faed1)",
-      "TextColor": "Black (#000000)"
+      "BackgroundColor": "#c9daf8",
+      "TableColor": "#c9daf8",
+      "TextColor": "#000000"
     },
     {
       "Party": "Noctara",
       "StaffMemberName": "Chelsea Hadlock",
       "CompanionName": "Nadia",
-      "BackgroundColor": "Purple (#763cbc)",
-      "TableColor": "Light Purple (#af9ac9)",
-      "TextColor": "White (#ffffff)"
+      "BackgroundColor": "#b4a7d6",
+      "TableColor": "#b4a7d6",
+      "TextColor": "#000000"
     },
     {
       "Party": "P'loa",
       "StaffMemberName": "Bob Marriott",
       "CompanionName": "Polo",
-      "BackgroundColor": "Light Blue (#008fbe)",
-      "TableColor": "Light Blue (#9dcede)",
-      "TextColor": "Black (#000000)"
+      "BackgroundColor": "#d0e0e3",
+      "TableColor": "#d0e0e3",
+      "TextColor": "#000000"
     },
     {
       "Party": "Sythwan",
       "StaffMemberName": "Joyce Farnsworth",
       "CompanionName": "Silla",
-      "BackgroundColor": "Yellow (#feda00)",
-      "TableColor": "Yellow (#fff2cc)",
-      "TextColor": "Black (#000000)"
+      "BackgroundColor": "#fff2cc",
+      "TableColor": "#fff2cc",
+      "TextColor": "#000000"
     },
     {
       "Party": "Uri-Kesh",
       "StaffMemberName": "Brian Neff",
       "CompanionName": "Urving",
-      "BackgroundColor": "Red (#cc0000)",
-      "TableColor": "Red (#ea9999)",
-      "TextColor": "White (#ffffff)"
+      "BackgroundColor": "#f4cccc",
+      "TableColor": "#f4cccc",
+      "TextColor": "#000000"
     },
     {
       "Party": "Waylon",
       "StaffMemberName": "Britt Rothauser",
       "CompanionName": "Waverly",
-      "BackgroundColor": "Orange (#f36c21)",
-      "TableColor": "Orange (#f9cb9c)",
-      "TextColor": "Black (#000000)"
+      "BackgroundColor": "#fce5cd",
+      "TableColor": "#fce5cd",
+      "TextColor": "#000000"
     }
   ]
-    };
+  };
 }
 function getPathsData() {
   return [
