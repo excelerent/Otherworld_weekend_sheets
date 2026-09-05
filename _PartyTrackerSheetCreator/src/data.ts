@@ -195,10 +195,10 @@ function getPathsData() {
   },
   {
     "party": "Arden",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Clairia",
@@ -301,10 +301,10 @@ function getPathsData() {
   },
   {
     "party": "Clairia",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Dolorón",
@@ -400,10 +400,10 @@ function getPathsData() {
   },
   {
     "party": "Dolorón",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Elsewhich",
@@ -505,10 +505,10 @@ function getPathsData() {
   },
   {
     "party": "Elsewhich",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Glendeep",
@@ -612,10 +612,10 @@ function getPathsData() {
   },
   {
     "party": "Glendeep",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Keer",
@@ -718,10 +718,10 @@ function getPathsData() {
   },
   {
     "party": "Keer",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Noctara",
@@ -824,10 +824,10 @@ function getPathsData() {
   },
   {
     "party": "Noctara",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "P'loa",
@@ -930,10 +930,10 @@ function getPathsData() {
   },
   {
     "party": "P'loa",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Sythwan",
@@ -1037,10 +1037,10 @@ function getPathsData() {
   },
   {
     "party": "Sythwan",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Uri-Kesh",
@@ -1143,10 +1143,10 @@ function getPathsData() {
   },
   {
     "party": "Uri-Kesh",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Waylon",
@@ -1249,10 +1249,10 @@ function getPathsData() {
   },
   {
     "party": "Waylon",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Arden",

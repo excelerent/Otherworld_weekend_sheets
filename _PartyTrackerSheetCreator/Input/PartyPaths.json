@@ -100,10 +100,10 @@
   },
   {
     "party": "Arden",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Clairia",
@@ -206,10 +206,10 @@
   },
   {
     "party": "Clairia",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Dolorón",
@@ -305,10 +305,10 @@
   },
   {
     "party": "Dolorón",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Elsewhich",
@@ -410,10 +410,10 @@
   },
   {
     "party": "Elsewhich",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Glendeep",
@@ -517,10 +517,10 @@
   },
   {
     "party": "Glendeep",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Keer",
@@ -623,10 +623,10 @@
   },
   {
     "party": "Keer",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Noctara",
@@ -729,10 +729,10 @@
   },
   {
     "party": "Noctara",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "P'loa",
@@ -835,10 +835,10 @@
   },
   {
     "party": "P'loa",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Sythwan",
@@ -942,10 +942,10 @@
   },
   {
     "party": "Sythwan",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Uri-Kesh",
@@ -1048,10 +1048,10 @@
   },
   {
     "party": "Uri-Kesh",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Waylon",
@@ -1154,10 +1154,10 @@
   },
   {
     "party": "Waylon",
-    "staff": "RiddleFound",
+    "staff": "Riddle Item Found?",
     "time": "--",
     "item": "--",
-    "Riddle": true
+    "RiddleFound": true
   },
   {
     "party": "Arden",
