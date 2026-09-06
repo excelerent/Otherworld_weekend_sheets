@@ -115,8 +115,9 @@
 
     // Initial check
     checkCurrentSheet();
-    // Re-check periodically or on focus if possible, but for simplicity let's add a refresh button or just rely on manual trigger if needed.
-    // Actually, in GAS sidebar, it's better to have a way to refresh.
+    
+    // Check for sheet changes every 2 seconds
+    setInterval(checkCurrentSheet, 2000);
 
     document.getElementById('medical-form').onsubmit = function(e) {
       e.preventDefault();

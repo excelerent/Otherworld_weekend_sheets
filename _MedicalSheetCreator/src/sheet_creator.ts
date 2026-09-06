@@ -5,6 +5,9 @@
     .addItem('Show Sidebar (Extend)', 'showSidebar')
     .addItem('Initialize Spreadsheet', 'initializeSpreadsheet')
     .addToUi();
+  
+  // Automatically show sidebar on open
+  showSidebar();
 }
 
 /**
@@ -105,7 +108,16 @@ function createNewIncident(data: IncidentData) {
     }
   }
 
-  const sheetName = `Incident - ${data.personName} (${new Date().getTime()})`.substring(0, 31);
+  let sheetName = '';
+  if (data.party === 'Staff' && data.role === 'Staff') {
+    sheetName = `Staff - ${data.personName}`;
+  } else {
+    sheetName = `${data.party}-${data.role}`;
+  }
+  
+  // Ensure unique sheet name by adding timestamp if needed (though duplicate check should prevent this)
+  const baseName = sheetName.substring(0, 25);
+  sheetName = `${baseName} (${new Date().getTime()})`.substring(0, 31);
   const sheet = ss.insertSheet(sheetName);
   
   // Header Info
@@ -220,7 +232,20 @@ function getCurrentSheetName() {
  * Server-side helper to check if current sheet is an incident sheet.
  */
 function isIncidentSheet(name: string) {
-  return name.startsWith('Incident - ');
+  // Check if it matches "Staff - " or has a dash in it (for Party-Role)
+  // or use the Summary sheet to verify if this sheet name is linked.
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const summarySheet = ss.getSheetByName('Summary');
+  if (!summarySheet) return name.startsWith('Staff - ') || name.includes('-');
+  
+  const data = summarySheet.getDataRange().getValues();
+  for (let i = 1; i < data.length; i++) {
+    const link = data[i][6]; // Sheet Link column
+    if (link && link.toString().indexOf(name) !== -1) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**
