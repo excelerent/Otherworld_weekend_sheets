@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+  <style>
+    .container { padding: 10px; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; font-weight: bold; margin-bottom: 5px; }
+    input[type="text"], select, textarea { width: 100%; box-sizing: border-box; }
+    .hidden { display: none; }
+    .button-bar { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+    #message { margin-top: 10px; padding: 5px; border-radius: 3px; min-height: 20px; }
+    .success { background-color: #d4edda; color: #155724; }
+    .error { background-color: #f8d7da; color: #721c24; }
+    .action-btn { background-color: #4285f4; color: white; border: none; padding: 7px 15px; border-radius: 3px; cursor: pointer; }
+    .action-btn:disabled { background-color: #ccc; }
+    .secondary-btn { background-color: white; border: 1px solid #ccc; padding: 7px 15px; border-radius: 3px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form id="create-incident-form">
+      <div class="form-group">
+        <label>Involved Type</label>
+        <div style="display: flex; gap: 10px;">
+          <label style="font-weight: normal;"><input type="radio" name="involvedType" value="participant" checked onclick="toggleInvolvedType()"> Participant</label>
+          <label style="font-weight: normal;"><input type="radio" name="involvedType" value="staff" onclick="toggleInvolvedType()"> Staff</label>
+        </div>
+      </div>
+
+      <div id="participant-fields">
+        <div class="form-group">
+          <label for="personName">Person Involved</label>
+          <input type="text" id="personName" name="personName" required>
+        </div>
+        <div class="form-group">
+          <label for="party">Party</label>
+          <select id="party" name="party">
+            <option value="">-- Select Party --</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="role">Role</label>
+          <input type="text" id="role" name="role">
+        </div>
+      </div>
+
+      <div id="staff-involved-fields" class="hidden">
+        <div class="form-group">
+          <label for="staffPersonName">Staff Member</label>
+          <select id="staffPersonName" name="staffPersonName">
+            <option value="">-- Select Staff --</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="chiefComplaint">Chief Complaint (1-5 words)</label>
+        <input type="text" id="chiefComplaint" name="chiefComplaint" required>
+      </div>
+
+      <div id="message"></div>
+
+      <div class="button-bar">
+        <button type="button" class="secondary-btn" onclick="google.script.host.close()">Cancel</button>
+        <button type="submit" class="action-btn" id="submit-btn">Create Incident</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Load form data
+    google.script.run.withSuccessHandler(function(data) {
+      const partySelect = document.getElementById('party');
+      data.parties.forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p;
+        opt.textContent = p;
+        partySelect.appendChild(opt);
+      });
+
+      const staffInvolvedSelect = document.getElementById('staffPersonName');
+      data.staff.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.textContent = s;
+        staffInvolvedSelect.appendChild(opt);
+      });
+    }).getFormData();
+
+    function toggleInvolvedType() {
+      const type = document.querySelector('input[name="involvedType"]:checked').value;
+      const pFields = document.getElementById('participant-fields');
+      const sFields = document.getElementById('staff-involved-fields');
+      
+      if (type === 'participant') {
+        pFields.classList.remove('hidden');
+        sFields.classList.add('hidden');
+        document.getElementById('personName').required = true;
+        document.getElementById('staffPersonName').required = false;
+      } else {
+        pFields.classList.add('hidden');
+        sFields.classList.remove('hidden');
+        document.getElementById('personName').required = false;
+        document.getElementById('staffPersonName').required = true;
+      }
+    }
+
+    document.getElementById('create-incident-form').onsubmit = function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      showMessage('Creating incident...', '');
+
+      const involvedType = document.querySelector('input[name="involvedType"]:checked').value;
+      let personName = '';
+      let party = '';
+      let role = '';
+
+      if (involvedType === 'participant') {
+        personName = document.getElementById('personName').value;
+        party = document.getElementById('party').value;
+        role = document.getElementById('role').value;
+      } else {
+        personName = document.getElementById('staffPersonName').value;
+        party = 'Staff';
+        role = 'Staff';
+      }
+
+      const formData = {
+        personName: personName,
+        party: party,
+        role: role,
+        chiefComplaint: document.getElementById('chiefComplaint').value,
+        // Empty action log fields for initial creation
+        presided: '',
+        situation: '',
+        actionsTaken: '',
+        recommendations: ''
+      };
+
+      google.script.run.withSuccessHandler(function(sheetName) {
+        showMessage('Incident created: ' + sheetName, 'success');
+        setTimeout(function() {
+          google.script.host.close();
+        }, 1500);
+      }).withFailureHandler(function(err) {
+        showMessage('Error: ' + err.message, 'error');
+        btn.disabled = false;
+      }).createNewIncident(formData);
+    };
+
+    function showMessage(msg, type) {
+      const msgDiv = document.getElementById('message');
+      msgDiv.textContent = msg;
+      msgDiv.className = type;
+    }
+  </script>
+</body>
+</html>

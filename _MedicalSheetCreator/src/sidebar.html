@@ -40,33 +40,11 @@
 <body>
   <div class="container">
     <div class="header-bar">
-      <h3 id="form-title">New Incident</h3>
-      <button id="toggle-btn" class="plus-btn" title="Extend Existing Incident">+</button>
+      <h3 id="form-title">Extend Incident</h3>
     </div>
 
     <form id="medical-form">
-      <div id="incident-fields">
-        <div class="form-group">
-          <label for="personName">Person Involved</label>
-          <input type="text" id="personName" name="personName" required>
-        </div>
-        <div class="form-group">
-          <label for="party">Party (if participant)</label>
-          <select id="party" name="party">
-            <option value="">-- Non-Participant --</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="role">Role</label>
-          <input type="text" id="role" name="role">
-        </div>
-        <div class="form-group">
-          <label for="chiefComplaint">Chief Complaint (1-5 words)</label>
-          <input type="text" id="chiefComplaint" name="chiefComplaint" required>
-        </div>
-      </div>
-
-      <div id="extension-header" class="hidden">
+      <div id="extension-header">
         <div class="form-group">
           <label>Target Incident Sheet:</label>
           <div id="target-sheet-display" style="font-style: italic; color: #666;"></div>
@@ -97,7 +75,7 @@
       </div>
 
       <div class="button-bar">
-        <button type="submit" class="action" id="submit-btn">Create Incident</button>
+        <button type="submit" class="action" id="submit-btn">Add Entry</button>
         <button type="button" onclick="resetForm()">Clear</button>
       </div>
     </form>
@@ -106,18 +84,8 @@
   </div>
 
   <script>
-    let isExtensionMode = false;
-
-    // Load form data (parties and staff)
+    // Load form data
     google.script.run.withSuccessHandler(function(data) {
-      const partySelect = document.getElementById('party');
-      data.parties.forEach(p => {
-        const opt = document.createElement('option');
-        opt.value = p;
-        opt.textContent = p;
-        partySelect.appendChild(opt);
-      });
-
       const presidedSelect = document.getElementById('presided');
       data.staff.forEach(s => {
         const opt = document.createElement('option');
@@ -127,86 +95,56 @@
       });
     }).getFormData();
 
-    document.getElementById('toggle-btn').onclick = function() {
-      isExtensionMode = !isExtensionMode;
-      const incidentFields = document.getElementById('incident-fields');
-      const extensionHeader = document.getElementById('extension-header');
-      const submitBtn = document.getElementById('submit-btn');
-      const formTitle = document.getElementById('form-title');
-      const toggleBtn = document.getElementById('toggle-btn');
+    function checkCurrentSheet() {
+      google.script.run.withSuccessHandler(function(sheetName) {
+        google.script.run.withSuccessHandler(function(isIncident) {
+          if (isIncident) {
+            document.getElementById('target-sheet-display').textContent = sheetName;
+            document.getElementById('targetSheetName').value = sheetName;
+            document.getElementById('submit-btn').disabled = false;
+            showMessage('', '');
+          } else {
+            document.getElementById('target-sheet-display').textContent = 'Please select an incident sheet.';
+            document.getElementById('targetSheetName').value = '';
+            document.getElementById('submit-btn').disabled = true;
+            showMessage('Select an incident sheet to add entries.', 'error');
+          }
+        }).isIncidentSheet(sheetName);
+      }).getCurrentSheetName();
+    }
 
-      if (isExtensionMode) {
-        google.script.run.withSuccessHandler(function(sheetName) {
-          google.script.run.withSuccessHandler(function(isIncident) {
-            if (isIncident) {
-              incidentFields.classList.add('hidden');
-              extensionHeader.classList.remove('hidden');
-              document.getElementById('target-sheet-display').textContent = sheetName;
-              document.getElementById('targetSheetName').value = sheetName;
-              submitBtn.textContent = 'Add Entry';
-              formTitle.textContent = 'Extend Incident';
-              toggleBtn.textContent = '×';
-              toggleBtn.title = 'Back to New Incident';
-              
-              // Remove required attributes for new incident fields
-              document.getElementById('personName').required = false;
-              document.getElementById('chiefComplaint').required = false;
-            } else {
-              showMessage('Please select an Incident sheet first.', 'error');
-              isExtensionMode = false;
-            }
-          }).isIncidentSheet(sheetName);
-        }).getCurrentSheetName();
-      } else {
-        incidentFields.classList.remove('hidden');
-        extensionHeader.classList.add('hidden');
-        submitBtn.textContent = 'Create Incident';
-        formTitle.textContent = 'New Incident';
-        toggleBtn.textContent = '+';
-        toggleBtn.title = 'Extend Existing Incident';
-        
-        document.getElementById('personName').required = true;
-        document.getElementById('chiefComplaint').required = true;
-      }
-    };
+    // Initial check
+    checkCurrentSheet();
+    // Re-check periodically or on focus if possible, but for simplicity let's add a refresh button or just rely on manual trigger if needed.
+    // Actually, in GAS sidebar, it's better to have a way to refresh.
 
     document.getElementById('medical-form').onsubmit = function(e) {
       e.preventDefault();
+      const sheetName = document.getElementById('targetSheetName').value;
+      if (!sheetName) {
+        showMessage('No target sheet selected.', 'error');
+        return;
+      }
+
       const btn = document.getElementById('submit-btn');
       btn.disabled = true;
       showMessage('Processing...', '');
 
       const formData = {
-        personName: document.getElementById('personName').value,
-        party: document.getElementById('party').value,
-        role: document.getElementById('role').value,
-        chiefComplaint: document.getElementById('chiefComplaint').value,
         presided: document.getElementById('presided').value,
         situation: document.getElementById('situation').value,
         actionsTaken: document.getElementById('actionsTaken').value,
         recommendations: document.getElementById('recommendations').value
       };
 
-      if (isExtensionMode) {
-        const sheetName = document.getElementById('targetSheetName').value;
-        google.script.run.withSuccessHandler(function() {
-          showMessage('Entry added successfully!', 'success');
-          btn.disabled = false;
-          resetActionLog();
-        }).withFailureHandler(function(err) {
-          showMessage('Error: ' + err.message, 'error');
-          btn.disabled = false;
-        }).addEntryToIncident(sheetName, formData);
-      } else {
-        google.script.run.withSuccessHandler(function(sheetName) {
-          showMessage('Incident sheet created: ' + sheetName, 'success');
-          btn.disabled = false;
-          resetForm();
-        }).withFailureHandler(function(err) {
-          showMessage('Error: ' + err.message, 'error');
-          btn.disabled = false;
-        }).createNewIncident(formData);
-      }
+      google.script.run.withSuccessHandler(function() {
+        showMessage('Entry added successfully!', 'success');
+        btn.disabled = false;
+        resetActionLog();
+      }).withFailureHandler(function(err) {
+        showMessage('Error: ' + err.message, 'error');
+        btn.disabled = false;
+      }).addEntryToIncident(sheetName, formData);
     };
 
     function showMessage(msg, type) {
@@ -218,6 +156,7 @@
     function resetForm() {
       document.getElementById('medical-form').reset();
       showMessage('', '');
+      checkCurrentSheet();
     }
     
     function resetActionLog() {

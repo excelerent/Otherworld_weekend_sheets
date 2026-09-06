@@ -1,9 +1,21 @@
 ﻿function onOpen() {
   const ui = SpreadsheetApp.getUi();
   ui.createMenu('Medical Tracker')
-    .addItem('Show Sidebar', 'showSidebar')
+    .addItem('Create New Incident', 'showCreateIncidentPopup')
+    .addItem('Show Sidebar (Extend)', 'showSidebar')
     .addItem('Initialize Spreadsheet', 'initializeSpreadsheet')
     .addToUi();
+}
+
+/**
+ * Opens the popup to create a new incident.
+ */
+function showCreateIncidentPopup() {
+  const html = HtmlService.createHtmlOutputFromFile('create_incident')
+    .setTitle('Create New Incident')
+    .setWidth(400)
+    .setHeight(500);
+  SpreadsheetApp.getUi().showModalDialog(html, 'New Misadventure Report');
 }
 
 /**
@@ -11,7 +23,7 @@
  */
 function showSidebar() {
   const html = HtmlService.createHtmlOutputFromFile('sidebar')
-    .setTitle('Misadventure Report')
+    .setTitle('Extend Incident')
     .setWidth(300);
   SpreadsheetApp.getUi().showSidebar(html);
 }
@@ -69,6 +81,30 @@ interface EntryData {
  */
 function createNewIncident(data: IncidentData) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const summarySheet = ss.getSheetByName('Summary');
+  
+  if (summarySheet) {
+    const summaryData = summarySheet.getDataRange().getValues();
+    for (let i = 1; i < summaryData.length; i++) {
+      const existingName = summaryData[i][0];
+      const existingParty = summaryData[i][1];
+      const existingRole = summaryData[i][2];
+      const status = summaryData[i][5];
+      
+      if (status === "Active") {
+        if (data.party === 'Staff' && data.role === 'Staff') {
+          if (existingName === data.personName && existingParty === 'Staff' && existingRole === 'Staff') {
+            throw new Error(`An active incident already exists for staff member: ${data.personName}`);
+          }
+        } else {
+          if (existingParty === data.party && existingRole === data.role && existingParty !== 'Staff') {
+            throw new Error(`An active incident already exists for ${data.party} - ${data.role}`);
+          }
+        }
+      }
+    }
+  }
+
   const sheetName = `Incident - ${data.personName} (${new Date().getTime()})`.substring(0, 31);
   const sheet = ss.insertSheet(sheetName);
   
@@ -101,7 +137,7 @@ function createNewIncident(data: IncidentData) {
   sheet.setColumnWidth(5, 300);
   
   // Add first entry if provided
-  if (data.situation || data.actionsTaken) {
+  if (data.presided && (data.situation || data.actionsTaken)) {
     addEntryToIncident(sheetName, {
       presided: data.presided,
       situation: data.situation,
