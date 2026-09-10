@@ -59,7 +59,7 @@ function initializeSpreadsheet() {
     .setFontWeight('bold')
     .setBackground('#efefef');
   
-  summarySheet.setFrozenRows(1);
+  summarySheet.setFrozenRows(3);
   summarySheet.setColumnWidth(1, 150);
   summarySheet.setColumnWidth(2, 100);
   summarySheet.setColumnWidth(3, 100);
@@ -189,6 +189,7 @@ function createNewIncident(data: IncidentData) {
   updateSummary(data.personName, data.party, data.role, data.chiefComplaint, sheetName);
   
   addSidebarButton(sheet);
+  sheet.setFrozenRows(3);
   
   return sheetName;
 }
