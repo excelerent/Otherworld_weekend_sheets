@@ -16,7 +16,7 @@
     .error { background-color: #f8d7da; color: #721c24; }
     .action-btn { 
       background-color: #007bff; 
-      color: white; 
+      color: black; 
       border: 1px solid #007bff; 
       padding: 7px 15px; 
       border-radius: 3px; 
@@ -216,6 +216,14 @@
       }).toggleIncidentStatus(sheetName, newStatus);
     }
 
+    function refreshIncidents(callback) {
+      google.script.run.withSuccessHandler(function(incidents) {
+        allIncidents = incidents;
+        updateIncidentDropdown();
+        if (callback) callback();
+      }).getIncidentsData();
+    }
+
     function checkCurrentSheet() {
       google.script.run.withSuccessHandler(function(sheetName) {
         if (sheetName === currentActiveSheetName) return;
@@ -223,10 +231,19 @@
         
         google.script.run.withSuccessHandler(function(isIncident) {
           if (isIncident) {
-            const select = document.getElementById('targetSheetName');
-            if (select.value !== sheetName) {
-              select.value = sheetName;
-              updateStatusDisplay();
+            // Check if we know about this incident yet
+            if (!allIncidents.some(i => i.sheetName === sheetName)) {
+              refreshIncidents(function() {
+                const select = document.getElementById('targetSheetName');
+                select.value = sheetName;
+                updateStatusDisplay();
+              });
+            } else {
+              const select = document.getElementById('targetSheetName');
+              if (select.value !== sheetName) {
+                select.value = sheetName;
+                updateStatusDisplay();
+              }
             }
             showMessage('', '');
           } else {
@@ -242,6 +259,9 @@
     
     // Check for sheet changes every 500ms
     setInterval(checkCurrentSheet, 500);
+    
+    // Refresh incident list every 10 seconds to catch new ones even if not switched to
+    setInterval(refreshIncidents, 10000);
 
     document.getElementById('medical-form').onsubmit = function(e) {
       e.preventDefault();
