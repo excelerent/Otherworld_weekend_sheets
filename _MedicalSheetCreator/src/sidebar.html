@@ -10,7 +10,7 @@
     input[type="text"], select, textarea { width: 100%; box-sizing: border-box; }
     textarea { height: 60px; }
     .hidden { display: none; }
-    .button-bar { display: flex; justify-content: space-between; margin-top: 0px; }
+    .button-bar { display: flex; justify-content: space-between; margin-bottom: 20px; }
     #message { margin-top: 5px; padding: 5px; border-radius: 3px; }
     .success { background-color: #d4edda; color: #155724; }
     .error { background-color: #f8d7da; color: #721c24; }
@@ -68,7 +68,7 @@
     .status-closed { background-color: #f8d7da; color: #721c24; }
     .close-btn { 
       background-color: #dc3545; 
-      color: white; 
+      color: black; 
       border: 1px solid #dc3545; 
       padding: 7px 15px; 
       border-radius: 3px; 
@@ -124,7 +124,7 @@
         <textarea id="recommendations" name="recommendations"></textarea>
       </div>
 
-      <div class="button-bar" style="margin-top: 10px;">
+      <div class="button-bar" style="margin-top: 20px;">
         <button type="button" id="toggle-status-btn" class="hidden" onclick="handleStatusToggle()" style="width: 100%;">Close Incident</button>
       </div>
     </form>
