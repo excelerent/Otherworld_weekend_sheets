@@ -185,9 +185,6 @@ function createNewIncident(data: IncidentData) {
   // Update Summary
   updateSummary(data.personName, data.party, data.role, data.chiefComplaint, finalSheetName);
   
-  addSidebarButton(sheet);
-  sheet.setFrozenRows(3);
-  
   return finalSheetName;
 }
 
@@ -208,8 +205,7 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
   ];
   
   const range = sheet.getRange(nextRow, 1, 1, 5);
-  range.setValues(values).setVerticalAlignment('top').setWrap(true);
-  range.setBorder(true, true, true, true, true, true);
+  range.setValues(values);
   sheet.getRange(nextRow, 2).setNumberFormat("M/d/yyyy H:mm");
   
   // Data validation for "Who presided"
