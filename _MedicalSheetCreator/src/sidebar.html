@@ -10,7 +10,7 @@
     input[type="text"], select, textarea { width: 100%; box-sizing: border-box; }
     textarea { height: 60px; }
     .hidden { display: none; }
-    .button-bar { display: flex; justify-content: space-between; margin-bottom: 20px; }
+    .button-bar { display: flex; justify-content: flex-start; gap: 10px; margin-bottom: 20px; }
     #message { margin-top: 5px; padding: 5px; border-radius: 3px; }
     .success { background-color: #d4edda; color: #155724; }
     .error { background-color: #f8d7da; color: #721c24; }
@@ -68,13 +68,12 @@
     .status-closed { background-color: #f8d7da; color: #721c24; }
     .close-btn { 
       background-color: #dc3545; 
-      color: black; 
+      color: white; 
       border: 1px solid #dc3545; 
       padding: 7px 15px; 
       border-radius: 3px; 
       cursor: pointer; 
       font-weight: bold;
-      width: 100%;
     }
     .close-btn:hover { background-color: #c82333; border-color: #bd2130; }
     .close-btn:active { background-color: #6c757d; border-color: #6c757d; }
@@ -100,6 +99,7 @@
       <div class="button-bar">
         <button type="submit" class="action-btn" id="submit-btn">Add Entry</button>
         <button type="button" class="secondary-btn" onclick="resetForm()">Clear</button>
+        <button type="button" id="toggle-status-btn" class="hidden" onclick="handleStatusToggle()">Close Incident</button>
       </div>
 
       <hr>
@@ -122,10 +122,6 @@
       <div class="form-group">
         <label for="recommendations">Future Recommendations</label>
         <textarea id="recommendations" name="recommendations"></textarea>
-      </div>
-
-      <div class="button-bar" style="margin-top: 20px;">
-        <button type="button" id="toggle-status-btn" class="hidden" onclick="handleStatusToggle()" style="width: 100%;">Close Incident</button>
       </div>
     </form>
     
