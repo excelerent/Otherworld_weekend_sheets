@@ -11,12 +11,17 @@
 }
 
 /**
- * Trigger that runs when the selection changes in the spreadsheet.
+ * Trigger that runs when the spreadsheet is edited.
  */
-function onSelectionChange(e: any) {
+function onEdit(e: any) {
   const range = e.range;
-  if (range.getA1Notation() === 'D1') {
+  const sheet = range.getSheet();
+  
+  // Check if the edit happened in D1 and the value is true (checkbox checked)
+  if (range.getA1Notation() === 'D1' && range.getValue() === true) {
     showSidebar();
+    // Reset checkbox
+    range.setValue(false);
   }
 }
 
@@ -73,19 +78,22 @@ function initializeSpreadsheet() {
 }
 
 /**
- * Adds a button to cell D1 to open the sidebar.
+ * Adds a checkbox to cell D1 to open the sidebar.
  */
 function addSidebarButton(sheet: GoogleAppsScript.Spreadsheet.Sheet) {
   const cell = sheet.getRange("D1");
-  cell.setValue("Open Sidebar");
-  cell.setBackground("#007bff");
-  cell.setFontColor("white");
-  cell.setFontWeight("bold");
-  cell.setHorizontalAlignment("center");
-  cell.setVerticalAlignment("middle");
+  cell.insertCheckboxes();
+  cell.setValue(false);
   
-  // Set border to make it look like a button
-  cell.setBorder(true, true, true, true, true, true, "black", SpreadsheetApp.BorderStyle.SOLID_MEDIUM);
+  // Add a note or label next to it if needed, but the user said "use a checkbox to open the sidebar"
+  // so we'll just put the checkbox in D1.
+  // We can also set a background color to make it visible.
+  cell.setBackground("#e6f3ff");
+  
+  // Add a label in E1 to explain what the checkbox does
+  const labelCell = sheet.getRange("E1");
+  labelCell.setValue("<- Open Sidebar");
+  labelCell.setFontWeight("bold");
 }
 
 interface IncidentData {
