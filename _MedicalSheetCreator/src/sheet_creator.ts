@@ -150,15 +150,18 @@ function createNewIncident(data: IncidentData) {
     sheetName = `${data.party}-${data.role}`;
   }
   
-  // Ensure unique sheet name by adding timestamp if needed (though duplicate check should prevent this)
-  const baseName = sheetName.substring(0, 25);
-  sheetName = `${baseName} (${new Date().getTime()})`.substring(0, 31);
+  // Ensure unique sheet name
+  let finalSheetName = sheetName;
+  let counter = 1;
+  while (ss.getSheetByName(finalSheetName)) {
+    finalSheetName = `${sheetName} ${++counter}`;
+  }
   
   const templateSheet = ss.getSheetByName('Template');
   let sheet: GoogleAppsScript.Spreadsheet.Sheet;
   
   if (templateSheet) {
-    sheet = templateSheet.copyTo(ss).setName(sheetName);
+    sheet = templateSheet.copyTo(ss).setName(finalSheetName);
   } else {
     throw new Error("Template sheet not found. Please create a sheet named 'Template'.");
   }
@@ -171,7 +174,7 @@ function createNewIncident(data: IncidentData) {
   
   // Add first entry if provided
   if (data.presided && (data.situation || data.actionsTaken)) {
-    addEntryToIncident(sheetName, {
+    addEntryToIncident(finalSheetName, {
       presided: data.presided,
       situation: data.situation,
       actionsTaken: data.actionsTaken,
@@ -180,12 +183,12 @@ function createNewIncident(data: IncidentData) {
   }
   
   // Update Summary
-  updateSummary(data.personName, data.party, data.role, data.chiefComplaint, sheetName);
+  updateSummary(data.personName, data.party, data.role, data.chiefComplaint, finalSheetName);
   
   addSidebarButton(sheet);
   sheet.setFrozenRows(3);
   
-  return sheetName;
+  return finalSheetName;
 }
 
 /**
@@ -268,12 +271,23 @@ function isIncidentSheet(name: string) {
   
   const data = summarySheet.getDataRange().getValues();
   for (let i = 1; i < data.length; i++) {
-    const link = data[i][6]; // Sheet Link column
-    if (link && link.toString().indexOf(name) !== -1) {
+    const linkFormula = summarySheet.getRange(i + 1, 7).getFormula();
+    if (linkFormula && linkFormula.indexOf(`"${name}"`) !== -1) {
       return true;
     }
   }
   return false;
+}
+
+/**
+ * Activates a sheet by name.
+ */
+function selectSheet(sheetName: string) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(sheetName);
+  if (sheet) {
+    sheet.activate();
+  }
 }
 
 /**
@@ -282,6 +296,67 @@ function isIncidentSheet(name: string) {
 function getFormData() {
   return {
     parties: getPartiesData().Parties.map(p => p.Party),
-    staff: getStaffData()
+    staff: getStaffData(),
+    incidents: getIncidentsData()
   };
+}
+
+/**
+ * Gets the list of incidents from the Summary sheet.
+ */
+function getIncidentsData() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const summarySheet = ss.getSheetByName('Summary');
+  if (!summarySheet) return [];
+  
+  const data = summarySheet.getDataRange().getValues();
+  const incidents = [];
+  
+  for (let i = 1; i < data.length; i++) {
+    const name = data[i][0];
+    const party = data[i][1];
+    const role = data[i][2];
+    const status = data[i][5];
+    const linkFormula = summarySheet.getRange(i + 1, 7).getFormula();
+    
+    // Extract sheet name from HYPERLINK formula: =HYPERLINK("#gid=...", "SheetName")
+    let sheetName = "";
+    const match = linkFormula.match(/",\s*"([^"]+)"\)/);
+    if (match) {
+      sheetName = match[1];
+    } else {
+      // Fallback to value if no formula
+      sheetName = data[i][6].toString();
+    }
+    
+    if (sheetName) {
+      incidents.push({
+        name: name,
+        party: party,
+        role: role,
+        status: status,
+        sheetName: sheetName
+      });
+    }
+  }
+  return incidents;
+}
+
+/**
+ * Closes an incident.
+ */
+function toggleIncidentStatus(sheetName: string, newStatus: string) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const summarySheet = ss.getSheetByName('Summary');
+  if (!summarySheet) return;
+  
+  const data = summarySheet.getDataRange().getValues();
+  for (let i = 1; i < data.length; i++) {
+    const linkFormula = summarySheet.getRange(i + 1, 7).getFormula();
+    if (linkFormula.indexOf(`"${sheetName}"`) !== -1) {
+      summarySheet.getRange(i + 1, 6).setValue(newStatus);
+      break;
+    }
+  }
+  return getIncidentsData();
 }
