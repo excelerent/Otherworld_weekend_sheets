@@ -147,7 +147,7 @@ function createNewIncident(data: IncidentData) {
   if (data.party === 'Staff' && data.role === 'Staff') {
     sheetName = `Staff - ${data.personName}`;
   } else {
-    sheetName = `${data.party}-${data.role}`;
+    sheetName = `${data.personName}: ${data.party}-${data.role}`;
   }
   
   // Ensure unique sheet name
@@ -341,7 +341,7 @@ function getIncidentsData() {
 /**
  * Closes an incident.
  */
-function toggleIncidentStatus(sheetName: string, newStatus: string) {
+function toggleIncidentStatus(sheetName: string, newStatus: string, remark?: string) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const summarySheet = ss.getSheetByName('Summary');
   if (!summarySheet) return;
@@ -354,5 +354,15 @@ function toggleIncidentStatus(sheetName: string, newStatus: string) {
       break;
     }
   }
+  
+  if (newStatus === 'Closed' && remark) {
+    addEntryToIncident(sheetName, {
+      presided: 'System',
+      situation: 'Incident Closed.',
+      actionsTaken: 'Final Remark: ' + remark,
+      recommendations: ''
+    });
+  }
+
   return getIncidentsData();
 }

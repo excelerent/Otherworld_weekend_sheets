@@ -66,6 +66,18 @@
     }
     .status-active { background-color: #d4edda; color: #155724; }
     .status-closed { background-color: #f8d7da; color: #721c24; }
+    .close-btn { 
+      background-color: #dc3545; 
+      color: white; 
+      border: 1px solid #dc3545; 
+      padding: 7px 15px; 
+      border-radius: 3px; 
+      cursor: pointer; 
+      font-weight: bold;
+      width: 100%;
+    }
+    .close-btn:hover { background-color: #c82333; border-color: #bd2130; }
+    .close-btn:active { background-color: #6c757d; border-color: #6c757d; }
   </style>
 </head>
 <body>
@@ -85,8 +97,9 @@
         </div>
       </div>
 
-      <div class="button-bar" style="margin-bottom: 15px;">
-        <button type="button" id="toggle-status-btn" class="secondary-btn hidden" onclick="toggleStatus()" style="width: 100%;">Close Incident</button>
+      <div class="button-bar">
+        <button type="submit" class="action-btn" id="submit-btn">Add Entry</button>
+        <button type="button" class="secondary-btn" onclick="resetForm()">Clear</button>
       </div>
 
       <hr>
@@ -111,9 +124,8 @@
         <textarea id="recommendations" name="recommendations"></textarea>
       </div>
 
-      <div class="button-bar">
-        <button type="submit" class="action-btn" id="submit-btn">Add Entry</button>
-        <button type="button" class="secondary-btn" onclick="resetForm()">Clear</button>
+      <div class="button-bar" style="margin-top: 10px;">
+        <button type="button" id="toggle-status-btn" class="hidden" onclick="handleStatusToggle()" style="width: 100%;">Close Incident</button>
       </div>
     </form>
     
@@ -193,7 +205,13 @@
         statusDisplay.className = 'status-badge ' + (incident.status === 'Active' ? 'status-active' : 'status-closed');
         statusDisplay.classList.remove('hidden');
         
-        toggleBtn.textContent = incident.status === 'Active' ? 'Close Incident' : 'Reopen Incident';
+        if (incident.status === 'Active') {
+          toggleBtn.textContent = 'Close Incident';
+          toggleBtn.className = 'close-btn';
+        } else {
+          toggleBtn.textContent = 'Reopen Incident';
+          toggleBtn.className = 'secondary-btn';
+        }
         toggleBtn.classList.remove('hidden');
       } else {
         statusDisplay.classList.add('hidden');
@@ -201,7 +219,22 @@
       }
     }
 
-    function toggleStatus() {
+    function handleStatusToggle() {
+      const sheetName = document.getElementById('targetSheetName').value;
+      const incident = allIncidents.find(i => i.sheetName === sheetName);
+      if (!incident) return;
+
+      if (incident.status === 'Active') {
+        const remark = prompt('Are you sure you want to close this incident?\n\nPlease enter a final remark (optional):');
+        if (remark === null) return; // User cancelled prompt
+        
+        toggleStatus(remark);
+      } else {
+        toggleStatus();
+      }
+    }
+
+    function toggleStatus(remark) {
       const sheetName = document.getElementById('targetSheetName').value;
       const incident = allIncidents.find(i => i.sheetName === sheetName);
       if (!incident) return;
@@ -213,7 +246,7 @@
         allIncidents = updatedIncidents;
         updateIncidentDropdown();
         showMessage('Status updated to ' + newStatus, 'success');
-      }).toggleIncidentStatus(sheetName, newStatus);
+      }).toggleIncidentStatus(sheetName, newStatus, remark);
     }
 
     function refreshIncidents(callback) {
