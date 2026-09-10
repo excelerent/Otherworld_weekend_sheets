@@ -11,6 +11,16 @@
 }
 
 /**
+ * Trigger that runs when the selection changes in the spreadsheet.
+ */
+function onSelectionChange(e: any) {
+  const range = e.range;
+  if (range.getA1Notation() === 'D1') {
+    showSidebar();
+  }
+}
+
+/**
  * Opens the popup to create a new incident.
  */
 function showCreateIncidentPopup() {
@@ -59,6 +69,23 @@ function initializeSpreadsheet() {
   summarySheet.setColumnWidth(7, 200);
   
   ss.toast("Spreadsheet initialized.", "Medical Tracker");
+  addSidebarButton(summarySheet);
+}
+
+/**
+ * Adds a button to cell D1 to open the sidebar.
+ */
+function addSidebarButton(sheet: GoogleAppsScript.Spreadsheet.Sheet) {
+  const cell = sheet.getRange("D1");
+  cell.setValue("Open Sidebar");
+  cell.setBackground("#007bff");
+  cell.setFontColor("white");
+  cell.setFontWeight("bold");
+  cell.setHorizontalAlignment("center");
+  cell.setVerticalAlignment("middle");
+  
+  // Set border to make it look like a button
+  cell.setBorder(true, true, true, true, true, true, "black", SpreadsheetApp.BorderStyle.SOLID_MEDIUM);
 }
 
 interface IncidentData {
@@ -161,6 +188,8 @@ function createNewIncident(data: IncidentData) {
   // Update Summary
   updateSummary(data.personName, data.party, data.role, data.chiefComplaint, sheetName);
   
+  addSidebarButton(sheet);
+  
   return sheetName;
 }
 
@@ -180,8 +209,10 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
     [entryData.presided, timestamp, entryData.situation, entryData.actionsTaken, entryData.recommendations]
   ];
   
-  sheet.getRange(nextRow, 1, 1, 5).setValues(values).setVerticalAlignment('top').setWrap(true);
-  sheet.getRange(nextRow, 1, 1, 5).setBorder(true, true, true, true, true, true);
+  const range = sheet.getRange(nextRow, 1, 1, 5);
+  range.setValues(values).setVerticalAlignment('top').setWrap(true);
+  range.setBorder(true, true, true, true, true, true);
+  sheet.getRange(nextRow, 2).setNumberFormat("M/d/yyyy H:mm");
   
   // Data validation for "Who presided"
   const staff = getStaffData();
@@ -216,9 +247,11 @@ function updateSummary(name: string, party: string, role: string, complaint: str
   const sheetUrl = `#gid=${targetSheet.getSheetId()}`;
   const hyperlink = `=HYPERLINK("${sheetUrl}", "${sheetName}")`;
   
-  summarySheet.getRange(nextRow, 1, 1, 7).setValues([[
+  const range = summarySheet.getRange(nextRow, 1, 1, 7);
+  range.setValues([[
     name, party, role, complaint, new Date(), "Active", hyperlink
   ]]);
+  summarySheet.getRange(nextRow, 5).setNumberFormat("M/d/yyyy H:mm");
 }
 
 /**
