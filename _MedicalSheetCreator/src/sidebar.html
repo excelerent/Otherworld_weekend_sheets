@@ -228,7 +228,7 @@
         const remark = prompt('Are you sure you want to close this incident?\n\nPlease enter a final remark (optional):');
         if (remark === null) return; // User cancelled prompt
         
-        toggleStatus(remark);
+        toggleStatus(remark || ""); // Ensure remark is at least empty string
       } else {
         toggleStatus();
       }
