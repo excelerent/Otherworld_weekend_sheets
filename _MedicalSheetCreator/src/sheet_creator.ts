@@ -153,35 +153,21 @@ function createNewIncident(data: IncidentData) {
   // Ensure unique sheet name by adding timestamp if needed (though duplicate check should prevent this)
   const baseName = sheetName.substring(0, 25);
   sheetName = `${baseName} (${new Date().getTime()})`.substring(0, 31);
-  const sheet = ss.insertSheet(sheetName);
+  
+  const templateSheet = ss.getSheetByName('Template');
+  let sheet: GoogleAppsScript.Spreadsheet.Sheet;
+  
+  if (templateSheet) {
+    sheet = templateSheet.copyTo(ss).setName(sheetName);
+  } else {
+    throw new Error("Template sheet not found. Please create a sheet named 'Template'.");
+  }
   
   // Header Info
-  sheet.getRange('A1').setValue('Name:').setFontWeight('bold');
   sheet.getRange('B1').setValue(data.personName);
-  
-  sheet.getRange('A2').setValue('Party:').setFontWeight('bold');
   sheet.getRange('B2').setValue(data.party || 'N/A');
-  
-  sheet.getRange('C2').setValue('Role:').setFontWeight('bold');
   sheet.getRange('D2').setValue(data.role || 'N/A');
-  
-  sheet.getRange('A3').setValue('Chief Complaint:').setFontWeight('bold');
   sheet.getRange('B3').setValue(data.chiefComplaint);
-  
-  // Action Log Table
-  const logStartRow = 5;
-  const headers = ["Presided", "Time", "Situation", "Actions Taken", "Future Recommendations"];
-  sheet.getRange(logStartRow, 1, 1, headers.length)
-    .setValues([headers])
-    .setFontWeight('bold')
-    .setBackground('#d9d9d9')
-    .setBorder(true, true, true, true, true, true);
-  
-  sheet.setColumnWidth(1, 150);
-  sheet.setColumnWidth(2, 150);
-  sheet.setColumnWidth(3, 300);
-  sheet.setColumnWidth(4, 300);
-  sheet.setColumnWidth(5, 300);
   
   // Add first entry if provided
   if (data.presided && (data.situation || data.actionsTaken)) {
