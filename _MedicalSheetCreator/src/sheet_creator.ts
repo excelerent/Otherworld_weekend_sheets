@@ -2,27 +2,12 @@
   const ui = SpreadsheetApp.getUi();
   ui.createMenu('Medical Tracker')
     .addItem('Create New Incident', 'showCreateIncidentPopup')
-    .addItem('Show Sidebar (Extend)', 'showSidebar')
+    .addItem('Show Sidebar', 'showSidebar')
     .addItem('Initialize Spreadsheet', 'initializeSpreadsheet')
     .addToUi();
   
   // Automatically show sidebar on open
   showSidebar();
-}
-
-/**
- * Trigger that runs when the spreadsheet is edited.
- */
-function onEdit(e: any) {
-  const range = e.range;
-  const sheet = range.getSheet();
-  
-  // Check if the edit happened in D1 and the value is true (checkbox checked)
-  if (range.getA1Notation() === 'D1' && range.getValue() === true) {
-    showSidebar();
-    // Reset checkbox
-    range.setValue(false);
-  }
 }
 
 /**
@@ -52,49 +37,22 @@ function showSidebar() {
 function initializeSpreadsheet() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   let summarySheet = ss.getSheetByName('Summary');
-  if (!summarySheet) {
-    summarySheet = ss.insertSheet('Summary', 0);
-  } else {
-    summarySheet.clear();
+  
+  const template = ss.getSheetByName('summarytemplate');
+  if (!template) {
+    throw new Error("summarytemplate sheet not found. Please create a sheet named 'summarytemplate'.");
   }
-  
-  const headers = ["Person Involved", "Party", "Role", "Chief Complaint", "Last Update", "Status", "Sheet Link", "Summary Log"];
-  summarySheet.getRange(1, 1, 1, headers.length)
-    .setValues([headers])
-    .setFontWeight('bold')
-    .setBackground('#efefef');
-  
-  summarySheet.setFrozenRows(3);
-  summarySheet.setColumnWidth(1, 150);
-  summarySheet.setColumnWidth(2, 100);
-  summarySheet.setColumnWidth(3, 100);
-  summarySheet.setColumnWidth(4, 250);
-  summarySheet.setColumnWidth(5, 150);
-  summarySheet.setColumnWidth(6, 100);
-  summarySheet.setColumnWidth(7, 200);
-  summarySheet.setColumnWidth(8, 400);
-  
-  ss.toast("Spreadsheet initialized.", "Medical Tracker");
-  addSidebarButton(summarySheet);
-}
 
-/**
- * Adds a checkbox to cell D1 to open the sidebar.
- */
-function addSidebarButton(sheet: GoogleAppsScript.Spreadsheet.Sheet) {
-  const cell = sheet.getRange("D1");
-  cell.insertCheckboxes();
-  cell.setValue(false);
+  if (summarySheet) {
+    ss.deleteSheet(summarySheet);
+  }
+  summarySheet = template.copyTo(ss).setName('Summary');
+  ss.setActiveSheet(summarySheet);
+  ss.moveActiveSheet(1);
   
-  // Add a note or label next to it if needed, but the user said "use a checkbox to open the sidebar"
-  // so we'll just put the checkbox in D1.
-  // We can also set a background color to make it visible.
-  cell.setBackground("#e6f3ff");
+  summarySheet.setFrozenRows(2);
   
-  // Add a label in E1 to explain what the checkbox does
-  const labelCell = sheet.getRange("E1");
-  labelCell.setValue("<- Open Sidebar");
-  labelCell.setFontWeight("bold");
+  ss.toast("Summary sheet initialized from template.", "Medical Tracker");
 }
 
 interface IncidentData {
@@ -198,7 +156,7 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
   if (!sheet) throw new Error("Sheet not found: " + sheetName);
   
   const lastRow = sheet.getLastRow();
-  const nextRow = Math.max(lastRow + 1, 6);
+  const nextRow = Math.max(lastRow + 1, 5);
   
   const timestamp = new Date();
   const values = [
@@ -246,7 +204,8 @@ function updateSummary(name: string, party: string, role: string, complaint: str
   const targetSheet = ss.getSheetByName(sheetName);
   if (!targetSheet) return;
 
-  const nextRow = summarySheet.getLastRow() + 1;
+  const lastRow = summarySheet.getLastRow();
+  const nextRow = Math.max(lastRow + 1, 3);
   const sheetUrl = `#gid=${targetSheet.getSheetId()}`;
   const hyperlink = `=HYPERLINK("${sheetUrl}", "${sheetName}")`;
   
