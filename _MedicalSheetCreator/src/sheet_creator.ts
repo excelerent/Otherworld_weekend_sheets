@@ -293,6 +293,7 @@ function getFormData() {
   return {
     parties: getPartiesData().Parties.map(p => p.Party),
     staff: getStaffData(),
+    medicalStaff: getMedicalStaffData(),
     incidents: getIncidentsData()
   };
 }

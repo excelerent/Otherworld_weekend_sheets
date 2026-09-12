@@ -10,15 +10,19 @@
     input[type="text"], select, textarea { width: 100%; box-sizing: border-box; }
     textarea { height: 60px; }
     .hidden { display: none; }
-    .button-bar { display: flex; justify-content: flex-start; gap: 10px; margin-bottom: 20px; }
+    .button-bar { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: nowrap; }
     #message { margin-top: 5px; padding: 5px; border-radius: 3px; }
     .success { background-color: #d4edda; color: #155724; }
     .error { background-color: #f8d7da; color: #721c24; }
+    .action-btn, .secondary-btn, .close-btn { 
+      padding: 7px 10px; 
+      font-size: 11px;
+      white-space: nowrap;
+    }
     .action-btn { 
       background-color: #007bff; 
       color: black; 
       border: 1px solid #007bff; 
-      padding: 7px 15px; 
       border-radius: 3px; 
       cursor: pointer; 
       font-weight: bold;
@@ -43,7 +47,6 @@
       background-color: white; 
       color: #333;
       border: 1px solid #ccc; 
-      padding: 7px 15px; 
       border-radius: 3px; 
       cursor: pointer; 
       font-weight: bold;
@@ -70,7 +73,6 @@
       background-color: #dc3545; 
       color: white; 
       border: 1px solid #dc3545; 
-      padding: 7px 15px; 
       border-radius: 3px; 
       cursor: pointer; 
       font-weight: bold;
@@ -135,7 +137,8 @@
     // Load form data
     google.script.run.withSuccessHandler(function(data) {
       const presidedSelect = document.getElementById('presided');
-      data.staff.forEach(s => {
+      const staffList = data.medicalStaff || data.staff;
+      staffList.forEach(s => {
         const opt = document.createElement('option');
         opt.value = s;
         opt.textContent = s;
