@@ -58,7 +58,7 @@ function initializeSpreadsheet() {
     summarySheet.clear();
   }
   
-  const headers = ["Person Involved", "Party", "Role", "Chief Complaint", "Last Update", "Status", "Sheet Link"];
+  const headers = ["Person Involved", "Party", "Role", "Chief Complaint", "Last Update", "Status", "Sheet Link", "Summary Log"];
   summarySheet.getRange(1, 1, 1, headers.length)
     .setValues([headers])
     .setFontWeight('bold')
@@ -72,6 +72,7 @@ function initializeSpreadsheet() {
   summarySheet.setColumnWidth(5, 150);
   summarySheet.setColumnWidth(6, 100);
   summarySheet.setColumnWidth(7, 200);
+  summarySheet.setColumnWidth(8, 400);
   
   ss.toast("Spreadsheet initialized.", "Medical Tracker");
   addSidebarButton(summarySheet);
@@ -213,13 +214,21 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
   const rule = SpreadsheetApp.newDataValidation().requireValueInList(staff).build();
   sheet.getRange(nextRow, 1).setDataValidation(rule);
   
-  // Update Summary Timestamp
+  // Update Summary Timestamp and Summary Log
   const summarySheet = ss.getSheetByName('Summary');
   if (summarySheet) {
     const data = summarySheet.getDataRange().getValues();
     for (let i = 1; i < data.length; i++) {
       if (data[i][6].indexOf(sheetName) !== -1 || (data[i][6].formula && data[i][6].formula.indexOf(sheetName) !== -1)) {
         summarySheet.getRange(i + 1, 5).setValue(timestamp);
+        
+        // Update Summary Log column (Column 8)
+        const currentLog = data[i][7] || "";
+        const timeStr = Utilities.formatDate(timestamp, ss.getSpreadsheetTimeZone(), "M/d/yyyy H:mm");
+        const newEntryText = `${entryData.presided} at ${timeStr} - ${entryData.situation} -- ${entryData.actionsTaken} Reccomendations: ${entryData.recommendations}`;
+        const updatedLog = currentLog + (currentLog ? "\n" : "") + newEntryText;
+        summarySheet.getRange(i + 1, 8).setValue(updatedLog);
+        
         break;
       }
     }
@@ -241,9 +250,9 @@ function updateSummary(name: string, party: string, role: string, complaint: str
   const sheetUrl = `#gid=${targetSheet.getSheetId()}`;
   const hyperlink = `=HYPERLINK("${sheetUrl}", "${sheetName}")`;
   
-  const range = summarySheet.getRange(nextRow, 1, 1, 7);
+  const range = summarySheet.getRange(nextRow, 1, 1, 8);
   range.setValues([[
-    name, party, role, complaint, new Date(), "Active", hyperlink
+    name, party, role, complaint, new Date(), "Active", hyperlink, `Cheif Complaint: ${complaint}.`
   ]]);
   summarySheet.getRange(nextRow, 5).setNumberFormat("M/d/yyyy H:mm");
 }
