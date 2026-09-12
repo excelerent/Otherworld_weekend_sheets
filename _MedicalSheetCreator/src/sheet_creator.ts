@@ -82,7 +82,7 @@ function createNewIncident(data: IncidentData) {
   
   if (summarySheet) {
     const summaryData = summarySheet.getDataRange().getValues();
-    for (let i = 1; i < summaryData.length; i++) {
+    for (let i = 2; i < summaryData.length; i++) {
       const existingName = summaryData[i][0];
       const existingParty = summaryData[i][1];
       const existingRole = summaryData[i][2];
@@ -176,7 +176,7 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
   const summarySheet = ss.getSheetByName('Summary');
   if (summarySheet) {
     const data = summarySheet.getDataRange().getValues();
-    for (let i = 1; i < data.length; i++) {
+    for (let i = 2; i < data.length; i++) {
       // Hyperlink is now in Column 6 (index 5)
       if (data[i][5].indexOf(sheetName) !== -1 || (data[i][5].formula && data[i][5].formula.indexOf(sheetName) !== -1)) {
         // Timestamp is now in Column 4 (index 3)
@@ -236,7 +236,7 @@ function isIncidentSheet(name: string) {
   if (!summarySheet) return name.startsWith('Staff - ') || name.includes('-');
   
   const data = summarySheet.getDataRange().getValues();
-  for (let i = 1; i < data.length; i++) {
+  for (let i = 2; i < data.length; i++) {
     const linkFormula = summarySheet.getRange(i + 1, 6).getFormula(); // Column 6 (index 5) is hyperlink
     if (linkFormula && linkFormula.indexOf(`"${name}"`) !== -1) {
       return true;
@@ -280,7 +280,7 @@ function getIncidentsData() {
     const data = summarySheet.getDataRange().getValues();
     const incidents = [];
     
-    for (let i = 1; i < data.length; i++) {
+    for (let i = 2; i < data.length; i++) {
       const name = data[i][0];
       const party = data[i][1];
       const role = data[i][2];
@@ -327,7 +327,7 @@ function toggleIncidentStatus(sheetName: string, newStatus: string, remark?: str
   if (!summarySheet) return;
   
   const data = summarySheet.getDataRange().getValues();
-  for (let i = 1; i < data.length; i++) {
+  for (let i = 2; i < data.length; i++) {
     const linkFormula = summarySheet.getRange(i + 1, 6).getFormula(); // Column 6 (index 5) is hyperlink
     if (linkFormula.indexOf(`"${sheetName}"`) !== -1) {
       summarySheet.getRange(i + 1, 5).setValue(newStatus); // Column 5 (index 4) is status
