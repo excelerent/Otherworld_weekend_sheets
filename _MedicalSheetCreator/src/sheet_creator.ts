@@ -198,9 +198,9 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
         // Handle Urgent Care Y/N: Only once in the first line
         let transportStr = "";
         if (entryData.offeredTransport === 'Yes') {
-          transportStr = "Urgent Care: Y";
+          transportStr = "Offer UC: Y";
         } else if (entryData.offeredTransport === 'No') {
-          transportStr = "Urgent Care: N";
+          transportStr = "Offer UC: N";
           if (entryData.transportWhy) transportStr += " (Why: " + entryData.transportWhy + ")";
         }
 
@@ -209,12 +209,10 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
           const lines = currentLog.split('\n');
           const firstLine = lines[0];
           
-          // Remove any existing " | Urgent Care: ..." from the first line
-          let cleanedFirstLine = firstLine.split(" | Urgent Care:")[0];
-          // Ensure it still ends with the period from "Cheif Complaint: ... ."
-          if (!cleanedFirstLine.endsWith('.')) {
-            // This case shouldn't happen with standard initialization but let's be safe
-          }
+          // Remove any existing " | Offer UC: ..." from the first line
+          let cleanedFirstLine = firstLine.split(" | Offer UC:")[0];
+          // Also handle the old "Urgent Care:" prefix if it exists to clean it up
+          cleanedFirstLine = cleanedFirstLine.split(" | Urgent Care:")[0];
           
           lines[0] = `${cleanedFirstLine} | ${transportStr}`;
           currentLog = lines.join('\n');
