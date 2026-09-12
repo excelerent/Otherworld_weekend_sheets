@@ -189,19 +189,35 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
         summarySheet.getRange(i + 1, 4).setValue(timestamp);
         
         // Update Summary Log column (Column 7)
-        const currentLog = data[i][6] || "";
+        let currentLog = (data[i][6] || "").toString();
         const timeStr = Utilities.formatDate(timestamp, ss.getSpreadsheetTimeZone(), "M/d/yyyy H:mm");
         
         let entryParts = [];
         if (entryData.situation) entryParts.push(entryData.situation);
         
-        // Transport info: Urgent Care: Y/N
+        // Handle Urgent Care Y/N: Only once in the first line
+        let transportStr = "";
         if (entryData.offeredTransport === 'Yes') {
-          entryParts.push("Urgent Care: Y");
+          transportStr = "Urgent Care: Y";
         } else if (entryData.offeredTransport === 'No') {
-          let transportStr = "Urgent Care: N";
+          transportStr = "Urgent Care: N";
           if (entryData.transportWhy) transportStr += " (Why: " + entryData.transportWhy + ")";
-          entryParts.push(transportStr);
+        }
+
+        if (transportStr) {
+          // Update the first line (Chief Complaint line)
+          const lines = currentLog.split('\n');
+          const firstLine = lines[0];
+          
+          // Remove any existing " | Urgent Care: ..." from the first line
+          let cleanedFirstLine = firstLine.split(" | Urgent Care:")[0];
+          // Ensure it still ends with the period from "Cheif Complaint: ... ."
+          if (!cleanedFirstLine.endsWith('.')) {
+            // This case shouldn't happen with standard initialization but let's be safe
+          }
+          
+          lines[0] = `${cleanedFirstLine} | ${transportStr}`;
+          currentLog = lines.join('\n');
         }
         
         if (entryData.actionsTaken) entryParts.push("Actions: " + entryData.actionsTaken);
