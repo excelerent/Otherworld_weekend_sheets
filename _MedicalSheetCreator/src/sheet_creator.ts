@@ -194,17 +194,21 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
         
         let entryParts = [];
         if (entryData.situation) entryParts.push(entryData.situation);
+        
+        // Transport info: Urgent Care: Y/N
         if (entryData.offeredTransport === 'Yes') {
-          entryParts.push("Offered Transport: Yes");
+          entryParts.push("Urgent Care: Y");
         } else if (entryData.offeredTransport === 'No') {
-          let transportStr = "Offered Transport: No";
+          let transportStr = "Urgent Care: N";
           if (entryData.transportWhy) transportStr += " (Why: " + entryData.transportWhy + ")";
           entryParts.push(transportStr);
         }
+        
         if (entryData.actionsTaken) entryParts.push("Actions: " + entryData.actionsTaken);
         if (entryData.recommendations) entryParts.push("Reccomendation: " + entryData.recommendations);
         
-        const newEntryText = entryParts.join(" | ");
+        const contentText = entryParts.join(" | ");
+        const newEntryText = `${entryData.presided} at ${timeStr} - ${contentText}`;
         const updatedLog = currentLog + (currentLog ? "\n" : "") + newEntryText;
         summarySheet.getRange(i + 1, 7).setValue(updatedLog);
         
