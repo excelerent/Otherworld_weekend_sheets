@@ -86,7 +86,7 @@ function createNewIncident(data: IncidentData) {
       const existingName = summaryData[i][0];
       const existingParty = summaryData[i][1];
       const existingRole = summaryData[i][2];
-      const status = summaryData[i][5];
+      const status = summaryData[i][4]; // Index 4 (Column 5) is status
       
       if (status === "Active") {
         if (data.party === 'Staff' && data.role === 'Staff') {
@@ -177,15 +177,17 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
   if (summarySheet) {
     const data = summarySheet.getDataRange().getValues();
     for (let i = 1; i < data.length; i++) {
-      if (data[i][6].indexOf(sheetName) !== -1 || (data[i][6].formula && data[i][6].formula.indexOf(sheetName) !== -1)) {
-        summarySheet.getRange(i + 1, 5).setValue(timestamp);
+      // Hyperlink is now in Column 6 (index 5)
+      if (data[i][5].indexOf(sheetName) !== -1 || (data[i][5].formula && data[i][5].formula.indexOf(sheetName) !== -1)) {
+        // Timestamp is now in Column 4 (index 3)
+        summarySheet.getRange(i + 1, 4).setValue(timestamp);
         
-        // Update Summary Log column (Column 8)
-        const currentLog = data[i][7] || "";
+        // Update Summary Log column (Column 7)
+        const currentLog = data[i][6] || "";
         const timeStr = Utilities.formatDate(timestamp, ss.getSpreadsheetTimeZone(), "M/d/yyyy H:mm");
         const newEntryText = `${entryData.presided} at ${timeStr} - ${entryData.situation} -- ${entryData.actionsTaken} Reccomendations: ${entryData.recommendations}`;
         const updatedLog = currentLog + (currentLog ? "\n" : "") + newEntryText;
-        summarySheet.getRange(i + 1, 8).setValue(updatedLog);
+        summarySheet.getRange(i + 1, 7).setValue(updatedLog);
         
         break;
       }
@@ -209,11 +211,11 @@ function updateSummary(name: string, party: string, role: string, complaint: str
   const sheetUrl = `#gid=${targetSheet.getSheetId()}`;
   const hyperlink = `=HYPERLINK("${sheetUrl}", "${sheetName}")`;
   
-  const range = summarySheet.getRange(nextRow, 1, 1, 8);
+  const range = summarySheet.getRange(nextRow, 1, 1, 7);
   range.setValues([[
-    name, party, role, complaint, new Date(), "Active", hyperlink, `Cheif Complaint: ${complaint}.`
+    name, party, role, new Date(), "Active", hyperlink, `Cheif Complaint: ${complaint}.`
   ]]);
-  summarySheet.getRange(nextRow, 5).setNumberFormat("M/d/yyyy H:mm");
+  summarySheet.getRange(nextRow, 4).setNumberFormat("M/d/yyyy H:mm");
 }
 
 /**
@@ -235,7 +237,7 @@ function isIncidentSheet(name: string) {
   
   const data = summarySheet.getDataRange().getValues();
   for (let i = 1; i < data.length; i++) {
-    const linkFormula = summarySheet.getRange(i + 1, 7).getFormula();
+    const linkFormula = summarySheet.getRange(i + 1, 6).getFormula(); // Column 6 (index 5) is hyperlink
     if (linkFormula && linkFormula.indexOf(`"${name}"`) !== -1) {
       return true;
     }
@@ -282,8 +284,8 @@ function getIncidentsData() {
       const name = data[i][0];
       const party = data[i][1];
       const role = data[i][2];
-      const status = data[i][5];
-      const linkFormula = summarySheet.getRange(i + 1, 7).getFormula();
+      const status = data[i][4]; // Index 4 (Column 5) is now status
+      const linkFormula = summarySheet.getRange(i + 1, 6).getFormula(); // Column 6 (index 5) is hyperlink
       
       // Extract sheet name from HYPERLINK formula: =HYPERLINK("#gid=...", "SheetName")
       let sheetName = "";
@@ -296,7 +298,7 @@ function getIncidentsData() {
       
       if (!sheetName) {
         // Fallback to value if no formula or no match
-        sheetName = data[i][6] ? data[i][6].toString() : "";
+        sheetName = data[i][5] ? data[i][5].toString() : ""; // Index 5 (Column 6)
       }
       
       if (sheetName) {
@@ -326,9 +328,9 @@ function toggleIncidentStatus(sheetName: string, newStatus: string, remark?: str
   
   const data = summarySheet.getDataRange().getValues();
   for (let i = 1; i < data.length; i++) {
-    const linkFormula = summarySheet.getRange(i + 1, 7).getFormula();
+    const linkFormula = summarySheet.getRange(i + 1, 6).getFormula(); // Column 6 (index 5) is hyperlink
     if (linkFormula.indexOf(`"${sheetName}"`) !== -1) {
-      summarySheet.getRange(i + 1, 6).setValue(newStatus);
+      summarySheet.getRange(i + 1, 5).setValue(newStatus); // Column 5 (index 4) is status
       break;
     }
   }
