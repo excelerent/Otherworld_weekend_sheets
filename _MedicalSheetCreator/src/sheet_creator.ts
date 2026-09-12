@@ -395,13 +395,10 @@ function toggleIncidentStatus(sheetName: string, newStatus: string, remark?: str
 function handleOnEdit(e: GoogleAppsScript.Events.SheetsOnEdit) {
   if (!e) return;
   
-  const range = e.range;
-  const sheet = range.getSheet();
-  const sheetName = sheet.getName();
+  // The Summary sheet contains links and formulas that depend on other sheets (e.g., Incident sheets).
+  // Therefore, we trigger a push to the EM Dashboard whenever any sheet is updated to ensure the dashboard
+  // always has the latest summarized data.
   
-  // We only care about edits in the Summary sheet
-  if (sheetName !== 'Summary') return;
-
   try {
     pushSummaryToDashboard();
   } catch (err: any) {
