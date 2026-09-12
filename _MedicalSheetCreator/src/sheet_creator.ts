@@ -107,7 +107,7 @@ function createNewIncident(data: IncidentData) {
 
   let sheetName = '';
   if (data.party === 'Staff' && data.role === 'Staff') {
-    sheetName = `Staff - ${data.personName}`;
+    sheetName = `${data.personName}: Staff`;
   } else {
     sheetName = `${data.personName}: ${data.party}-${data.role}`;
   }
