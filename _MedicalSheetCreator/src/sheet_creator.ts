@@ -68,6 +68,8 @@ interface IncidentData {
 
 interface EntryData {
   presided: string;
+  offeredTransport: string;
+  transportWhy: string;
   situation: string;
   actionsTaken: string;
   recommendations: string;
@@ -135,6 +137,8 @@ function createNewIncident(data: IncidentData) {
   if (data.presided && (data.situation || data.actionsTaken)) {
     addEntryToIncident(finalSheetName, {
       presided: data.presided,
+      offeredTransport: '',
+      transportWhy: '',
       situation: data.situation,
       actionsTaken: data.actionsTaken,
       recommendations: data.recommendations
@@ -160,10 +164,10 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
   
   const timestamp = new Date();
   const values = [
-    [entryData.presided, timestamp, entryData.situation, entryData.actionsTaken, entryData.recommendations]
+    [entryData.presided, timestamp, entryData.situation, entryData.actionsTaken, entryData.recommendations, entryData.offeredTransport, entryData.transportWhy]
   ];
   
-  const range = sheet.getRange(nextRow, 1, 1, 5);
+  const range = sheet.getRange(nextRow, 1, 1, 7);
   range.setValues(values);
   sheet.getRange(nextRow, 2).setNumberFormat("M/d/yyyy H:mm");
   
@@ -188,6 +192,13 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
         
         let entryParts = [];
         if (entryData.situation) entryParts.push(entryData.situation);
+        if (entryData.offeredTransport === 'Yes') {
+          entryParts.push("Offered Transport: Yes");
+        } else if (entryData.offeredTransport === 'No') {
+          let transportStr = "Offered Transport: No";
+          if (entryData.transportWhy) transportStr += " (Why: " + entryData.transportWhy + ")";
+          entryParts.push(transportStr);
+        }
         if (entryData.actionsTaken) entryParts.push("Actions: " + entryData.actionsTaken);
         if (entryData.recommendations) entryParts.push("Reccomendation: " + entryData.recommendations);
         
@@ -344,6 +355,8 @@ function toggleIncidentStatus(sheetName: string, newStatus: string, remark?: str
   if (newStatus === 'Closed' && remark) {
     addEntryToIncident(sheetName, {
       presided: 'System',
+      offeredTransport: '',
+      transportWhy: '',
       situation: 'Incident Closed.',
       actionsTaken: 'Final Remark: ' + remark,
       recommendations: ''

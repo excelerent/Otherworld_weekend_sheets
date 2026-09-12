@@ -114,6 +114,17 @@
         </select>
       </div>
       <div class="form-group">
+        <label>Offered Transport to urgent care?</label>
+        <div style="display: flex; gap: 10px;">
+          <label style="font-weight: normal;"><input type="radio" name="offeredTransport" value="Yes" onclick="toggleTransportWhy()"> Yes</label>
+          <label style="font-weight: normal;"><input type="radio" name="offeredTransport" value="No" onclick="toggleTransportWhy()"> No</label>
+        </div>
+      </div>
+      <div id="transport-why-group" class="form-group hidden">
+        <label for="transportWhy">If NO: Why?</label>
+        <input type="text" id="transportWhy" name="transportWhy">
+      </div>
+      <div class="form-group">
         <label for="situation">Situation</label>
         <textarea id="situation" name="situation"></textarea>
       </div>
@@ -319,8 +330,11 @@
 
       showMessage('Processing...', '');
 
+      const offeredTransportElem = document.querySelector('input[name="offeredTransport"]:checked');
       const formData = {
         presided: document.getElementById('presided').value,
+        offeredTransport: offeredTransportElem ? offeredTransportElem.value : '',
+        transportWhy: document.getElementById('transportWhy').value,
         situation: document.getElementById('situation').value,
         actionsTaken: document.getElementById('actionsTaken').value,
         recommendations: document.getElementById('recommendations').value
@@ -350,9 +364,24 @@
     }
     
     function resetActionLog() {
+      const offeredTransportRadios = document.getElementsByName('offeredTransport');
+      offeredTransportRadios.forEach(r => r.checked = false);
+      document.getElementById('transportWhy').value = '';
+      document.getElementById('transport-why-group').classList.add('hidden');
       document.getElementById('situation').value = '';
       document.getElementById('actionsTaken').value = '';
       document.getElementById('recommendations').value = '';
+    }
+
+    function toggleTransportWhy() {
+      const offered = document.querySelector('input[name="offeredTransport"]:checked').value;
+      const whyGroup = document.getElementById('transport-why-group');
+      if (offered === 'No') {
+        whyGroup.classList.remove('hidden');
+      } else {
+        whyGroup.classList.add('hidden');
+        document.getElementById('transportWhy').value = '';
+      }
     }
   </script>
 </body>
