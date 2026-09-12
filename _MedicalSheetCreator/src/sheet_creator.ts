@@ -185,7 +185,13 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
         // Update Summary Log column (Column 7)
         const currentLog = data[i][6] || "";
         const timeStr = Utilities.formatDate(timestamp, ss.getSpreadsheetTimeZone(), "M/d/yyyy H:mm");
-        const newEntryText = `${entryData.presided} at ${timeStr} - ${entryData.situation} -- ${entryData.actionsTaken} Reccomendations: ${entryData.recommendations}`;
+        
+        let entryParts = [];
+        if (entryData.situation) entryParts.push(entryData.situation);
+        if (entryData.actionsTaken) entryParts.push("Actions: " + entryData.actionsTaken);
+        if (entryData.recommendations) entryParts.push("Reccomendation: " + entryData.recommendations);
+        
+        const newEntryText = entryParts.join(" | ");
         const updatedLog = currentLog + (currentLog ? "\n" : "") + newEntryText;
         summarySheet.getRange(i + 1, 7).setValue(updatedLog);
         
