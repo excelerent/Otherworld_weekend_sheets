@@ -47,6 +47,7 @@ function initializeSpreadsheet() {
     ss.deleteSheet(summarySheet);
   }
   summarySheet = template.copyTo(ss).setName('Summary');
+  summarySheet.showSheet();
   ss.setActiveSheet(summarySheet);
   ss.moveActiveSheet(1);
   
@@ -123,6 +124,7 @@ function createNewIncident(data: IncidentData) {
   
   if (templateSheet) {
     sheet = templateSheet.copyTo(ss).setName(finalSheetName);
+    sheet.showSheet();
   } else {
     throw new Error("Template sheet not found. Please create a sheet named 'Template'.");
   }
