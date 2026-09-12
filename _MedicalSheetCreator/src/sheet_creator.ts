@@ -4,6 +4,8 @@
     .addItem('Create New Incident', 'showCreateIncidentPopup')
     .addItem('Show Sidebar', 'showSidebar')
     .addItem('Initialize Spreadsheet', 'initializeSpreadsheet')
+    .addSeparator()
+    .addItem('Setup Installable Trigger', 'setupInstallableTrigger')
     .addToUi();
   
   // Automatically show sidebar on open
@@ -384,4 +386,74 @@ function toggleIncidentStatus(sheetName: string, newStatus: string, remark?: str
   }
 
   return getIncidentsData();
+}
+
+/**
+ * Syncs the Summary sheet to the EM Dashboard.
+ * MUST be set up as an installable trigger to access other spreadsheets.
+ */
+function handleOnEdit(e: GoogleAppsScript.Events.SheetsOnEdit) {
+  if (!e) return;
+  
+  const range = e.range;
+  const sheet = range.getSheet();
+  const sheetName = sheet.getName();
+  
+  // We only care about edits in the Summary sheet
+  if (sheetName !== 'Summary') return;
+
+  try {
+    pushSummaryToDashboard();
+  } catch (err: any) {
+    console.error('Failed to push summary to dashboard:', err);
+  }
+}
+
+/**
+ * Creates an installable trigger for handleOnEdit if it doesn't exist.
+ */
+function setupInstallableTrigger() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  
+  const triggers = ScriptApp.getProjectTriggers();
+  triggers.forEach(t => {
+    if (t.getHandlerFunction() === 'handleOnEdit') {
+      ScriptApp.deleteTrigger(t);
+    }
+  });
+  
+  ScriptApp.newTrigger('handleOnEdit')
+    .forSpreadsheet(ss)
+    .onEdit()
+    .create();
+  
+  ss.toast("Installable handleOnEdit trigger created successfully.", "Setup");
+}
+
+const DASHBOARD_SPREADSHEET_ID = '1E3qwC06aYhplPwexQSHPnLtMXFlekN26EmGM1rytjog';
+
+/**
+ * Pushes the Summary sheet to the EM Dashboard.
+ */
+function pushSummaryToDashboard() {
+  const sourceSs = SpreadsheetApp.getActiveSpreadsheet();
+  const sourceSheet = sourceSs.getSheetByName('Summary');
+  if (!sourceSheet) return;
+
+  const sourceData = sourceSheet.getDataRange().getValues();
+  if (sourceData.length === 0) return;
+
+  const dashboardSs = SpreadsheetApp.openById(DASHBOARD_SPREADSHEET_ID);
+  const targetSheetName = 'Medical_Import';
+  
+  let targetSheet = dashboardSs.getSheetByName(targetSheetName);
+  if (!targetSheet) {
+    targetSheet = dashboardSs.insertSheet(targetSheetName);
+    targetSheet.hideSheet();
+  }
+
+  targetSheet.clearContents();
+  targetSheet.getRange(1, 1, sourceData.length, sourceData[0].length).setValues(sourceData);
+  
+  sourceSs.toast("Summary synced to EM Dashboard.", "Medical Tracker");
 }
