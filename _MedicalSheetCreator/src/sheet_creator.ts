@@ -270,41 +270,50 @@ function getFormData() {
  * Gets the list of incidents from the Summary sheet.
  */
 function getIncidentsData() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const summarySheet = ss.getSheetByName('Summary');
-  if (!summarySheet) return [];
-  
-  const data = summarySheet.getDataRange().getValues();
-  const incidents = [];
-  
-  for (let i = 1; i < data.length; i++) {
-    const name = data[i][0];
-    const party = data[i][1];
-    const role = data[i][2];
-    const status = data[i][5];
-    const linkFormula = summarySheet.getRange(i + 1, 7).getFormula();
+  try {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const summarySheet = ss.getSheetByName('Summary');
+    if (!summarySheet) return [];
     
-    // Extract sheet name from HYPERLINK formula: =HYPERLINK("#gid=...", "SheetName")
-    let sheetName = "";
-    const match = linkFormula.match(/",\s*"([^"]+)"\)/);
-    if (match) {
-      sheetName = match[1];
-    } else {
-      // Fallback to value if no formula
-      sheetName = data[i][6].toString();
-    }
+    const data = summarySheet.getDataRange().getValues();
+    const incidents = [];
     
-    if (sheetName) {
-      incidents.push({
-        name: name,
-        party: party,
-        role: role,
-        status: status,
-        sheetName: sheetName
-      });
+    for (let i = 1; i < data.length; i++) {
+      const name = data[i][0];
+      const party = data[i][1];
+      const role = data[i][2];
+      const status = data[i][5];
+      const linkFormula = summarySheet.getRange(i + 1, 7).getFormula();
+      
+      // Extract sheet name from HYPERLINK formula: =HYPERLINK("#gid=...", "SheetName")
+      let sheetName = "";
+      if (linkFormula) {
+        const match = linkFormula.match(/",\s*"([^"]+)"\)/);
+        if (match) {
+          sheetName = match[1];
+        }
+      }
+      
+      if (!sheetName) {
+        // Fallback to value if no formula or no match
+        sheetName = data[i][6] ? data[i][6].toString() : "";
+      }
+      
+      if (sheetName) {
+        incidents.push({
+          name: name,
+          party: party,
+          role: role,
+          status: status,
+          sheetName: sheetName
+        });
+      }
     }
+    return incidents;
+  } catch (e: any) {
+    console.error("Error in getIncidentsData: " + e.toString());
+    return [];
   }
-  return incidents;
 }
 
 /**
