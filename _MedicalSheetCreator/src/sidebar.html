@@ -70,8 +70,8 @@
     .status-active { background-color: #d4edda; color: #155724; }
     .status-closed { background-color: #f8d7da; color: #721c24; }
     .close-btn { 
-      background-color: #dc3545; 
-      color: white; 
+      background-color: #fb99a3; 
+      color: #121212; 
       border: 1px solid #dc3545; 
       border-radius: 3px; 
       cursor: pointer; 
@@ -135,19 +135,26 @@
     let currentActiveSheetName = "";
 
     // Load form data
-    google.script.run.withSuccessHandler(function(data) {
-      const presidedSelect = document.getElementById('presided');
-      const staffList = data.medicalStaff || data.staff;
-      staffList.forEach(s => {
-        const opt = document.createElement('option');
-        opt.value = s;
-        opt.textContent = s;
-        presidedSelect.appendChild(opt);
-      });
-      
-      allIncidents = data.incidents;
-      updateIncidentDropdown();
-    }).getFormData();
+    google.script.run
+      .withSuccessHandler(function(data) {
+        console.log("Sidebar data received:", data);
+        const presidedSelect = document.getElementById('presided');
+        const staffList = data.medicalStaff || data.staff;
+        staffList.forEach(s => {
+          const opt = document.createElement('option');
+          opt.value = s;
+          opt.textContent = s;
+          presidedSelect.appendChild(opt);
+        });
+        
+        allIncidents = data.incidents;
+        updateIncidentDropdown();
+      })
+      .withFailureHandler(function(err) {
+        console.error("Error loading sidebar data:", err);
+        showMessage('Error loading data: ' + err.message, 'error');
+      })
+      .getFormData();
 
     function updateIncidentDropdown() {
       const select = document.getElementById('targetSheetName');

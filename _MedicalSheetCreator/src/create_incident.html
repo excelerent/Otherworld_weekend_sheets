@@ -96,23 +96,30 @@
 
   <script>
     // Load form data
-    google.script.run.withSuccessHandler(function(data) {
-      const partySelect = document.getElementById('party');
-      data.parties.forEach(p => {
-        const opt = document.createElement('option');
-        opt.value = p;
-        opt.textContent = p;
-        partySelect.appendChild(opt);
-      });
+    google.script.run
+      .withSuccessHandler(function(data) {
+        console.log("Form data received:", data);
+        const partySelect = document.getElementById('party');
+        data.parties.forEach(p => {
+          const opt = document.createElement('option');
+          opt.value = p;
+          opt.textContent = p;
+          partySelect.appendChild(opt);
+        });
 
-      const staffInvolvedSelect = document.getElementById('staffPersonName');
-      data.staff.forEach(s => {
-        const opt = document.createElement('option');
-        opt.value = s;
-        opt.textContent = s;
-        staffInvolvedSelect.appendChild(opt);
-      });
-    }).getFormData();
+        const staffInvolvedSelect = document.getElementById('staffPersonName');
+        data.staff.forEach(s => {
+          const opt = document.createElement('option');
+          opt.value = s;
+          opt.textContent = s;
+          staffInvolvedSelect.appendChild(opt);
+        });
+      })
+      .withFailureHandler(function(err) {
+        console.error("Error loading form data:", err);
+        showMessage('Error loading data: ' + err.message, 'error');
+      })
+      .getFormData();
 
     function toggleInvolvedType() {
       const type = document.querySelector('input[name="involvedType"]:checked').value;
