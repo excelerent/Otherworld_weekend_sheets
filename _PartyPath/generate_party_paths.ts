@@ -273,10 +273,6 @@ function parseBlock(partyName: string, lines: string[]): Encounter[] {
     while ((rMatch = riddleRegex.exec(text)) !== null) {
         addEncounter({ party: partyName, staff: 'riddle item found?', time: '--', item: '--' });
     }
-    
-    if (!encounters.some(e => e.staff === 'riddle item found?')) {
-        addEncounter({ party: partyName, staff: 'riddle item found?', time: '--', item: '--' });
-    }
 
     return encounters;
 }

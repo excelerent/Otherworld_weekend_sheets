@@ -228,7 +228,7 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     sheet.setColumnWidth(1, 80);  // A
     sheet.setColumnWidth(2, 120); // B
     sheet.setColumnWidth(3, 120); // C
-    sheet.setColumnWidth(4, 150); // D
+    sheet.setColumnWidth(4, 200); // D
     sheet.setColumnWidth(5, 20);  // E
     sheet.setColumnWidth(6, 80);  // F
     sheet.setColumnWidth(7, 120); // G
@@ -367,6 +367,9 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
             const critical = group.CriticalAmount || "1";
             const reqText = groupSize === 1 ? "Need" : `Need ${critical}`;
             reqCell.merge().setValue(reqText).setVerticalAlignment("top").setHorizontalAlignment("center").setWrap(true);
+
+            // Auto-resize rows to fit merged text
+            sheet.autoResizeRows(currentRow, groupSize);
 
             // Calculation Column J
             const calcCell = sheet.getRange(currentRow, 10);
