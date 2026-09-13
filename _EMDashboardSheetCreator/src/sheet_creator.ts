@@ -429,17 +429,10 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     // Comments Section (after Path Table)
     const pathEncountersCount = partyEncounters.length;
     const commentsStartRow = pathStartRow + 1 + pathEncountersCount + 1;
-    sheet.getRange(commentsStartRow, 1).setValue("Staff").setFontWeight("bold");
-    sheet.getRange(commentsStartRow, 2).setValue("Comments").setFontWeight("bold");
+    sheet.getRange(commentsStartRow, 1).setValue("Comments").setFontWeight("bold");
     
-    // Column A: Staff dropdown
-    const staffDropdownRange = sheet.getRange(commentsStartRow + 1, 1, 10, 1);
-    const allStaff = ["Anonymous", ...getAllStaffData()];
-    const validation = SpreadsheetApp.newDataValidation().requireValueInList(allStaff).build();
-    staffDropdownRange.setDataValidation(validation);
-
-    // Merged cell for comments (Columns B-D)
-    const commentRange = sheet.getRange(commentsStartRow + 1, 2, 10, 3);
+    // Merged cell for comments
+    const commentRange = sheet.getRange(commentsStartRow + 1, 1, 10, 4);
     commentRange.mergeAcross().setBorder(true, true, true, true, false, false, "black", SpreadsheetApp.BorderStyle.SOLID_THICK);
     
     // Take from the notes section of the Import Sheet.
@@ -450,11 +443,16 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     const chargeNotesRange = `'${escapedImportSheetName}'!C${trackerChargeDataStartRow}:C${trackerChargeDataStartRow + totalChargeRows - 1}`;
     
     const trackerGeneralNotesStartRow = trackerChargeDataStartRow + totalChargeRows + 2 + 1;
-    const generalNotesRange = `'${escapedImportSheetName}'!A${trackerGeneralNotesStartRow}:A${trackerGeneralNotesStartRow + 35 - 1}`;
+    // Column A is staff name, B-C merged for note text. We want to aggregate "Staff: Note"
+    const generalNotesFormula = `=ARRAYFORMULA(IF('${escapedImportSheetName}'!A${trackerGeneralNotesStartRow}:A${trackerGeneralNotesStartRow + 35 - 1}<>"", '${escapedImportSheetName}'!A${trackerGeneralNotesStartRow}:A${trackerGeneralNotesStartRow + 35 - 1} & ": " & '${escapedImportSheetName}'!B${trackerGeneralNotesStartRow}:B${trackerGeneralNotesStartRow + 35 - 1}, ""))`;
+    
+    // We'll use a hidden sheet or temporary range to flatten, or just modify the flattenArr
+    // Since we need to join A and B, let's use a query or filter to build the array
+    const generalNotesFlatten = `FILTER(${generalNotesFormula}, ${generalNotesFormula} <> "")`;
 
-    const flattenArr = `{${pathNotesRange}; ${chargeNotesRange}; ${generalNotesRange}}`;
+    const flattenArr = `{${pathNotesRange}; ${chargeNotesRange}; ${generalNotesFlatten}}`;
     const formula = `=IFERROR(FILTER(FLATTEN(${flattenArr}), FLATTEN(${flattenArr}) <> ""), "")`;
-    sheet.getRange(commentsStartRow + 1, 2).setFormula(formula);
+    sheet.getRange(commentsStartRow + 1, 1).setFormula(formula);
     
     // The comments section should be surrounded by a black 2pt border.
     sheet.getRange(commentsStartRow, 1, 11, 4).setBorder(true, true, true, true, false, false, "black", SpreadsheetApp.BorderStyle.SOLID_THICK);

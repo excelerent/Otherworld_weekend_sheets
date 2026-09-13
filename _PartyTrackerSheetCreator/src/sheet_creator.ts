@@ -34,6 +34,12 @@ interface Charge {
     Groups: Group[];
 }
 
+declare function getPartiesData(): { Parties: PartyInfo[] };
+declare function getPathsData(): Encounter[];
+declare function getChargesData(): { Charges: Charge[] };
+declare function getMonsterData(): { Monsters: string[] };
+declare function getAllStaffData(): string[];
+
 // EM Dashboard Spreadsheet ID (Replace with actual ID)
 const DASHBOARD_SPREADSHEET_ID = '1E3qwC06aYhplPwexQSHPnLtMXFlekN26EmGM1rytjog';
 
@@ -324,7 +330,18 @@ function createTrackerSheet() {
         currentRow += 2;
         sheet.getRange(currentRow, 1).setValue('General Notes').setFontWeight('bold');
         const notesStartRow = currentRow + 1;
-        sheet.getRange(notesStartRow, 1, 35, 3).mergeAcross().setBorder(true, true, true, true, false, false);
+        
+        // Unmerged Column A for staff dropdown, B-C merged for notes
+        sheet.getRange(notesStartRow, 2, 35, 2).mergeAcross();
+        sheet.getRange(notesStartRow, 1, 35, 3).setBorder(true, true, true, true, false, false);
+        
+        // Data Validation for Column A (Staff Dropdown)
+        const staffList = getAllStaffData();
+        const rule = SpreadsheetApp.newDataValidation()
+            .requireValueInList(staffList)
+            .setAllowInvalid(true)
+            .build();
+        sheet.getRange(notesStartRow, 1, 35, 1).setDataValidation(rule);
         
         // Alternating colors for General Notes
         for (let i = 0; i < 35; i++) {
