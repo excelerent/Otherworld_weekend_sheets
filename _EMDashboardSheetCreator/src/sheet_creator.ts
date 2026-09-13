@@ -448,9 +448,9 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     const chargeNotesFlatten = `FILTER(${chargeNotesFormula}, ${chargeNotesFormula} <> "")`;
     
     const trackerGeneralNotesStartRow = trackerChargeDataStartRow + totalChargeRows + 2 + 1;
-    // General Notes: {note} 0
+    // General Notes: {name} - {note}
     // Actually, in general notes Column A is Staff, B-C is note.
-    const generalNotesFormula = `IF('${escapedImportSheetName}'!B${trackerGeneralNotesStartRow}:B${trackerGeneralNotesStartRow + 35 - 1}<>"", '${escapedImportSheetName}'!B${trackerGeneralNotesStartRow}:B${trackerGeneralNotesStartRow + 35 - 1} & " 0", "")`;
+    const generalNotesFormula = `IF('${escapedImportSheetName}'!B${trackerGeneralNotesStartRow}:B${trackerGeneralNotesStartRow + 35 - 1}<>"", '${escapedImportSheetName}'!A${trackerGeneralNotesStartRow}:A${trackerGeneralNotesStartRow + 35 - 1} & " - " & '${escapedImportSheetName}'!B${trackerGeneralNotesStartRow}:B${trackerGeneralNotesStartRow + 35 - 1}, "")`;
     const generalNotesFlatten = `FILTER(${generalNotesFormula}, ${generalNotesFormula} <> "")`;
 
     const flattenArr = `{IFERROR(${pathNotesFlatten}, ""); IFERROR(${chargeNotesFlatten}, ""); IFERROR(${generalNotesFlatten}, "")}`;
