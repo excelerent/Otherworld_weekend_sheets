@@ -432,30 +432,38 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     sheet.getRange(commentsStartRow, 1).setValue("Comments").setFontWeight("bold");
     
     // Merged cell for comments
-    const commentRange = sheet.getRange(commentsStartRow + 1, 1, 10, 4);
+    const commentRange = sheet.getRange(commentsStartRow + 1, 1, 100, 4);
     commentRange.mergeAcross().setBorder(true, true, true, true, false, false, "black", SpreadsheetApp.BorderStyle.SOLID_THICK);
     
     // Take from the notes section of the Import Sheet.
     // Calculate dynamic ranges for the comments formula
-    const pathNotesRange = `'${escapedImportSheetName}'!C5:C${5 + pathEncountersCount - 1}`;
+    // We want to format notes as:
+    // Party Path: {character} - {note} (Column A is staff/char, C is note)
+    const pathNotesFormula = `=ARRAYFORMULA(IF('${escapedImportSheetName}'!C5:C${5 + pathEncountersCount - 1}<>"", '${escapedImportSheetName}'!A5:A${5 + pathEncountersCount - 1} & " - " & '${escapedImportSheetName}'!C5:C${5 + pathEncountersCount - 1}, ""))`;
+    const pathNotesFlatten = `FILTER(${pathNotesFormula}, ${pathNotesFormula} <> "")`;
     
     const trackerChargeDataStartRow = 5 + pathEncountersCount + 3;
-    const chargeNotesRange = `'${escapedImportSheetName}'!C${trackerChargeDataStartRow}:C${trackerChargeDataStartRow + totalChargeRows - 1}`;
+    // Charge Info: {character} - {note} (Column A is character, C is note)
+    const chargeNotesFormula = `=ARRAYFORMULA(IF('${escapedImportSheetName}'!C${trackerChargeDataStartRow}:C${trackerChargeDataStartRow + totalChargeRows - 1}<>"", '${escapedImportSheetName}'!A${trackerChargeDataStartRow}:A${trackerChargeDataStartRow + totalChargeRows - 1} & " - " & '${escapedImportSheetName}'!C${trackerChargeDataStartRow}:C${trackerChargeDataStartRow + totalChargeRows - 1}, ""))`;
+    const chargeNotesFlatten = `FILTER(${chargeNotesFormula}, ${chargeNotesFormula} <> "")`;
     
     const trackerGeneralNotesStartRow = trackerChargeDataStartRow + totalChargeRows + 2 + 1;
-    // Column A is staff name, B-C merged for note text. We want to aggregate "Staff: Note"
-    const generalNotesFormula = `=ARRAYFORMULA(IF('${escapedImportSheetName}'!A${trackerGeneralNotesStartRow}:A${trackerGeneralNotesStartRow + 35 - 1}<>"", '${escapedImportSheetName}'!A${trackerGeneralNotesStartRow}:A${trackerGeneralNotesStartRow + 35 - 1} & ": " & '${escapedImportSheetName}'!B${trackerGeneralNotesStartRow}:B${trackerGeneralNotesStartRow + 35 - 1}, ""))`;
-    
-    // We'll use a hidden sheet or temporary range to flatten, or just modify the flattenArr
-    // Since we need to join A and B, let's use a query or filter to build the array
+    // General Notes: {general} 0
+    // Based on requirement: {general} 0. Assuming {general} is the note content? 
+    // Or did they mean "{Staff}: {note} 0"? 
+    // Re-reading: "if in general notes: {general} 0"
+    // Previously it was Staff: Note. 
+    // I'll use: note & " 0" as requested, or perhaps it means just the note content from the general section followed by 0.
+    // Actually, in general notes Column A is Staff, B-C is note.
+    const generalNotesFormula = `=ARRAYFORMULA(IF('${escapedImportSheetName}'!B${trackerGeneralNotesStartRow}:B${trackerGeneralNotesStartRow + 35 - 1}<>"", '${escapedImportSheetName}'!B${trackerGeneralNotesStartRow}:B${trackerGeneralNotesStartRow + 35 - 1} & " 0", ""))`;
     const generalNotesFlatten = `FILTER(${generalNotesFormula}, ${generalNotesFormula} <> "")`;
 
-    const flattenArr = `{${pathNotesRange}; ${chargeNotesRange}; ${generalNotesFlatten}}`;
+    const flattenArr = `{IFERROR(${pathNotesFlatten}, ""); IFERROR(${chargeNotesFlatten}, ""); IFERROR(${generalNotesFlatten}, "")}`;
     const formula = `=IFERROR(FILTER(FLATTEN(${flattenArr}), FLATTEN(${flattenArr}) <> ""), "")`;
     sheet.getRange(commentsStartRow + 1, 1).setFormula(formula);
     
     // The comments section should be surrounded by a black 2pt border.
-    sheet.getRange(commentsStartRow, 1, 11, 4).setBorder(true, true, true, true, false, false, "black", SpreadsheetApp.BorderStyle.SOLID_THICK);
+    sheet.getRange(commentsStartRow, 1, 101, 4).setBorder(true, true, true, true, false, false, "black", SpreadsheetApp.BorderStyle.SOLID_THICK);
 }
 
 function getHexColor(colorStr: string) {
