@@ -5,6 +5,9 @@
     BackgroundColor: string;
     TableColor: string;
     TextColor: string;
+    Riddle?: string;
+    SatVision?: string;
+    SunVision?: string;
 }
 
 interface PathEncounter {
@@ -255,9 +258,9 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
 
     sheet.getRange("A2").setValue(`Investigating the charge against: ${chargeTitle}`).setFontSize(10).setBackground("white").setFontColor("black");
     sheet.getRange("A3").setValue(`Companion: ${party.CompanionName} (${party.StaffMemberName})`).setFontSize(10).setBackground("white").setFontColor("black");
-    sheet.getRange("A4").setValue(`Keepers Saturday Morning dream :{keeper saturday morning dream}`).setFontSize(10).setBackground("white").setFontColor("black");
-    sheet.getRange("A5").setValue(`Riddle: {Riddle summary}`).setFontSize(10).setBackground("white").setFontColor("black");
-    sheet.getRange("A6").setValue(`Keepers Sunday Afternoon dream: {keeper sunday morning dream}`).setFontSize(10).setBackground("white").setFontColor("black");
+    sheet.getRange("A4").setValue(`Keepers Saturday Morning dream: ${party.SatVision || ""}`).setFontSize(10).setBackground("white").setFontColor("black");
+    sheet.getRange("A5").setValue(`Riddle: ${party.Riddle || ""}`).setFontSize(10).setBackground("white").setFontColor("black");
+    sheet.getRange("A6").setValue(`Keepers Sunday Afternoon dream: ${party.SunVision || ""}`).setFontSize(10).setBackground("white").setFontColor("black");
 
     // Character Info Section (Column F2-H8)
     const roles = ['Caster', 'Keeper', 'Maker', 'Ranger', 'Seeker', 'Traveler'];
