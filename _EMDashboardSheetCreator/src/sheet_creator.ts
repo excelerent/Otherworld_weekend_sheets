@@ -215,7 +215,7 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     const partyName = party.Party;
     const importSheetName = `${partyName}_Import`;
     const escapedImportSheetName = importSheetName.replace(/'/g, "''");
-    const partySheetName = `${partyName}_Party Sheet`;
+    const partySheetName = partyName;
 
     // 2. Ensure Import Sheet exists
     let importSheet = ss.getSheetByName(importSheetName);
@@ -230,7 +230,7 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     const tableColor = getHexColor(party.TableColor);
     const textColor = getHexColor(party.TextColor);
 
-    // sheet.setTabColor(bgColor);
+    sheet.setTabColor(bgColor);
 
     // Column widths (Updated per ProjectGoal.md)
     sheet.setColumnWidth(1, 80);  // A
@@ -682,7 +682,7 @@ function buildArdenSheetOnly() {
     }
 
     // Delete existing Arden party sheet if it exists
-    const ardenPartySheet = ss.getSheetByName('Arden_Party Sheet');
+    const ardenPartySheet = ss.getSheetByName('Arden');
     if (ardenPartySheet) ss.deleteSheet(ardenPartySheet);
 
     buildPartySheets(ss, ardenParty, PATHS_DATA, CHARGES_DATA);
