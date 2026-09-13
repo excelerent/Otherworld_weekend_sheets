@@ -142,7 +142,7 @@ function createTrackerSheet() {
     combatSheet.setFrozenColumns(1);
     
     // Column Widths and Alignment
-    combatSheet.setColumnWidth(1, 110);
+    combatSheet.setColumnWidth(1, 90);
     combatSheet.getRange(2, 1, monsterNames.length, 1).setHorizontalAlignment('center');
     
     for (let i = 0; i < monsterNames.length; i++) {
@@ -150,7 +150,7 @@ function createTrackerSheet() {
     }
     
     for (let i = 0; i < partyNames.length; i++) {
-        combatSheet.setColumnWidth(i + 2, 60);
+        combatSheet.setColumnWidth(i + 2, 65);
         // Create named range for each party column in Combat tab
         const partyName = partyNames[i];
         const range = combatSheet.getRange(2, i + 2, monsterNames.length, 1);
@@ -158,7 +158,7 @@ function createTrackerSheet() {
     }
     
     combatSheet.getRange(1, notesColumnIndex).setValue('Notes').setFontWeight('bold').setHorizontalAlignment('center');
-    combatSheet.setColumnWidth(notesColumnIndex, 600);
+    combatSheet.setColumnWidth(notesColumnIndex, 360);
 
     // 2. Party Sheets
 

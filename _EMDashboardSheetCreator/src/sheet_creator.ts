@@ -439,23 +439,18 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     // Calculate dynamic ranges for the comments formula
     // We want to format notes as:
     // Party Path: {character} - {note} (Column A is staff/char, C is note)
-    const pathNotesFormula = `=ARRAYFORMULA(IF('${escapedImportSheetName}'!C5:C${5 + pathEncountersCount - 1}<>"", '${escapedImportSheetName}'!A5:A${5 + pathEncountersCount - 1} & " - " & '${escapedImportSheetName}'!C5:C${5 + pathEncountersCount - 1}, ""))`;
+    const pathNotesFormula = `IF('${escapedImportSheetName}'!C5:C${5 + pathEncountersCount - 1}<>"", '${escapedImportSheetName}'!A5:A${5 + pathEncountersCount - 1} & " - " & '${escapedImportSheetName}'!C5:C${5 + pathEncountersCount - 1}, "")`;
     const pathNotesFlatten = `FILTER(${pathNotesFormula}, ${pathNotesFormula} <> "")`;
     
     const trackerChargeDataStartRow = 5 + pathEncountersCount + 3;
     // Charge Info: {character} - {note} (Column A is character, C is note)
-    const chargeNotesFormula = `=ARRAYFORMULA(IF('${escapedImportSheetName}'!C${trackerChargeDataStartRow}:C${trackerChargeDataStartRow + totalChargeRows - 1}<>"", '${escapedImportSheetName}'!A${trackerChargeDataStartRow}:A${trackerChargeDataStartRow + totalChargeRows - 1} & " - " & '${escapedImportSheetName}'!C${trackerChargeDataStartRow}:C${trackerChargeDataStartRow + totalChargeRows - 1}, ""))`;
+    const chargeNotesFormula = `IF('${escapedImportSheetName}'!C${trackerChargeDataStartRow}:C${trackerChargeDataStartRow + totalChargeRows - 1}<>"", '${escapedImportSheetName}'!A${trackerChargeDataStartRow}:A${trackerChargeDataStartRow + totalChargeRows - 1} & " - " & '${escapedImportSheetName}'!C${trackerChargeDataStartRow}:C${trackerChargeDataStartRow + totalChargeRows - 1}, "")`;
     const chargeNotesFlatten = `FILTER(${chargeNotesFormula}, ${chargeNotesFormula} <> "")`;
     
     const trackerGeneralNotesStartRow = trackerChargeDataStartRow + totalChargeRows + 2 + 1;
-    // General Notes: {general} 0
-    // Based on requirement: {general} 0. Assuming {general} is the note content? 
-    // Or did they mean "{Staff}: {note} 0"? 
-    // Re-reading: "if in general notes: {general} 0"
-    // Previously it was Staff: Note. 
-    // I'll use: note & " 0" as requested, or perhaps it means just the note content from the general section followed by 0.
+    // General Notes: {note} 0
     // Actually, in general notes Column A is Staff, B-C is note.
-    const generalNotesFormula = `=ARRAYFORMULA(IF('${escapedImportSheetName}'!B${trackerGeneralNotesStartRow}:B${trackerGeneralNotesStartRow + 35 - 1}<>"", '${escapedImportSheetName}'!B${trackerGeneralNotesStartRow}:B${trackerGeneralNotesStartRow + 35 - 1} & " 0", ""))`;
+    const generalNotesFormula = `IF('${escapedImportSheetName}'!B${trackerGeneralNotesStartRow}:B${trackerGeneralNotesStartRow + 35 - 1}<>"", '${escapedImportSheetName}'!B${trackerGeneralNotesStartRow}:B${trackerGeneralNotesStartRow + 35 - 1} & " 0", "")`;
     const generalNotesFlatten = `FILTER(${generalNotesFormula}, ${generalNotesFormula} <> "")`;
 
     const flattenArr = `{IFERROR(${pathNotesFlatten}, ""); IFERROR(${chargeNotesFlatten}, ""); IFERROR(${generalNotesFlatten}, "")}`;
