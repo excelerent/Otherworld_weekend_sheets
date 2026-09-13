@@ -1,95 +1,128 @@
-Ôªøfunction getPartiesData() {
+function getPartiesData() {
   return {
   "Parties": [
     {
-      "Party": "Arden",
-      "StaffMemberName": "Sherri Rinell",
-      "CompanionName": "Ari",
-      "BackgroundColor": "#b6d7a8",
-      "TableColor": "#b6d7a8",
-      "TextColor": "#000000"
+        "Party":  "Arden",
+        "StaffMemberName":  "Sherri Rinell",
+        "CompanionName":  "Ari",
+        "BackgroundColor":  "Green (#6aa84f)",
+        "TableColor":  "Green (#6aa84f)",
+        "TextColor":  "Black (#000000)",
+        "Riddle":  "\u0027laughing girl\u0027 fire riddle, fire circle in Winterhill Clearing",
+        "SatVision":  "Black Diamond Shards - Lead to Nix Valerius",
+        "SunVision":  "Toolforger in Wren\u0027s Kitchen hiding jewels, not stealing"
     },
     {
-      "Party": "Clairia",
-      "StaffMemberName": "James Surano",
-      "CompanionName": "Clem",
-      "BackgroundColor": "#ffffff",
-      "TableColor": "#ffffff",
-      "TextColor": "#000000"
+        "Party":  "Clairia",
+        "StaffMemberName":  "James Surano",
+        "CompanionName":  "Clem",
+        "BackgroundColor":  "White (#ffffff)",
+        "TableColor":  "White (#ffffff)",
+        "TextColor":  "Black (#000000)",
+        "Riddle":  "phoenix-bird riddle; tree straddling Summer Stream",
+        "SatVision":  "The vision shows the fool‚Äôs gold and will (hopefully!) lead the party to Sonja Eastwind",
+        "SunVision":  "This vision shows Lavinia Quill gathering fairyfrost mushrooms and suggests that she‚Äôll use them very soon"
     },
     {
-      "Party": "Dolor√≥n",
-      "StaffMemberName": "Maisie Sturtevant",
-      "CompanionName": "Dodi",
-      "BackgroundColor": "#ff9b9b",
-      "TableColor": "#ff9b9b",
-      "TextColor": "#000000"
+        "Party":  "Dolor√≥n",
+        "StaffMemberName":  "Maisie Sturtevant",
+        "CompanionName":  "Dodi",
+        "BackgroundColor":  "Red (#f4cccc)",
+        "TableColor":  "Red (#f4cccc)",
+        "TextColor":  "Black (#000000)",
+        "Riddle":  "Large Rock, fallen over, along Big Bow Trail halfway between Peaceful Crossing Bridge and entrance to Forsaken Forest",
+        "SatVision":  "The vision shows the gemwing butterfly and will (hopefully!) lead the party to Bitty Smirch.",
+        "SunVision":  "This vision shows the real and pretend Orlando Fairfax and suggests that the Master of the Garrison medal is more important than they realize"
     },
     {
-      "Party": "Elsewhich",
-      "StaffMemberName": "Lori Nadig",
-      "CompanionName": "Elvie",
-      "BackgroundColor": "#cccccc",
-      "TableColor": "#cccccc",
-      "TextColor": "#000000"
+        "Party":  "Elsewhich",
+        "StaffMemberName":  "Lori Nadig",
+        "CompanionName":  "Elvie",
+        "BackgroundColor":  "Gray (#999999)",
+        "TableColor":  "Gray (#999999)",
+        "TextColor":  "Black (#000000)",
+        "Riddle":  "Heliotrope Candle, ~120 paces beyond the entrance to the Forsaken Forest, left side of the path are two joined trees with their roots spreading over a grey rock. Candle hidden behind the trees (that is, away from the path.)",
+        "SatVision":  "The vision shows the gold laceleaf pendant and will (hopefully!) lead the party to Beckett Knightsbridge.",
+        "SunVision":  "The vision (hopefully) suggests that Kira is the one who has magical ability but doesn\u0027t know it, and that she is thus the one who can successfully do the ritual with the magic cup"
     },
     {
-      "Party": "Glendeep",
-      "StaffMemberName": "Steve Spodaryk",
-      "CompanionName": "Gloucester",
-      "BackgroundColor": "#b7e1cd",
-      "TableColor": "#b7e1cd",
-      "TextColor": "#000000"
+        "Party":  "Glendeep",
+        "StaffMemberName":  "Steve Spodaryk",
+        "CompanionName":  "Gloucester",
+        "BackgroundColor":  "Seafoam (#c5e8b9)",
+        "TableColor":  "Seafoam (#c5e8b9)",
+        "TextColor":  "Black (#000000)",
+        "Riddle":  "Miss Rosie seeing Roamers, rose-quartz orb among rocks under Misty Bridge",
+        "SatVision":  "The vision shows the ghost key and will (hopefully) lead the party to Acadia Glen.",
+        "SunVision":  "This vision shows Crabtree and Evelyn shielding Jonathan from outside cruelty... but maybe trapping him as well."
     },
     {
-      "Party": "Keer",
-      "StaffMemberName": "Bill Sabram",
-      "CompanionName": "Keifer",
-      "BackgroundColor": "#c9daf8",
-      "TableColor": "#c9daf8",
-      "TextColor": "#000000"
+        "Party":  "Keer",
+        "StaffMemberName":  "Bill Sabram",
+        "CompanionName":  "Keifer",
+        "BackgroundColor":  "Blue (#9dc0ff)",
+        "TableColor":  "Blue (#9dc0ff)",
+        "TextColor":  "Black (#000000)",
+        "Riddle":  "\u0027Ewe Whose Eke\u0027 riddle; in lake at end of path in Shrine of AllSeasons",
+        "SatVision":  "The vision shows the Fortune‚Äôs Wheel Pendant and will (hopefully!) lead the party to Bumble.",
+        "SunVision":  "This vision echoes Throg\u0027s dream of roses and chocolate, and then shows the treasure being revealed and taken."
     },
     {
-      "Party": "Noctara",
-      "StaffMemberName": "Chelsea Hadlock",
-      "CompanionName": "Nadia",
-      "BackgroundColor": "#b4a7d6",
-      "TableColor": "#b4a7d6",
-      "TextColor": "#000000"
+        "Party":  "Noctara",
+        "StaffMemberName":  "Chelsea Hadlock",
+        "CompanionName":  "Nadia",
+        "BackgroundColor":  "Purple (#9900ff)",
+        "TableColor":  "Purple (#9900ff)",
+        "TextColor":  "Black (#000000)",
+        "Riddle":  "three sisters riddle; buried in center of three triangle stones in Shadownook (amethyst obelisk)",
+        "SatVision":  "The vision shows the jester‚Äôs egg and will (hopefully) lead the party to Bailey.",
+        "SunVision":  "This vision shows Astrid and suggests the power the enchanted ring has over her."
     },
     {
-      "Party": "P'loa",
-      "StaffMemberName": "Bob Marriott",
-      "CompanionName": "Polo",
-      "BackgroundColor": "#d0e0e3",
-      "TableColor": "#d0e0e3",
-      "TextColor": "#000000"
+        "Party":  "P\u0027loa",
+        "StaffMemberName":  "Bob Marriott",
+        "CompanionName":  "Polo",
+        "BackgroundColor":  "Light Blue (#00ffff)",
+        "TableColor":  "Light Blue (#00ffff)",
+        "TextColor":  "Black (#000000)",
+        "Riddle":  "stone bench riddle; buried in ground at foot of stone bench on Little Bow near the intersection with Rhone Trail",
+        "SatVision":  "The vision shows the moonstone shards and leads the party to Frost.",
+        "SunVision":  "This vision shows the two Jack Brighams, only one of which is real‚Ä¶"
     },
     {
-      "Party": "Sythwan",
-      "StaffMemberName": "Joyce Farnsworth",
-      "CompanionName": "Silla",
-      "BackgroundColor": "#fff2cc",
-      "TableColor": "#fff2cc",
-      "TextColor": "#000000"
+        "Party":  "Sythwan",
+        "StaffMemberName":  "Joyce Farnsworth",
+        "CompanionName":  "Silla",
+        "BackgroundColor":  "Yellow (#ffe599)",
+        "TableColor":  "Yellow (#ffe599)",
+        "TextColor":  "Black (#000000)",
+        "Riddle":  "\u0027Wood Brothers\u0027 riddle; attached to underside of the Peaceful Crossing bridge, riddlestone ring",
+        "SatVision":  "The vision shows the citrine shards and leads the party to Valentina.",
+        "SunVision":  "This vision shows Tad running his illusion scam."
     },
     {
-      "Party": "Uri-Kesh",
-      "StaffMemberName": "Brian Neff",
-      "CompanionName": "Urving",
-      "BackgroundColor": "#f4cccc",
-      "TableColor": "#f4cccc",
-      "TextColor": "#000000"
+        "Party":  "Uri-Kesh",
+        "StaffMemberName":  "Brian Neff",
+        "CompanionName":  "Urving",
+        "BackgroundColor":  "Red (#ff0000)",
+        "TableColor":  "Red (#ff0000)",
+        "TextColor":  "Black (#000000)",
+        "Riddle":  "The riddle mentions walking away from Hillcrest toward Winterhill Clearing, pausing along the way in Greystone Clearing. the pendant is at the base of the tree, under some debris.",
+        "SatVision":  "The vision shows the sterling silver heart box and will (hopefully) lead the party to Obsidian.",
+        "SunVision":  "This vision shows Andrew Rayfield‚Äôs maker robes and suggests that the gems are hidden within its seams."
     },
     {
-      "Party": "Waylon",
-      "StaffMemberName": "Britt Rothauser",
-      "CompanionName": "Waverly",
-      "BackgroundColor": "#fce5cd",
-      "TableColor": "#fce5cd",
-      "TextColor": "#000000"
+        "Party":  "Waylon",
+        "StaffMemberName":  "Britt Rothauser",
+        "CompanionName":  "Waverly",
+        "BackgroundColor":  "Orange (#ff9900)",
+        "TableColor":  "Orange (#ff9900)",
+        "TextColor":  "Black (#000000)",
+        "Riddle":  "\u0027man dressed all in red\u0027 riddle; fire circle on little hill next to graveyard, jade egg",
+        "SatVision":  "The vision shows the skull cup and (hopefully!) leads the party to Jack Brigham.",
+        "SunVision":  "The vision hopefully suggests that, just like in a Scooby Doo episode, the ghost isn‚Äôt truly a ghost and must be unmasked."
     }
-  ]
+]
   };
 }
 function getAllStaffData() {
@@ -424,93 +457,93 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Dimitri",
     "time": "Contact",
     "item": "--"
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Denison Bannister",
     "time": "2nd Friday",
     "item": "--"
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Kyson Wayseeker",
     "time": "3rd Friday",
     "item": "--"
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Kiko Truthspeaker",
     "time": "4th Friday",
     "item": "list of items"
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Kismet O'Connor",
     "time": "1st Saturday",
     "item": "seafoam sphere",
     "PathItem": true
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Carmen",
     "time": "10am-4pm, 6pm-7:30pm, 10:15pm-12am",
     "item": "silver incense burner",
     "PathItem": true
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Chester Valerius",
     "time": "11am-4pm, 10:15pm-12am",
     "item": "whiteleaf sage",
     "PathItem": true
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Elliot Ash",
     "time": "8am-3pm, 10:15pm-12am",
     "item": "water from the River Sigh",
     "PathItem": true
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Phaedra Pax",
     "time": "11am-4pm, 10:15pm-12am",
     "item": "snakes-eye talisman",
     "PathItem": true
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Edwina Duttmiler",
     "time": "8:30am-2pm, 10:15pm-12am",
     "item": "signalstone ring",
     "PathItem": true
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Bitty Smirch",
     "time": "8am-11am, 1pm-5pm",
     "item": "gemwing butterfly",
     "PathItem": true
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Cade Wyatt",
     "time": "4-7pm (last entry at 6:45pm)",
     "item": "folly dust",
     "PathItem": true
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Chester Valerius",
     "time": "9:45am Sunday",
     "item": "merula-fruit cordial"
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "conjuring the pixie dust",
     "time": "10am Sunday",
     "item": "--"
@@ -1323,7 +1356,7 @@ function getPathsData() {
     "Riddle": true
   },
   {
-    "party": "Dolor√≥n",
+    "party": "DolorÛn",
     "staff": "Endymion",
     "time": "9am-5:30pm",
     "item": "Riddle",
@@ -1405,7 +1438,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Nice interaction. He‚Äôs never been to Mystal. If they ask, yes, he stole the jewelry & destroyed it‚Äîsorry.",
+          "Summary": "Nice interaction. Heís never been to Mystal. If they ask, yes, he stole the jewelry & destroyed itósorry.",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -1575,7 +1608,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Kullis told Simon, ‚ÄúYou need to tell her!‚Äù before Simon died.",
+          "Summary": "Kullis told Simon, ìYou need to tell her!î before Simon died.",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -1585,7 +1618,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Jewelry was hidden in Wren‚Äôs sugar sack. (Shows jewelry.)",
+          "Summary": "Jewelry was hidden in Wrenís sugar sack. (Shows jewelry.)",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -1919,7 +1952,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Hazel wrote a few expos√© pieces on the mob shortly before this but breaking the story of Lucia Rinaldi's murder was her big break. Now she's here in World's Edge reporting on the Trek. She has surprising insights into the mob mentality",
+          "Summary": "Hazel wrote a few exposÈ pieces on the mob shortly before this but breaking the story of Lucia Rinaldi's murder was her big break. Now she's here in World's Edge reporting on the Trek. She has surprising insights into the mob mentality",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -2055,7 +2088,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "He has his arm in a sling.\n\"Have you seen this guy? I really need to find him.\" Shows them Scarpetti's badge\nHopefully the party says \"That's John Doe!\" Gallbladder is delighted to hear that S is alive but needs to know more.\nHopefully the party puts it all together, figuring out that S was undercover with the mob, isn't really a henchman. G prods as needed till they get there\nGallbladder tells the party that rumor has is that Angelo Vitale is on his way to WE. G was afraid he'd be too late, but it sounds like maybe he wasn't. He gives the party some (but not all) the info they'll need to know to fight Vitale.\nFrom his communiqu√©s from Scarpetti, Gallbladder knows that AV has a magic item that renders him invulnerable to both weapons and magic. It's not all-powerful, though: it only works while a certain sound is audible. Give an example with something that's NOT talking! This item belonged to AV's father and when he had it, it was keyed to the sound of waves. When AV killed his father, it was because he lured him deep underground where the waves couldn't be heard.",
+          "Summary": "He has his arm in a sling.\n\"Have you seen this guy? I really need to find him.\" Shows them Scarpetti's badge\nHopefully the party says \"That's John Doe!\" Gallbladder is delighted to hear that S is alive but needs to know more.\nHopefully the party puts it all together, figuring out that S was undercover with the mob, isn't really a henchman. G prods as needed till they get there\nGallbladder tells the party that rumor has is that Angelo Vitale is on his way to WE. G was afraid he'd be too late, but it sounds like maybe he wasn't. He gives the party some (but not all) the info they'll need to know to fight Vitale.\nFrom his communiquÈs from Scarpetti, Gallbladder knows that AV has a magic item that renders him invulnerable to both weapons and magic. It's not all-powerful, though: it only works while a certain sound is audible. Give an example with something that's NOT talking! This item belonged to AV's father and when he had it, it was keyed to the sound of waves. When AV killed his father, it was because he lured him deep underground where the waves couldn't be heard.",
           "CriticalAmount": "",
           "Characters": [
             {
@@ -2576,7 +2609,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "PARTY PATH ENCOUNTER - she has cedarwood box they need.  It was a wedding present from Solomon‚Äôs old first mate who claimed to have stolen it from the Pirate King",
+          "Summary": "PARTY PATH ENCOUNTER - she has cedarwood box they need.  It was a wedding present from Solomonís old first mate who claimed to have stolen it from the Pirate King",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -2606,7 +2639,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Scurvy Jack is such a famous pirate that there's a play about him happening in Dolor√≥n",
+          "Summary": "Scurvy Jack is such a famous pirate that there's a play about him happening in DolorÛn",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -2628,7 +2661,7 @@ function getChargesData() {
               "Conditions": ""
             },
             {
-              "CharacterName": "Aru√±a Valerius",
+              "CharacterName": "AruÒa Valerius",
               "Conditions": ""
             },
             {
@@ -2686,7 +2719,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "there was a fight in the tavern on some recent night. was surprised to find Jack Brigham hiding under a table, saying ‚ÄúNot the face!‚Äù Unexpected from a pirate.",
+          "Summary": "there was a fight in the tavern on some recent night. was surprised to find Jack Brigham hiding under a table, saying ìNot the face!î Unexpected from a pirate.",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -2706,7 +2739,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Scurvy Jack is peeved to be in World‚Äôs Edge for 3 hours. He‚Äôs very busy! If only someone could handle some of his public appearances‚Ä¶",
+          "Summary": "Scurvy Jack is peeved to be in Worldís Edge for 3 hours. Heís very busy! If only someone could handle some of his public appearancesÖ",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -3165,7 +3198,7 @@ function getChargesData() {
     },
     {
       "Title": "Lord Orlando Fairfax charged with embezzling",
-      "Party": "Dolor√≥n",
+      "Party": "DolorÛn",
       "Groups": [
         {
           "Summary": "assigns charge",
@@ -3306,7 +3339,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "The man calling himself Orlando Fairfax is indeed serious about not wasting money, but he‚Äôs also used to humble accommodations, since he‚Äôs not really a duke‚Äôs son.  This also reminds the party of ‚ÄúOrlando‚Äù‚Äôs role as Master of the Garrison, a fact that will matter on Sunday",
+          "Summary": "The man calling himself Orlando Fairfax is indeed serious about not wasting money, but heís also used to humble accommodations, since heís not really a dukeís son.  This also reminds the party of ìOrlandoîís role as Master of the Garrison, a fact that will matter on Sunday",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -3686,7 +3719,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Trek prize money is in a suitcase with a slot cut in the lid so that more coins can be added to the case. This suitcase is in Throg‚Äôs possession constantly",
+          "Summary": "Trek prize money is in a suitcase with a slot cut in the lid so that more coins can be added to the case. This suitcase is in Throgís possession constantly",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -3696,7 +3729,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Trek prize money is in a suitcase with a slot cut in the lid so that more coins can be added to the case. This suitcase is in Throg‚Äôs possession constantly",
+          "Summary": "Trek prize money is in a suitcase with a slot cut in the lid so that more coins can be added to the case. This suitcase is in Throgís possession constantly",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -3732,7 +3765,7 @@ function getChargesData() {
               "Conditions": ""
             },
             {
-              "CharacterName": "Aru√±a Valerius",
+              "CharacterName": "AruÒa Valerius",
               "Conditions": ""
             }
           ]

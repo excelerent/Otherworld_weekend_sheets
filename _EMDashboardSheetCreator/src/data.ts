@@ -5,8 +5,8 @@ function getPartiesData() {
         "Party":  "Arden",
         "StaffMemberName":  "Sherri Rinell",
         "CompanionName":  "Ari",
-        "BackgroundColor":  "Green (#b6d7a8)",
-        "TableColor":  "Green (#b6d7a8)",
+        "BackgroundColor":  "Green (#6aa84f)",
+        "TableColor":  "Green (#6aa84f)",
         "TextColor":  "Black (#000000)",
         "Riddle":  "\u0027laughing girl\u0027 fire riddle, fire circle in Winterhill Clearing",
         "SatVision":  "Black Diamond Shards - Lead to Nix Valerius",
@@ -17,7 +17,7 @@ function getPartiesData() {
         "StaffMemberName":  "James Surano",
         "CompanionName":  "Clem",
         "BackgroundColor":  "White (#ffffff)",
-        "TableColor":  "Gray (#f3f3f3)",
+        "TableColor":  "White (#ffffff)",
         "TextColor":  "Black (#000000)",
         "Riddle":  "phoenix-bird riddle; tree straddling Summer Stream",
         "SatVision":  "The vision shows the foolâ€™s gold and will (hopefully!) lead the party to Sonja Eastwind",
@@ -27,8 +27,8 @@ function getPartiesData() {
         "Party":  "DolorÃ³n",
         "StaffMemberName":  "Maisie Sturtevant",
         "CompanionName":  "Dodi",
-        "BackgroundColor":  "Pink (#ff9b9b)",
-        "TableColor":  "Pink (#ff9b9b)",
+        "BackgroundColor":  "Red (#f4cccc)",
+        "TableColor":  "Red (#f4cccc)",
         "TextColor":  "Black (#000000)",
         "Riddle":  "Large Rock, fallen over, along Big Bow Trail halfway between Peaceful Crossing Bridge and entrance to Forsaken Forest",
         "SatVision":  "The vision shows the gemwing butterfly and will (hopefully!) lead the party to Bitty Smirch.",
@@ -38,8 +38,8 @@ function getPartiesData() {
         "Party":  "Elsewhich",
         "StaffMemberName":  "Lori Nadig",
         "CompanionName":  "Elvie",
-        "BackgroundColor":  "Gray (#cccccc)",
-        "TableColor":  "Gray (#cccccc)",
+        "BackgroundColor":  "Gray (#999999)",
+        "TableColor":  "Gray (#999999)",
         "TextColor":  "Black (#000000)",
         "Riddle":  "Heliotrope Candle, ~120 paces beyond the entrance to the Forsaken Forest, left side of the path are two joined trees with their roots spreading over a grey rock. Candle hidden behind the trees (that is, away from the path.)",
         "SatVision":  "The vision shows the gold laceleaf pendant and will (hopefully!) lead the party to Beckett Knightsbridge.",
@@ -49,8 +49,8 @@ function getPartiesData() {
         "Party":  "Glendeep",
         "StaffMemberName":  "Steve Spodaryk",
         "CompanionName":  "Gloucester",
-        "BackgroundColor":  "Seafoam (#b7e1cd)",
-        "TableColor":  "Seafoam (#b7e1cd)",
+        "BackgroundColor":  "Seafoam (#c5e8b9)",
+        "TableColor":  "Seafoam (#c5e8b9)",
         "TextColor":  "Black (#000000)",
         "Riddle":  "Miss Rosie seeing Roamers, rose-quartz orb among rocks under Misty Bridge",
         "SatVision":  "The vision shows the ghost key and will (hopefully) lead the party to Acadia Glen.",
@@ -60,8 +60,8 @@ function getPartiesData() {
         "Party":  "Keer",
         "StaffMemberName":  "Bill Sabram",
         "CompanionName":  "Keifer",
-        "BackgroundColor":  "Blue (#c9daf8)",
-        "TableColor":  "Blue (#c9daf8)",
+        "BackgroundColor":  "Blue (#9dc0ff)",
+        "TableColor":  "Blue (#9dc0ff)",
         "TextColor":  "Black (#000000)",
         "Riddle":  "\u0027Ewe Whose Eke\u0027 riddle; in lake at end of path in Shrine of AllSeasons",
         "SatVision":  "The vision shows the Fortuneâ€™s Wheel Pendant and will (hopefully!) lead the party to Bumble.",
@@ -71,8 +71,8 @@ function getPartiesData() {
         "Party":  "Noctara",
         "StaffMemberName":  "Chelsea Hadlock",
         "CompanionName":  "Nadia",
-        "BackgroundColor":  "Purple (#b4a7d6)",
-        "TableColor":  "Purple (#b4a7d6)",
+        "BackgroundColor":  "Purple (#9900ff)",
+        "TableColor":  "Purple (#9900ff)",
         "TextColor":  "Black (#000000)",
         "Riddle":  "three sisters riddle; buried in center of three triangle stones in Shadownook (amethyst obelisk)",
         "SatVision":  "The vision shows the jesterâ€™s egg and will (hopefully) lead the party to Bailey.",
@@ -82,8 +82,8 @@ function getPartiesData() {
         "Party":  "P\u0027loa",
         "StaffMemberName":  "Bob Marriott",
         "CompanionName":  "Polo",
-        "BackgroundColor":  "Light Blue (#d0e0e3)",
-        "TableColor":  "Light Blue (#d0e0e3)",
+        "BackgroundColor":  "Light Blue (#00ffff)",
+        "TableColor":  "Light Blue (#00ffff)",
         "TextColor":  "Black (#000000)",
         "Riddle":  "stone bench riddle; buried in ground at foot of stone bench on Little Bow near the intersection with Rhone Trail",
         "SatVision":  "The vision shows the moonstone shards and leads the party to Frost.",
@@ -93,8 +93,8 @@ function getPartiesData() {
         "Party":  "Sythwan",
         "StaffMemberName":  "Joyce Farnsworth",
         "CompanionName":  "Silla",
-        "BackgroundColor":  "Yellow (#fff2cc)",
-        "TableColor":  "Yellow (#fff2cc)",
+        "BackgroundColor":  "Yellow (#ffe599)",
+        "TableColor":  "Yellow (#ffe599)",
         "TextColor":  "Black (#000000)",
         "Riddle":  "\u0027Wood Brothers\u0027 riddle; attached to underside of the Peaceful Crossing bridge, riddlestone ring",
         "SatVision":  "The vision shows the citrine shards and leads the party to Valentina.",
@@ -104,8 +104,8 @@ function getPartiesData() {
         "Party":  "Uri-Kesh",
         "StaffMemberName":  "Brian Neff",
         "CompanionName":  "Urving",
-        "BackgroundColor":  "Red (#f4cccc)",
-        "TableColor":  "Red (#f4cccc)",
+        "BackgroundColor":  "Red (#ff0000)",
+        "TableColor":  "Red (#ff0000)",
         "TextColor":  "Black (#000000)",
         "Riddle":  "The riddle mentions walking away from Hillcrest toward Winterhill Clearing, pausing along the way in Greystone Clearing. the pendant is at the base of the tree, under some debris.",
         "SatVision":  "The vision shows the sterling silver heart box and will (hopefully) lead the party to Obsidian.",
@@ -115,8 +115,8 @@ function getPartiesData() {
         "Party":  "Waylon",
         "StaffMemberName":  "Britt Rothauser",
         "CompanionName":  "Waverly",
-        "BackgroundColor":  "Orange (#fce5cd)",
-        "TableColor":  "Orange (#fce5cd)",
+        "BackgroundColor":  "Orange (#ff9900)",
+        "TableColor":  "Orange (#ff9900)",
         "TextColor":  "Black (#000000)",
         "Riddle":  "\u0027man dressed all in red\u0027 riddle; fire circle on little hill next to graveyard, jade egg",
         "SatVision":  "The vision shows the skull cup and (hopefully!) leads the party to Jack Brigham.",
@@ -326,93 +326,93 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Dimitri",
     "time": "Contact",
     "item": "--"
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Denison Bannister",
     "time": "2nd Friday",
     "item": "--"
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Kyson Wayseeker",
     "time": "3rd Friday",
     "item": "--"
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Kiko Truthspeaker",
     "time": "4th Friday",
     "item": "list of items"
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Kismet O'Connor",
     "time": "1st Saturday",
     "item": "seafoam sphere",
     "PathItem": true
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Carmen",
     "time": "10am-4pm, 6pm-7:30pm, 10:15pm-12am",
     "item": "silver incense burner",
     "PathItem": true
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Chester Valerius",
     "time": "11am-4pm, 10:15pm-12am",
     "item": "whiteleaf sage",
     "PathItem": true
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Elliot Ash",
     "time": "8am-3pm, 10:15pm-12am",
     "item": "water from the River Sigh",
     "PathItem": true
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Phaedra Pax",
     "time": "11am-4pm, 10:15pm-12am",
     "item": "snakes-eye talisman",
     "PathItem": true
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Edwina Duttmiler",
     "time": "8:30am-2pm, 10:15pm-12am",
     "item": "signalstone ring",
     "PathItem": true
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Bitty Smirch",
     "time": "8am-11am, 1pm-5pm",
     "item": "gemwing butterfly",
     "PathItem": true
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Cade Wyatt",
     "time": "4-7pm (last entry at 6:45pm)",
     "item": "folly dust",
     "PathItem": true
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Chester Valerius",
     "time": "9:45am Sunday",
     "item": "merula-fruit cordial"
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "conjuring the pixie dust",
     "time": "10am Sunday",
     "item": "--"
@@ -1225,7 +1225,7 @@ function getPathsData() {
     "Riddle": true
   },
   {
-    "party": "Dolorón",
+    "party": "DolorÃ³n",
     "staff": "Endymion",
     "time": "9am-5:30pm",
     "item": "Riddle",
@@ -1307,7 +1307,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Nice interaction. He’s never been to Mystal. If they ask, yes, he stole the jewelry & destroyed it—sorry.",
+          "Summary": "Nice interaction. Heï¿½s never been to Mystal. If they ask, yes, he stole the jewelry & destroyed itï¿½sorry.",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -1477,7 +1477,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Kullis told Simon, “You need to tell her!” before Simon died.",
+          "Summary": "Kullis told Simon, ï¿½You need to tell her!ï¿½ before Simon died.",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -1487,7 +1487,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Jewelry was hidden in Wren’s sugar sack. (Shows jewelry.)",
+          "Summary": "Jewelry was hidden in Wrenï¿½s sugar sack. (Shows jewelry.)",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -1821,7 +1821,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Hazel wrote a few exposé pieces on the mob shortly before this but breaking the story of Lucia Rinaldi's murder was her big break. Now she's here in World's Edge reporting on the Trek. She has surprising insights into the mob mentality",
+          "Summary": "Hazel wrote a few exposï¿½ pieces on the mob shortly before this but breaking the story of Lucia Rinaldi's murder was her big break. Now she's here in World's Edge reporting on the Trek. She has surprising insights into the mob mentality",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -1957,7 +1957,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "He has his arm in a sling.\n\"Have you seen this guy? I really need to find him.\" Shows them Scarpetti's badge\nHopefully the party says \"That's John Doe!\" Gallbladder is delighted to hear that S is alive but needs to know more.\nHopefully the party puts it all together, figuring out that S was undercover with the mob, isn't really a henchman. G prods as needed till they get there\nGallbladder tells the party that rumor has is that Angelo Vitale is on his way to WE. G was afraid he'd be too late, but it sounds like maybe he wasn't. He gives the party some (but not all) the info they'll need to know to fight Vitale.\nFrom his communiqués from Scarpetti, Gallbladder knows that AV has a magic item that renders him invulnerable to both weapons and magic. It's not all-powerful, though: it only works while a certain sound is audible. Give an example with something that's NOT talking! This item belonged to AV's father and when he had it, it was keyed to the sound of waves. When AV killed his father, it was because he lured him deep underground where the waves couldn't be heard.",
+          "Summary": "He has his arm in a sling.\n\"Have you seen this guy? I really need to find him.\" Shows them Scarpetti's badge\nHopefully the party says \"That's John Doe!\" Gallbladder is delighted to hear that S is alive but needs to know more.\nHopefully the party puts it all together, figuring out that S was undercover with the mob, isn't really a henchman. G prods as needed till they get there\nGallbladder tells the party that rumor has is that Angelo Vitale is on his way to WE. G was afraid he'd be too late, but it sounds like maybe he wasn't. He gives the party some (but not all) the info they'll need to know to fight Vitale.\nFrom his communiquï¿½s from Scarpetti, Gallbladder knows that AV has a magic item that renders him invulnerable to both weapons and magic. It's not all-powerful, though: it only works while a certain sound is audible. Give an example with something that's NOT talking! This item belonged to AV's father and when he had it, it was keyed to the sound of waves. When AV killed his father, it was because he lured him deep underground where the waves couldn't be heard.",
           "CriticalAmount": "",
           "Characters": [
             {
@@ -2478,7 +2478,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "PARTY PATH ENCOUNTER - she has cedarwood box they need.  It was a wedding present from Solomon’s old first mate who claimed to have stolen it from the Pirate King",
+          "Summary": "PARTY PATH ENCOUNTER - she has cedarwood box they need.  It was a wedding present from Solomonï¿½s old first mate who claimed to have stolen it from the Pirate King",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -2508,7 +2508,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Scurvy Jack is such a famous pirate that there's a play about him happening in Dolorón",
+          "Summary": "Scurvy Jack is such a famous pirate that there's a play about him happening in DolorÃ³n",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -2530,7 +2530,7 @@ function getChargesData() {
               "Conditions": ""
             },
             {
-              "CharacterName": "Aruña Valerius",
+              "CharacterName": "Aruï¿½a Valerius",
               "Conditions": ""
             },
             {
@@ -2588,7 +2588,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "there was a fight in the tavern on some recent night. was surprised to find Jack Brigham hiding under a table, saying “Not the face!” Unexpected from a pirate.",
+          "Summary": "there was a fight in the tavern on some recent night. was surprised to find Jack Brigham hiding under a table, saying ï¿½Not the face!ï¿½ Unexpected from a pirate.",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -2608,7 +2608,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Scurvy Jack is peeved to be in World’s Edge for 3 hours. He’s very busy! If only someone could handle some of his public appearances…",
+          "Summary": "Scurvy Jack is peeved to be in Worldï¿½s Edge for 3 hours. Heï¿½s very busy! If only someone could handle some of his public appearancesï¿½",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -3067,7 +3067,7 @@ function getChargesData() {
     },
     {
       "Title": "Lord Orlando Fairfax charged with embezzling",
-      "Party": "Dolorón",
+      "Party": "DolorÃ³n",
       "Groups": [
         {
           "Summary": "assigns charge",
@@ -3208,7 +3208,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "The man calling himself Orlando Fairfax is indeed serious about not wasting money, but he’s also used to humble accommodations, since he’s not really a duke’s son.  This also reminds the party of “Orlando”’s role as Master of the Garrison, a fact that will matter on Sunday",
+          "Summary": "The man calling himself Orlando Fairfax is indeed serious about not wasting money, but heï¿½s also used to humble accommodations, since heï¿½s not really a dukeï¿½s son.  This also reminds the party of ï¿½Orlandoï¿½ï¿½s role as Master of the Garrison, a fact that will matter on Sunday",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -3588,7 +3588,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Trek prize money is in a suitcase with a slot cut in the lid so that more coins can be added to the case. This suitcase is in Throg’s possession constantly",
+          "Summary": "Trek prize money is in a suitcase with a slot cut in the lid so that more coins can be added to the case. This suitcase is in Throgï¿½s possession constantly",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -3598,7 +3598,7 @@ function getChargesData() {
           ]
         },
         {
-          "Summary": "Trek prize money is in a suitcase with a slot cut in the lid so that more coins can be added to the case. This suitcase is in Throg’s possession constantly",
+          "Summary": "Trek prize money is in a suitcase with a slot cut in the lid so that more coins can be added to the case. This suitcase is in Throgï¿½s possession constantly",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -3634,7 +3634,7 @@ function getChargesData() {
               "Conditions": ""
             },
             {
-              "CharacterName": "Aruña Valerius",
+              "CharacterName": "Aruï¿½a Valerius",
               "Conditions": ""
             }
           ]
