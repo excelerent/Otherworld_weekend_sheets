@@ -602,7 +602,6 @@ function setupStaffCampSheet() {
     
     // Populate Staff List in Column J
     const allStaff = getAllStaffData();
-    sheet.getRange(1, 10).setValue("Staff List").setFontWeight("bold").setHorizontalAlignment("center");
     if (allStaff.length > 0) {
         const staffValues = allStaff.map(name => [name]);
         sheet.getRange(2, 10, staffValues.length, 1).setValues(staffValues);
