@@ -194,13 +194,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Arden",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Clairia",
     "staff": "Dex Dempsey",
     "time": "Contact",
@@ -300,13 +293,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Clairia",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Dolorón",
     "staff": "Dimitri",
     "time": "Contact",
@@ -397,13 +383,6 @@ function getPathsData() {
     "staff": "conjuring the pixie dust",
     "time": "10am Sunday",
     "item": "--"
-  },
-  {
-    "party": "Dolorón",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Elsewhich",
@@ -504,13 +483,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Elsewhich",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Glendeep",
     "staff": "Leo North",
     "time": "Contact",
@@ -552,7 +524,7 @@ function getPathsData() {
     "party": "Glendeep",
     "staff": "Cassidy Adams",
     "time": "8am-11am, 1pm-7:15pm, 10:15pm-12am",
-    "item": "none (she'll meet them at 9:30am in the tavern wearing the shadow ward)",
+    "item": "none until tomorrow",
     "PathItem": true
   },
   {
@@ -611,13 +583,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Glendeep",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Keer",
     "staff": "Wren Sorenson",
     "time": "Contact",
@@ -645,7 +610,7 @@ function getPathsData() {
     "party": "Keer",
     "staff": "Sergei",
     "time": "1st Saturday",
-    "item": "perfect sphere of air bubble necklace",
+    "item": "perfect sphere of air necklace",
     "PathItem": true
   },
   {
@@ -715,13 +680,6 @@ function getPathsData() {
     "staff": "summoning the Knights of the Golden Circle",
     "time": "9:45am Sunday",
     "item": "--"
-  },
-  {
-    "party": "Keer",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Noctara",
@@ -823,13 +781,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Noctara",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "P'loa",
     "staff": "Julian Valerius",
     "time": "Contact",
@@ -892,7 +843,7 @@ function getPathsData() {
     "party": "P'loa",
     "staff": "Alexandra Rayfield",
     "time": "8am-1pm, 3pm-5pm, 10:15pm-12am",
-    "item": "tortoiseshell comb (formerly Elani Edgewater's)",
+    "item": "tortoiseshell comb",
     "PathItem": true
   },
   {
@@ -927,13 +878,6 @@ function getPathsData() {
     "staff": "doing the ritual of togethering",
     "time": "10:30am Sunday",
     "item": "--"
-  },
-  {
-    "party": "P'loa",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Sythwan",
@@ -1036,13 +980,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Sythwan",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Uri-Kesh",
     "staff": "Cat Morse",
     "time": "Contact",
@@ -1142,13 +1079,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Uri-Kesh",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Waylon",
     "staff": "Christophe Valerius",
     "time": "Contact",
@@ -1246,13 +1176,6 @@ function getPathsData() {
     "staff": "giving the Testimony wine to Ursula Smirch",
     "time": "9:45am Sunday",
     "item": "--"
-  },
-  {
-    "party": "Waylon",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Arden",
@@ -3799,4 +3722,133 @@ function getMonsterData() {
     "Creeper 2"
   ]
   };
+}
+
+function getAllStaffData() {
+  return [
+    "Aaron Size",
+    "Abigail Vargus",
+    "Alex Sheehan",
+    "Alison Morris",
+    "Ana Quintana",
+    "Anna Kelly",
+    "Ariel Jaffee",
+    "Ben Warren",
+    "Betsy Rosenblatt",
+    "Bill Sabram",
+    "Bob Coury",
+    "Bob Marriott",
+    "Bri Taborn",
+    "Brian Neff",
+    "Brian Scassellati",
+    "Britt Rothauser",
+    "Carl Harkness",
+    "Cecilia Lindgren",
+    "Chelsea Hadlock",
+    "Chris Ercole",
+    "Chris Reichert",
+    "Christine Reeves",
+    "Cliff Young",
+    "Cris Shuldiner",
+    "Dana Sullivan",
+    "Dave Kamin",
+    "Dave Korka",
+    "Dave Nadig",
+    "Deb Lack",
+    "Deo Gallotto",
+    "Diana Galanakis",
+    "Dorian Hart",
+    "Edgar Fisher",
+    "Eileen Christiansen",
+    "Eleanor Smith-Dufresne",
+    "Eli Hunt",
+    "Ember Mullen",
+    "Emily Bernier",
+    "Erhard Konerding",
+    "Erin Rohan",
+    "Esther Lee",
+    "Gareth Hinds",
+    "Greg Reid",
+    "Greg Rothauser",
+    "Gretchen Albright",
+    "Henny Admoni",
+    "Ian Osborne",
+    "James Surano",
+    "Janet Potter",
+    "Jeff Anderson",
+    "Jeff Foley",
+    "Jeff Yaus",
+    "Jen Morris",
+    "Jen Platt",
+    "Jessica Bodenlos",
+    "Jill Bourgeois",
+    "Jim Vincent",
+    "Jo Agostinelli",
+    "Jodi Riley",
+    "John Nann",
+    "Jordan Barton",
+    "Joyce Farnsworth",
+    "Julie Gruszynske",
+    "Julie Leviter",
+    "Justin Hart",
+    "Katherine Foley",
+    "Katherine Greene",
+    "Katie Paugh",
+    "Kayla Schlenz",
+    "Ken Marden",
+    "Kenneth Reeves",
+    "Kevin Kulp",
+    "Kim Ricket",
+    "Kris Size",
+    "Kristi Hayes",
+    "Lance Nathan",
+    "Lane Daniels",
+    "Laura Hiatt",
+    "Leah Shuldiner",
+    "Linda Bennet",
+    "Lindsay Daviau",
+    "Lori Nadig",
+    "Madeline Gorey",
+    "Maisie Sturtevant",
+    "Mara Feingold-Link",
+    "Margot Holmes",
+    "Marlena Soble",
+    "Marsha Gershon",
+    "Matt Miles",
+    "Matthew Scott",
+    "Melissa Osborne",
+    "Merri Rosen",
+    "Michelle Nathan",
+    "Mike Dion",
+    "Mike Hsieh",
+    "Mike Robb",
+    "Mike Scandizzo",
+    "Mirin Scassellati",
+    "Morgan Harris-Warrick",
+    "Nadav Barkaee",
+    "Neal Desai",
+    "Nils Klinkenberg",
+    "Ozzie Osborne",
+    "Paul San Clemente",
+    "Peggy O'Connell",
+    "Ra-Mel McNeil",
+    "Rhea Feiman",
+    "Rich Pellosie",
+    "Rob Daviau",
+    "Roman Feiman",
+    "Rowan Scassellati",
+    "Sarah San Clemente",
+    "Scott Moore",
+    "Sherry Rinell",
+    "Steve Spodaryk",
+    "Susan Gerow",
+    "Tammie Stevens",
+    "Tasi O'Malley",
+    "Tenille Reichert",
+    "Tim Ballew",
+    "Tom Ricket",
+    "Tricia Boynton",
+    "Vanessa Robb",
+    "Zak Terry"
+  ];
 }

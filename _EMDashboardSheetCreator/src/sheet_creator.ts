@@ -34,6 +34,11 @@ interface Charge {
     Groups: Group[];
 }
 
+declare function getPartiesData(): { Parties: Party[] };
+declare function getPathsData(): PathEncounter[];
+declare function getChargesData(): { Charges: Charge[] };
+declare function getAllStaffData(): string[];
+
 function createDashboardSheets() {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const PARTIES_DATA = getPartiesData();
@@ -366,7 +371,7 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
             
             const critical = group.CriticalAmount || "1";
             const reqText = groupSize === 1 ? "Need" : `Need ${critical}`;
-            reqCell.merge().setValue(reqText).setVerticalAlignment("top").setHorizontalAlignment("center").setWrap(true);
+            reqCell.merge().setValue(reqText).setVerticalAlignment("top").setHorizontalAlignment("left").setWrap(true);
 
             // Auto-resize rows to fit merged text
             sheet.autoResizeRows(currentRow, groupSize);
@@ -636,6 +641,11 @@ function setupStaffCampSheet() {
 
     // Situation & Medical Log Border
     sheet.getRange(2, 6, targetRows - 1, 2).setBorder(true, true, true, true, null, null, "black", SpreadsheetApp.BorderStyle.SOLID);
+
+    // Data validation for Staff column (Column C)
+    const allStaff = getAllStaffData();
+    const staffValidation = SpreadsheetApp.newDataValidation().requireValueInList(allStaff).build();
+    sheet.getRange(2, 3, targetRows - 1, 1).setDataValidation(staffValidation);
 
     ss.toast("Staff/Camp sheet formatted and validated.", "Setup");
 }
