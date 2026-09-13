@@ -588,6 +588,8 @@ function setupStaffCampSheet() {
     sheet.setColumnWidth(6, 400); // Situation
     sheet.setColumnWidth(7, 400); // Medical Log
     sheet.setColumnWidth(8, 100); // Type
+    sheet.setColumnWidth(9, 20);  // Spacer
+    sheet.setColumnWidth(10, 150); // Staff List (Column J)
 
     const maxRows = sheet.getMaxRows();
     const targetRows = Math.min(maxRows, 70);
@@ -597,6 +599,14 @@ function setupStaffCampSheet() {
     
     // Freeze first row
     sheet.setFrozenRows(1);
+    
+    // Populate Staff List in Column J
+    const allStaff = getAllStaffData();
+    sheet.getRange(1, 10).setValue("Staff List").setFontWeight("bold").setHorizontalAlignment("center");
+    if (allStaff.length > 0) {
+        const staffValues = allStaff.map(name => [name]);
+        sheet.getRange(2, 10, staffValues.length, 1).setValues(staffValues);
+    }
     
     // Conditional Formatting
     const rules = [];
@@ -643,7 +653,6 @@ function setupStaffCampSheet() {
     sheet.getRange(2, 6, targetRows - 1, 2).setBorder(true, true, true, true, null, null, "black", SpreadsheetApp.BorderStyle.SOLID);
 
     // Data validation for Staff column (Column C)
-    const allStaff = getAllStaffData();
     const staffValidation = SpreadsheetApp.newDataValidation().requireValueInList(allStaff).build();
     sheet.getRange(2, 3, targetRows - 1, 1).setDataValidation(staffValidation);
 
