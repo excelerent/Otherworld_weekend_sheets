@@ -99,13 +99,6 @@
     "item": "--"
   },
   {
-    "party": "Arden",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Clairia",
     "staff": "Dex Dempsey",
     "time": "Contact",
@@ -205,13 +198,6 @@
     "item": "--"
   },
   {
-    "party": "Clairia",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Dolorón",
     "staff": "Dimitri",
     "time": "Contact",
@@ -302,13 +288,6 @@
     "staff": "conjuring the pixie dust",
     "time": "10am Sunday",
     "item": "--"
-  },
-  {
-    "party": "Dolorón",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Elsewhich",
@@ -407,13 +386,6 @@
     "staff": "consecrating the magical healing cup with Kira",
     "time": "10am Sunday",
     "item": "--"
-  },
-  {
-    "party": "Elsewhich",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Glendeep",
@@ -516,13 +488,6 @@
     "item": "--"
   },
   {
-    "party": "Glendeep",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Keer",
     "staff": "Wren Sorenson",
     "time": "Contact",
@@ -620,13 +585,6 @@
     "staff": "summoning the Knights of the Golden Circle",
     "time": "9:45am Sunday",
     "item": "--"
-  },
-  {
-    "party": "Keer",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Noctara",
@@ -728,13 +686,6 @@
     "item": "--"
   },
   {
-    "party": "Noctara",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "P'loa",
     "staff": "Julian Valerius",
     "time": "Contact",
@@ -832,13 +783,6 @@
     "staff": "doing the ritual of togethering",
     "time": "10:30am Sunday",
     "item": "--"
-  },
-  {
-    "party": "P'loa",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Sythwan",
@@ -941,13 +885,6 @@
     "item": "--"
   },
   {
-    "party": "Sythwan",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Uri-Kesh",
     "staff": "Cat Morse",
     "time": "Contact",
@@ -1047,13 +984,6 @@
     "item": "--"
   },
   {
-    "party": "Uri-Kesh",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Waylon",
     "staff": "Christophe Valerius",
     "time": "Contact",
@@ -1151,13 +1081,6 @@
     "staff": "giving the Testimony wine to Ursula Smirch",
     "time": "9:45am Sunday",
     "item": "--"
-  },
-  {
-    "party": "Waylon",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Arden",

@@ -236,7 +236,7 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     sheet.setColumnWidth(4, 200); // D
     sheet.setColumnWidth(5, 20);  // E
     sheet.setColumnWidth(6, 80);  // F
-    sheet.setColumnWidth(7, 120); // G
+    sheet.setColumnWidth(7, 150); // G
     sheet.setColumnWidth(8, 300); // H
     sheet.setColumnWidth(9, 80);  // I
     sheet.setColumnWidth(10, 1);  // J
@@ -429,10 +429,17 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     // Comments Section (after Path Table)
     const pathEncountersCount = partyEncounters.length;
     const commentsStartRow = pathStartRow + 1 + pathEncountersCount + 1;
-    sheet.getRange(commentsStartRow, 1).setValue("Comments").setFontWeight("bold");
+    sheet.getRange(commentsStartRow, 1).setValue("Staff").setFontWeight("bold");
+    sheet.getRange(commentsStartRow, 2).setValue("Comments").setFontWeight("bold");
     
-    // Merged cell for comments
-    const commentRange = sheet.getRange(commentsStartRow + 1, 1, 10, 4);
+    // Column A: Staff dropdown
+    const staffDropdownRange = sheet.getRange(commentsStartRow + 1, 1, 10, 1);
+    const allStaff = ["Anonymous", ...getAllStaffData()];
+    const validation = SpreadsheetApp.newDataValidation().requireValueInList(allStaff).build();
+    staffDropdownRange.setDataValidation(validation);
+
+    // Merged cell for comments (Columns B-D)
+    const commentRange = sheet.getRange(commentsStartRow + 1, 2, 10, 3);
     commentRange.mergeAcross().setBorder(true, true, true, true, false, false, "black", SpreadsheetApp.BorderStyle.SOLID_THICK);
     
     // Take from the notes section of the Import Sheet.
@@ -447,7 +454,7 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
 
     const flattenArr = `{${pathNotesRange}; ${chargeNotesRange}; ${generalNotesRange}}`;
     const formula = `=IFERROR(FILTER(FLATTEN(${flattenArr}), FLATTEN(${flattenArr}) <> ""), "")`;
-    sheet.getRange(commentsStartRow + 1, 1).setFormula(formula);
+    sheet.getRange(commentsStartRow + 1, 2).setFormula(formula);
     
     // The comments section should be surrounded by a black 2pt border.
     sheet.getRange(commentsStartRow, 1, 11, 4).setBorder(true, true, true, true, false, false, "black", SpreadsheetApp.BorderStyle.SOLID_THICK);
@@ -650,11 +657,7 @@ function setupStaffCampSheet() {
 
     // Situation & Medical Log Border
     sheet.getRange(2, 6, targetRows - 1, 2).setBorder(true, true, true, true, null, null, "black", SpreadsheetApp.BorderStyle.SOLID);
-
-    // Data validation for Staff column (Column C)
-    const staffValidation = SpreadsheetApp.newDataValidation().requireValueInList(allStaff).build();
-    sheet.getRange(2, 3, targetRows - 1, 1).setDataValidation(staffValidation);
-
+    
     ss.toast("Staff/Camp sheet formatted and validated.", "Setup");
 }
 

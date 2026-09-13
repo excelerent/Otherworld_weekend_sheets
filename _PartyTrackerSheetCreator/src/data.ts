@@ -194,13 +194,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Arden",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Clairia",
     "staff": "Dex Dempsey",
     "time": "Contact",
@@ -300,13 +293,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Clairia",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Dolorón",
     "staff": "Dimitri",
     "time": "Contact",
@@ -397,13 +383,6 @@ function getPathsData() {
     "staff": "conjuring the pixie dust",
     "time": "10am Sunday",
     "item": "--"
-  },
-  {
-    "party": "Dolorón",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Elsewhich",
@@ -502,13 +481,6 @@ function getPathsData() {
     "staff": "consecrating the magical healing cup with Kira",
     "time": "10am Sunday",
     "item": "--"
-  },
-  {
-    "party": "Elsewhich",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Glendeep",
@@ -611,13 +583,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Glendeep",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Keer",
     "staff": "Wren Sorenson",
     "time": "Contact",
@@ -715,13 +680,6 @@ function getPathsData() {
     "staff": "summoning the Knights of the Golden Circle",
     "time": "9:45am Sunday",
     "item": "--"
-  },
-  {
-    "party": "Keer",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Noctara",
@@ -823,13 +781,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Noctara",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "P'loa",
     "staff": "Julian Valerius",
     "time": "Contact",
@@ -927,13 +878,6 @@ function getPathsData() {
     "staff": "doing the ritual of togethering",
     "time": "10:30am Sunday",
     "item": "--"
-  },
-  {
-    "party": "P'loa",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Sythwan",
@@ -1036,13 +980,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Sythwan",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Uri-Kesh",
     "staff": "Cat Morse",
     "time": "Contact",
@@ -1142,13 +1079,6 @@ function getPathsData() {
     "item": "--"
   },
   {
-    "party": "Uri-Kesh",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
-  },
-  {
     "party": "Waylon",
     "staff": "Christophe Valerius",
     "time": "Contact",
@@ -1246,13 +1176,6 @@ function getPathsData() {
     "staff": "giving the Testimony wine to Ursula Smirch",
     "time": "9:45am Sunday",
     "item": "--"
-  },
-  {
-    "party": "Waylon",
-    "staff": "Riddle Item Found?",
-    "time": "--",
-    "item": "--",
-    "RiddleFound": true
   },
   {
     "party": "Arden",
