@@ -3,6 +3,7 @@
     StaffMemberName: string;
     CompanionName: string;
     BackgroundColor: string;
+    TabColor?: string;
     TableColor: string;
     TextColor: string;
     Riddle?: string;
@@ -227,10 +228,11 @@ function buildPartySheets(ss: GoogleAppsScript.Spreadsheet.Spreadsheet, party: P
     // 3. Create Party Sheet
     const sheet = ss.insertSheet(partySheetName);
     const bgColor = getHexColor(party.BackgroundColor);
+    const tabColor = getHexColor(party.TabColor || party.BackgroundColor);
     const tableColor = getHexColor(party.TableColor);
     const textColor = getHexColor(party.TextColor);
 
-    sheet.setTabColor(bgColor);
+    sheet.setTabColor(tabColor);
 
     // Column widths (Updated per ProjectGoal.md)
     sheet.setColumnWidth(1, 80);  // A
@@ -557,14 +559,14 @@ function setupParticipantsPartiesSheet() {
     // Situation Color (Orange if too long)
     rules.push(SpreadsheetApp.newConditionalFormatRule()
         .whenFormulaSatisfied(`=LEN($G2)>260`)
-        .setBackground("#faa94d")
+        .setBackground("#fce5cd")
         .setRanges([sheet.getRange(2, 7, targetRows - 1, 1)])
         .build());
 
     // Medical Log Color (Orange if too long)
     rules.push(SpreadsheetApp.newConditionalFormatRule()
         .whenFormulaSatisfied(`=LEN($H2)>260`)
-        .setBackground("#faa94d")
+        .setBackground("#fce5cd")
         .setRanges([sheet.getRange(2, 8, targetRows - 1, 1)])
         .build());
     
@@ -653,14 +655,14 @@ function setupStaffCampSheet() {
     // Situation Color (Orange if too long)
     rules.push(SpreadsheetApp.newConditionalFormatRule()
         .whenFormulaSatisfied(`=LEN($F2)>260`)
-        .setBackground("#f7a8a8")
+        .setBackground("#fce5cd")
         .setRanges([sheet.getRange(2, 6, targetRows - 1, 1)])
         .build());
 
     // Medical Log Color (Orange if too long)
     rules.push(SpreadsheetApp.newConditionalFormatRule()
         .whenFormulaSatisfied(`=LEN($G2)>260`)
-        .setBackground("#f7a8a8")
+        .setBackground("#fce5cd")
         .setRanges([sheet.getRange(2, 7, targetRows - 1, 1)])
         .build());
 

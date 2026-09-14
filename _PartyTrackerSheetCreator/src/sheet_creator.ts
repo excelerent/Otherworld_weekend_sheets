@@ -3,6 +3,7 @@
     StaffMemberName: string;
     CompanionName: string;
     BackgroundColor: string;
+    TabColor?: string;
     TableColor: string;
     TextColor: string;
 }
@@ -172,9 +173,10 @@ function createTrackerSheet() {
         
         // Tab Color
         const partyColor = getHexColor(party.BackgroundColor);
+        const tabColor = getHexColor(party.TabColor || party.BackgroundColor);
         const partyTableColor = getHexColor(party.TableColor);
         const partyTextColor = getHexColor(party.TextColor);
-        sheet.setTabColor(partyColor);
+        sheet.setTabColor(tabColor);
 
         // Header Section
         sheet.getRange('1:1').setBackground(partyColor).setFontColor(partyTextColor).setFontWeight('bold').setFontSize(27);

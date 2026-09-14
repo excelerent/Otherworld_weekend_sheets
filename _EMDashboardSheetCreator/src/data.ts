@@ -1,128 +1,138 @@
 function getPartiesData() {
   return {
   "Parties": [
-    {
-      "Party": "Arden",
-      "StaffMemberName": "Sherri Rinell",
-      "CompanionName": "Ari",
-      "BackgroundColor": "Dashboard (#b6d7a8)",
-      "TableColor": "Dashboard (#b6d7a8)",
-      "TextColor": "Black (#000000)",
-      "Riddle": "'laughing girl' fire riddle, fire circle in Winterhill Clearing",
-      "SatVision": "Black Diamond Shards - Lead to Nix Valerius",
-      "SunVision": "Toolforger in Wren's Kitchen hiding jewels, not stealing"
-    },
-    {
-      "Party": "Clairia",
-      "StaffMemberName": "James Surano",
-      "CompanionName": "Clem",
-      "BackgroundColor": "Dashboard (#ffffff)",
-      "TableColor": "Dashboard (#ffffff)",
-      "TextColor": "Black (#000000)",
-      "Riddle": "phoenix-bird riddle; tree straddling Summer Stream",
-      "SatVision": "The vision shows the fool's gold and will (hopefully!) lead the party to Sonja Eastwind",
-      "SunVision": "This vision shows Lavinia Quill gathering fairyfrost mushrooms and suggests that she'll use them very soon"
-    },
-    {
-      "Party": "Dolorýn",
-      "StaffMemberName": "Maisie Sturtevant",
-      "CompanionName": "Dodi",
-      "BackgroundColor": "Red (#f4cccc)",
-      "TableColor": "Red (#f4cccc)",
-      "TextColor": "Black (#000000)",
-      "Riddle": "Large Rock, fallen over, along Big Bow Trail halfway between Peaceful Crossing Bridge and entrance to Forsaken Forest",
-      "SatVision": "The vision shows the gemwing butterfly and will (hopefully!) lead the party to Bitty Smirch.",
-      "SunVision": "This vision shows the real and pretend Orlando Fairfax and suggests that the Master of the Garrison medal is more important than they realize"
-    },
-    {
-      "Party": "Elsewhich",
-      "StaffMemberName": "Lori Nadig",
-      "CompanionName": "Elvie",
-      "BackgroundColor": "Dashboard (#cccccc)",
-      "TableColor": "Dashboard (#cccccc)",
-      "TextColor": "Black (#000000)",
-      "Riddle": "Heliotrope Candle, ~120 paces beyond the entrance to the Forsaken Forest, left side of the path are two joined trees with their roots spreading over a grey rock. Candle hidden behind the trees (that is, away from the path.)",
-      "SatVision": "The vision shows the gold laceleaf pendant and will (hopefully!) lead the party to Beckett Knightsbridge.",
-      "SunVision": "The vision (hopefully) suggests that Kira is the one who has magical ability but doesn't know it, and that she is thus the one who can successfully do the ritual with the magic cup"
-    },
-    {
-      "Party": "Glendeep",
-      "StaffMemberName": "Steve Spodaryk",
-      "CompanionName": "Gloucester",
-      "BackgroundColor": "Dashboard (#b7e1cd)",
-      "TableColor": "Dashboard (#b7e1cd)",
-      "TextColor": "Black (#000000)",
-      "Riddle": "Miss Rosie seeing Roamers, rose-quartz orb among rocks under Misty Bridge",
-      "SatVision": "The vision shows the ghost key and will (hopefully) lead the party to Acadia Glen.",
-      "SunVision": "This vision shows Crabtree and Evelyn shielding Jonathan from outside cruelty... but maybe trapping him as well."
-    },
-    {
-      "Party": "Keer",
-      "StaffMemberName": "Bill Sabram",
-      "CompanionName": "Keifer",
-      "BackgroundColor": "Dashboard (#c9daf8)",
-      "TableColor": "Dashboard (#c9daf8)",
-      "TextColor": "Black (#000000)",
-      "Riddle": "'Ewe Whose Eke' riddle; in lake at end of path in Shrine of AllSeasons",
-      "SatVision": "The vision shows the Fortune's Wheel Pendant and will (hopefully!) lead the party to Bumble.",
-      "SunVision": "This vision echoes Throg's dream of roses and chocolate, and then shows the treasure being revealed and taken."
-    },
-    {
-      "Party": "Noctara",
-      "StaffMemberName": "Chelsea Hadlock",
-      "CompanionName": "Nadia",
-      "BackgroundColor": "Dashboard (#b4a7d6)",
-      "TableColor": "Dashboard (#b4a7d6)",
-      "TextColor": "Black (#000000)",
-      "Riddle": "three sisters riddle; buried in center of three triangle stones in Shadownook (amethyst obelisk)",
-      "SatVision": "The vision shows the jester's egg and will (hopefully) lead the party to Bailey.",
-      "SunVision": "This vision shows Astrid and suggests the power the enchanted ring has over her."
-    },
-    {
-      "Party": "P'loa",
-      "StaffMemberName": "Bob Marriott",
-      "CompanionName": "Polo",
-      "BackgroundColor": "Dashboard (#d0e0e3)",
-      "TableColor": "Dashboard (#d0e0e3)",
-      "TextColor": "Black (#000000)",
-      "Riddle": "stone bench riddle; buried in ground at foot of stone bench on Little Bow near the intersection with Rhone Trail",
-      "SatVision": "The vision shows the moonstone shards and leads the party to Frost.",
-      "SunVision": "This vision shows the two Jack Brighams, only one of which is real"
-    },
-    {
-      "Party": "Sythwan",
-      "StaffMemberName": "Joyce Farnsworth",
-      "CompanionName": "Silla",
-      "BackgroundColor": "Dashboard (#fff2cc)",
-      "TableColor": "Dashboard (#fff2cc)",
-      "TextColor": "Black (#000000)",
-      "Riddle": "'Wood Brothers' riddle; attached to underside of the Peaceful Crossing bridge, riddlestone ring",
-      "SatVision": "The vision shows the citrine shards and leads the party to Valentina.",
-      "SunVision": "This vision shows Tad running his illusion scam."
-    },
-    {
-      "Party": "Uri-Kesh",
-      "StaffMemberName": "Brian Neff",
-      "CompanionName": "Urving",
-      "BackgroundColor": "Dashboard (#f4cccc)",
-      "TableColor": "Dashboard (#f4cccc)",
-      "TextColor": "Black (#000000)",
-      "Riddle": "The riddle mentions walking away from Hillcrest toward Winterhill Clearing, pausing along the way in Greystone Clearing. the pendant is at the base of the tree, under some debris.",
-      "SatVision": "The vision shows the sterling silver heart box and will (hopefully) lead the party to Obsidian.",
-      "SunVision": "This vision shows Andrew Rayfield's maker robes and suggests that the gems are hidden within its seams."
-    },
-    {
-      "Party": "Waylon",
-      "StaffMemberName": "Britt Rothauser",
-      "CompanionName": "Waverly",
-      "BackgroundColor": "Dashboard (#fce5cd)",
-      "TableColor": "Dashboard (#fce5cd)",
-      "TextColor": "Black (#000000)",
-      "Riddle": "'man dressed all in red' riddle; fire circle on little hill next to graveyard, jade egg",
-      "SatVision": "The vision shows the skull cup and (hopefully!) leads the party to Jack Brigham.",
-      "SunVision": "The vision hopefully suggests that, just like in a Scooby Doo episode, the ghost isn't truly a ghost and must be unmasked."
-    }
-  ]
+      {
+        "Party": "Arden",
+        "StaffMemberName": "Sherri Rinell",
+        "CompanionName": "Ari",
+        "BackgroundColor": "Dashboard (#b6d7a8)",
+        "TableColor": "Dashboard (#b6d7a8)",
+        "TextColor": "Black (#000000)",
+        "Riddle": "'laughing girl' fire riddle, fire circle in Winterhill Clearing",
+        "SatVision": "Black Diamond Shards - Lead to Nix Valerius",
+        "SunVision": "Toolforger in Wren's Kitchen hiding jewels, not stealing",
+        "TabColor": "Tab (#6aa84f)"
+      },
+      {
+        "Party": "Clairia",
+        "StaffMemberName": "James Surano",
+        "CompanionName": "Clem",
+        "BackgroundColor": "Dashboard (#ffffff)",
+        "TableColor": "Dashboard (#ffffff)",
+        "TextColor": "Black (#000000)",
+        "Riddle": "phoenix-bird riddle; tree straddling Summer Stream",
+        "SatVision": "The vision shows the fool's gold and will (hopefully!) lead the party to Sonja Eastwind",
+        "SunVision": "This vision shows Lavinia Quill gathering fairyfrost mushrooms and suggests that she'll use them very soon",
+        "TabColor": "Tab (#ffffff)"
+      },
+      {
+        "Party": "Dolorï¿½n",
+        "StaffMemberName": "Maisie Sturtevant",
+        "CompanionName": "Dodi",
+        "BackgroundColor": "Red (#f4cccc)",
+        "TableColor": "Red (#f4cccc)",
+        "TextColor": "Black (#000000)",
+        "Riddle": "Large Rock, fallen over, along Big Bow Trail halfway between Peaceful Crossing Bridge and entrance to Forsaken Forest",
+        "SatVision": "The vision shows the gemwing butterfly and will (hopefully!) lead the party to Bitty Smirch.",
+        "SunVision": "This vision shows the real and pretend Orlando Fairfax and suggests that the Master of the Garrison medal is more important than they realize"
+      },
+      {
+        "Party": "Elsewhich",
+        "StaffMemberName": "Lori Nadig",
+        "CompanionName": "Elvie",
+        "BackgroundColor": "Dashboard (#cccccc)",
+        "TableColor": "Dashboard (#cccccc)",
+        "TextColor": "Black (#000000)",
+        "Riddle": "Heliotrope Candle, ~120 paces beyond the entrance to the Forsaken Forest, left side of the path are two joined trees with their roots spreading over a grey rock. Candle hidden behind the trees (that is, away from the path.)",
+        "SatVision": "The vision shows the gold laceleaf pendant and will (hopefully!) lead the party to Beckett Knightsbridge.",
+        "SunVision": "The vision (hopefully) suggests that Kira is the one who has magical ability but doesn't know it, and that she is thus the one who can successfully do the ritual with the magic cup",
+        "TabColor": "Tab (#999999)"
+      },
+      {
+        "Party": "Glendeep",
+        "StaffMemberName": "Steve Spodaryk",
+        "CompanionName": "Gloucester",
+        "BackgroundColor": "Dashboard (#b7e1cd)",
+        "TableColor": "Dashboard (#b7e1cd)",
+        "TextColor": "Black (#000000)",
+        "Riddle": "Miss Rosie seeing Roamers, rose-quartz orb among rocks under Misty Bridge",
+        "SatVision": "The vision shows the ghost key and will (hopefully) lead the party to Acadia Glen.",
+        "SunVision": "This vision shows Crabtree and Evelyn shielding Jonathan from outside cruelty... but maybe trapping him as well.",
+        "TabColor": "Tab (#c5e8b9)"
+      },
+      {
+        "Party": "Keer",
+        "StaffMemberName": "Bill Sabram",
+        "CompanionName": "Keifer",
+        "BackgroundColor": "Dashboard (#c9daf8)",
+        "TableColor": "Dashboard (#c9daf8)",
+        "TextColor": "Black (#000000)",
+        "Riddle": "'Ewe Whose Eke' riddle; in lake at end of path in Shrine of AllSeasons",
+        "SatVision": "The vision shows the Fortune's Wheel Pendant and will (hopefully!) lead the party to Bumble.",
+        "SunVision": "This vision echoes Throg's dream of roses and chocolate, and then shows the treasure being revealed and taken.",
+        "TabColor": "Tab (#9dc0ff)"
+      },
+      {
+        "Party": "Noctara",
+        "StaffMemberName": "Chelsea Hadlock",
+        "CompanionName": "Nadia",
+        "BackgroundColor": "Dashboard (#b4a7d6)",
+        "TableColor": "Dashboard (#b4a7d6)",
+        "TextColor": "Black (#000000)",
+        "Riddle": "three sisters riddle; buried in center of three triangle stones in Shadownook (amethyst obelisk)",
+        "SatVision": "The vision shows the jester's egg and will (hopefully) lead the party to Bailey.",
+        "SunVision": "This vision shows Astrid and suggests the power the enchanted ring has over her.",
+        "TabColor": "Tab (#9900ff)"
+      },
+      {
+        "Party": "P'loa",
+        "StaffMemberName": "Bob Marriott",
+        "CompanionName": "Polo",
+        "BackgroundColor": "Dashboard (#d0e0e3)",
+        "TableColor": "Dashboard (#d0e0e3)",
+        "TextColor": "Black (#000000)",
+        "Riddle": "stone bench riddle; buried in ground at foot of stone bench on Little Bow near the intersection with Rhone Trail",
+        "SatVision": "The vision shows the moonstone shards and leads the party to Frost.",
+        "SunVision": "This vision shows the two Jack Brighams, only one of which is real",
+        "TabColor": "Tab (#00ffff)"
+      },
+      {
+        "Party": "Sythwan",
+        "StaffMemberName": "Joyce Farnsworth",
+        "CompanionName": "Silla",
+        "BackgroundColor": "Dashboard (#fff2cc)",
+        "TableColor": "Dashboard (#fff2cc)",
+        "TextColor": "Black (#000000)",
+        "Riddle": "'Wood Brothers' riddle; attached to underside of the Peaceful Crossing bridge, riddlestone ring",
+        "SatVision": "The vision shows the citrine shards and leads the party to Valentina.",
+        "SunVision": "This vision shows Tad running his illusion scam.",
+        "TabColor": "Tab (#ffe599)"
+      },
+      {
+        "Party": "Uri-Kesh",
+        "StaffMemberName": "Brian Neff",
+        "CompanionName": "Urving",
+        "BackgroundColor": "Dashboard (#f4cccc)",
+        "TableColor": "Dashboard (#f4cccc)",
+        "TextColor": "Black (#000000)",
+        "Riddle": "The riddle mentions walking away from Hillcrest toward Winterhill Clearing, pausing along the way in Greystone Clearing. the pendant is at the base of the tree, under some debris.",
+        "SatVision": "The vision shows the sterling silver heart box and will (hopefully) lead the party to Obsidian.",
+        "SunVision": "This vision shows Andrew Rayfield's maker robes and suggests that the gems are hidden within its seams.",
+        "TabColor": "Tab (#ff0000)"
+      },
+      {
+        "Party": "Waylon",
+        "StaffMemberName": "Britt Rothauser",
+        "CompanionName": "Waverly",
+        "BackgroundColor": "Dashboard (#fce5cd)",
+        "TableColor": "Dashboard (#fce5cd)",
+        "TextColor": "Black (#000000)",
+        "Riddle": "'man dressed all in red' riddle; fire circle on little hill next to graveyard, jade egg",
+        "SatVision": "The vision shows the skull cup and (hopefully!) leads the party to Jack Brigham.",
+        "SunVision": "The vision hopefully suggests that, just like in a Scooby Doo episode, the ghost isn't truly a ghost and must be unmasked.",
+        "TabColor": "Tab (#ff9900)"
+      }
+    ]
     };
 }
 function getPathsData() {
