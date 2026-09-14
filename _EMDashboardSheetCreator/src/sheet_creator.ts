@@ -556,19 +556,26 @@ function setupParticipantsPartiesSheet() {
 
     // Situation Color (Orange if too long)
     rules.push(SpreadsheetApp.newConditionalFormatRule()
-        .whenFormulaSatisfied(`=LEN($G2)>200`)
+        .whenFormulaSatisfied(`=LEN($G2)>260`)
         .setBackground("#faa94d")
         .setRanges([sheet.getRange(2, 7, targetRows - 1, 1)])
         .build());
 
     // Medical Log Color (Orange if too long)
     rules.push(SpreadsheetApp.newConditionalFormatRule()
-        .whenFormulaSatisfied(`=LEN($H2)>200`)
+        .whenFormulaSatisfied(`=LEN($H2)>260`)
         .setBackground("#faa94d")
         .setRanges([sheet.getRange(2, 8, targetRows - 1, 1)])
         .build());
     
     sheet.setConditionalFormatRules(rules);
+
+    // Medical Log Lookup Formula
+    // 1. for each line of the Participants-Parties sheet look up the Party (column C) and the Job (column D) 
+    // and compare to the Medical_Import sheet Party (column B) and Job (column C) 
+    // if they match the summary log should (column G) should be placed in the medical log (column H)
+    const medicalLookupFormula = `IFERROR(VLOOKUP(C2&D2, {ARRAYFORMULA('Medical_Import'!$B$2:$B$200&'Medical_Import'!$C$2:$C$200), 'Medical_Import'!$G$2:$G$200}, 2, FALSE), "")`;
+    sheet.getRange(2, 8, targetRows - 1, 1).setFormula(`=${medicalLookupFormula}`);
 
     // Situation & Medical Log Border
     sheet.getRange(2, 7, targetRows - 1, 2).setBorder(true, true, true, true, null, null, "black", SpreadsheetApp.BorderStyle.SOLID);
@@ -645,19 +652,26 @@ function setupStaffCampSheet() {
 
     // Situation Color (Orange if too long)
     rules.push(SpreadsheetApp.newConditionalFormatRule()
-        .whenFormulaSatisfied(`=LEN($F2)>60`)
+        .whenFormulaSatisfied(`=LEN($F2)>260`)
         .setBackground("#f7a8a8")
         .setRanges([sheet.getRange(2, 6, targetRows - 1, 1)])
         .build());
 
     // Medical Log Color (Orange if too long)
     rules.push(SpreadsheetApp.newConditionalFormatRule()
-        .whenFormulaSatisfied(`=LEN($G2)>60`)
+        .whenFormulaSatisfied(`=LEN($G2)>260`)
         .setBackground("#f7a8a8")
         .setRanges([sheet.getRange(2, 7, targetRows - 1, 1)])
         .build());
 
     sheet.setConditionalFormatRules(rules);
+
+    // Medical Log Lookup Formula
+    // 2. for each line of the Staff/Camp sheet look up the name of the staff member (Column C) 
+    // and compare to the name in the Medical_Import sheet (Column A) 
+    // if they match the summary log should (column G) should be placed in the medical log (column G)
+    const staffMedicalLookupFormula = `IFERROR(VLOOKUP(C2, 'Medical_Import'!$A$2:$G$200, 7, FALSE), "")`;
+    sheet.getRange(2, 7, targetRows - 1, 1).setFormula(`=${staffMedicalLookupFormula}`);
 
     // Situation & Medical Log Border
     sheet.getRange(2, 6, targetRows - 1, 2).setBorder(true, true, true, true, null, null, "black", SpreadsheetApp.BorderStyle.SOLID);
