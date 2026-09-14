@@ -15,7 +15,7 @@
           ]
         },
         {
-          "Summary": "Nice interaction. He’s never been to Mystal. If they ask, yes, he stole the jewelry & destroyed it—sorry.",
+          "Summary": "Nice interaction. Hes never been to Mystal. If they ask, yes, he stole the jewelry & destroyed itsorry.",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -185,7 +185,7 @@
           ]
         },
         {
-          "Summary": "Kullis told Simon, “You need to tell her!” before Simon died.",
+          "Summary": "Kullis told Simon, You need to tell her! before Simon died.",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -195,7 +195,7 @@
           ]
         },
         {
-          "Summary": "Jewelry was hidden in Wren’s sugar sack. (Shows jewelry.)",
+          "Summary": "Jewelry was hidden in Wrens sugar sack. (Shows jewelry.)",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -529,7 +529,7 @@
           ]
         },
         {
-          "Summary": "Hazel wrote a few exposé pieces on the mob shortly before this but breaking the story of Lucia Rinaldi's murder was her big break. Now she's here in World's Edge reporting on the Trek. She has surprising insights into the mob mentality",
+          "Summary": "Hazel wrote a few expos pieces on the mob shortly before this but breaking the story of Lucia Rinaldi's murder was her big break. Now she's here in World's Edge reporting on the Trek. She has surprising insights into the mob mentality",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -665,7 +665,7 @@
           ]
         },
         {
-          "Summary": "He has his arm in a sling.\n\"Have you seen this guy? I really need to find him.\" Shows them Scarpetti's badge\nHopefully the party says \"That's John Doe!\" Gallbladder is delighted to hear that S is alive but needs to know more.\nHopefully the party puts it all together, figuring out that S was undercover with the mob, isn't really a henchman. G prods as needed till they get there\nGallbladder tells the party that rumor has is that Angelo Vitale is on his way to WE. G was afraid he'd be too late, but it sounds like maybe he wasn't. He gives the party some (but not all) the info they'll need to know to fight Vitale.\nFrom his communiqués from Scarpetti, Gallbladder knows that AV has a magic item that renders him invulnerable to both weapons and magic. It's not all-powerful, though: it only works while a certain sound is audible. Give an example with something that's NOT talking! This item belonged to AV's father and when he had it, it was keyed to the sound of waves. When AV killed his father, it was because he lured him deep underground where the waves couldn't be heard.",
+          "Summary": "He has his arm in a sling.\n\"Have you seen this guy? I really need to find him.\" Shows them Scarpetti's badge\nHopefully the party says \"That's John Doe!\" Gallbladder is delighted to hear that S is alive but needs to know more.\nHopefully the party puts it all together, figuring out that S was undercover with the mob, isn't really a henchman. G prods as needed till they get there\nGallbladder tells the party that rumor has is that Angelo Vitale is on his way to WE. G was afraid he'd be too late, but it sounds like maybe he wasn't. He gives the party some (but not all) the info they'll need to know to fight Vitale.\nFrom his communiqus from Scarpetti, Gallbladder knows that AV has a magic item that renders him invulnerable to both weapons and magic. It's not all-powerful, though: it only works while a certain sound is audible. Give an example with something that's NOT talking! This item belonged to AV's father and when he had it, it was keyed to the sound of waves. When AV killed his father, it was because he lured him deep underground where the waves couldn't be heard.",
           "CriticalAmount": "",
           "Characters": [
             {
@@ -1186,7 +1186,7 @@
           ]
         },
         {
-          "Summary": "PARTY PATH ENCOUNTER - she has cedarwood box they need.  It was a wedding present from Solomon’s old first mate who claimed to have stolen it from the Pirate King",
+          "Summary": "PARTY PATH ENCOUNTER - she has cedarwood box they need.  It was a wedding present from Solomons old first mate who claimed to have stolen it from the Pirate King",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -1216,7 +1216,7 @@
           ]
         },
         {
-          "Summary": "Scurvy Jack is such a famous pirate that there's a play about him happening in Dolorón",
+          "Summary": "Scurvy Jack is such a famous pirate that there's a play about him happening in Doloron",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -1238,7 +1238,7 @@
               "Conditions": ""
             },
             {
-              "CharacterName": "Aruña Valerius",
+              "CharacterName": "Aruna Valerius",
               "Conditions": ""
             },
             {
@@ -1296,7 +1296,7 @@
           ]
         },
         {
-          "Summary": "there was a fight in the tavern on some recent night. was surprised to find Jack Brigham hiding under a table, saying “Not the face!” Unexpected from a pirate.",
+          "Summary": "there was a fight in the tavern on some recent night. was surprised to find Jack Brigham hiding under a table, saying Not the face! Unexpected from a pirate.",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -1316,7 +1316,7 @@
           ]
         },
         {
-          "Summary": "Scurvy Jack is peeved to be in World’s Edge for 3 hours. He’s very busy! If only someone could handle some of his public appearances…",
+          "Summary": "Scurvy Jack is peeved to be in Worlds Edge for 3 hours. Hes very busy! If only someone could handle some of his public appearances",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -1775,7 +1775,7 @@
     },
     {
       "Title": "Lord Orlando Fairfax charged with embezzling",
-      "Party": "Dolorón",
+      "Party": "Doloron",
       "Groups": [
         {
           "Summary": "assigns charge",
@@ -1916,7 +1916,7 @@
           ]
         },
         {
-          "Summary": "The man calling himself Orlando Fairfax is indeed serious about not wasting money, but he’s also used to humble accommodations, since he’s not really a duke’s son.  This also reminds the party of “Orlando”’s role as Master of the Garrison, a fact that will matter on Sunday",
+          "Summary": "The man calling himself Orlando Fairfax is indeed serious about not wasting money, but hes also used to humble accommodations, since hes not really a dukes son.  This also reminds the party of Orlandos role as Master of the Garrison, a fact that will matter on Sunday",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -2296,7 +2296,7 @@
           ]
         },
         {
-          "Summary": "Trek prize money is in a suitcase with a slot cut in the lid so that more coins can be added to the case. This suitcase is in Throg’s possession constantly",
+          "Summary": "Trek prize money is in a suitcase with a slot cut in the lid so that more coins can be added to the case. This suitcase is in Throgs possession constantly",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -2306,7 +2306,7 @@
           ]
         },
         {
-          "Summary": "Trek prize money is in a suitcase with a slot cut in the lid so that more coins can be added to the case. This suitcase is in Throg’s possession constantly",
+          "Summary": "Trek prize money is in a suitcase with a slot cut in the lid so that more coins can be added to the case. This suitcase is in Throgs possession constantly",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -2342,7 +2342,7 @@
               "Conditions": ""
             },
             {
-              "CharacterName": "Aruña Valerius",
+              "CharacterName": "Aruna Valerius",
               "Conditions": ""
             }
           ]

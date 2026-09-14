@@ -19,11 +19,11 @@
       "TableColor": "White (#ffffff)",
       "TextColor": "Black (#000000)",
       "Riddle": "phoenix-bird riddle; tree straddling Summer Stream",
-      "SatVision": "The vision shows the fool’s gold and will (hopefully!) lead the party to Sonja Eastwind",
-      "SunVision": "This vision shows Lavinia Quill gathering fairyfrost mushrooms and suggests that she’ll use them very soon"
+      "SatVision": "The vision shows the fools gold and will (hopefully!) lead the party to Sonja Eastwind",
+      "SunVision": "This vision shows Lavinia Quill gathering fairyfrost mushrooms and suggests that shell use them very soon"
     },
     {
-      "Party": "Dolorón",
+      "Party": "Doloron",
       "StaffMemberName": "Maisie Sturtevant",
       "CompanionName": "Dodi",
       "BackgroundColor": "Red (#f4cccc)",
@@ -63,7 +63,7 @@
       "TableColor": "Blue (#9dc0ff)",
       "TextColor": "Black (#000000)",
       "Riddle": "'Ewe Whose Eke' riddle; in lake at end of path in Shrine of AllSeasons",
-      "SatVision": "The vision shows the Fortune’s Wheel Pendant and will (hopefully!) lead the party to Bumble.",
+      "SatVision": "The vision shows the Fortunes Wheel Pendant and will (hopefully!) lead the party to Bumble.",
       "SunVision": "This vision echoes Throg's dream of roses and chocolate, and then shows the treasure being revealed and taken."
     },
     {
@@ -74,7 +74,7 @@
       "TableColor": "Purple (#9900ff)",
       "TextColor": "Black (#000000)",
       "Riddle": "three sisters riddle; buried in center of three triangle stones in Shadownook (amethyst obelisk)",
-      "SatVision": "The vision shows the jester’s egg and will (hopefully) lead the party to Bailey.",
+      "SatVision": "The vision shows the jesters egg and will (hopefully) lead the party to Bailey.",
       "SunVision": "This vision shows Astrid and suggests the power the enchanted ring has over her."
     },
     {
@@ -86,7 +86,7 @@
       "TextColor": "Black (#000000)",
       "Riddle": "stone bench riddle; buried in ground at foot of stone bench on Little Bow near the intersection with Rhone Trail",
       "SatVision": "The vision shows the moonstone shards and leads the party to Frost.",
-      "SunVision": "This vision shows the two Jack Brighams, only one of which is real…"
+      "SunVision": "This vision shows the two Jack Brighams, only one of which is real"
     },
     {
       "Party": "Sythwan",
@@ -108,7 +108,7 @@
       "TextColor": "Black (#000000)",
       "Riddle": "The riddle mentions walking away from Hillcrest toward Winterhill Clearing, pausing along the way in Greystone Clearing. the pendant is at the base of the tree, under some debris.",
       "SatVision": "The vision shows the sterling silver heart box and will (hopefully) lead the party to Obsidian.",
-      "SunVision": "This vision shows Andrew Rayfield’s maker robes and suggests that the gems are hidden within its seams."
+      "SunVision": "This vision shows Andrew Rayfields maker robes and suggests that the gems are hidden within its seams."
     },
     {
       "Party": "Waylon",
@@ -119,7 +119,7 @@
       "TextColor": "Black (#000000)",
       "Riddle": "'man dressed all in red' riddle; fire circle on little hill next to graveyard, jade egg",
       "SatVision": "The vision shows the skull cup and (hopefully!) leads the party to Jack Brigham.",
-      "SunVision": "The vision hopefully suggests that, just like in a Scooby Doo episode, the ghost isn’t truly a ghost and must be unmasked."
+      "SunVision": "The vision hopefully suggests that, just like in a Scooby Doo episode, the ghost isnt truly a ghost and must be unmasked."
     }
   ]
 }
