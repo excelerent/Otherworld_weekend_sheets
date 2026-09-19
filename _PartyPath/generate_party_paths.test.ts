@@ -18,7 +18,7 @@ Contact: Staff 4
         `;
         const result = parseParties(text);
         expect(result.length).toBe(3);
-        expect(result[0]![0]!.party).toBe('Doloron');
+        expect(result[0]![0]!.party).toBe('Dolorón');
         expect(result[1]![0]!.party).toBe("P'loa");
         expect(result[2]![0]!.party).toBe('Uri-Kesh');
     });

@@ -1216,7 +1216,7 @@
           ]
         },
         {
-          "Summary": "Scurvy Jack is such a famous pirate that there's a play about him happening in Doloron",
+          "Summary": "Scurvy Jack is such a famous pirate that there's a play about him happening in Dolorón",
           "CriticalAmount": "1",
           "Characters": [
             {
@@ -1775,7 +1775,7 @@
     },
     {
       "Title": "Lord Orlando Fairfax charged with embezzling",
-      "Party": "Doloron",
+      "Party": "Dolorón",
       "Groups": [
         {
           "Summary": "assigns charge",
