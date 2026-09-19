@@ -1,6 +1,6 @@
 ﻿function onOpen() {
   const ui = SpreadsheetApp.getUi();
-  ui.createMenu('Medical Tracker')
+  ui.createMenu('Otherworld')
     .addItem('Create New Incident', 'showCreateIncidentPopup')
     .addItem('Show Sidebar', 'showSidebar')
     .addItem('Initialize Spreadsheet', 'initializeSpreadsheet')
@@ -427,7 +427,7 @@ function setupInstallableTrigger() {
   ss.toast("Installable handleOnEdit trigger created successfully.", "Setup");
 }
 
-const DASHBOARD_SPREADSHEET_ID = '1E3qwC06aYhplPwexQSHPnLtMXFlekN26EmGM1rytjog';
+const DASHBOARD_SPREADSHEET_ID = '1mrUuGQ3NBbI1rGQ9wPOo0kxs5Btk512mrlMW79rU5d0';
 
 /**
  * Pushes the Summary sheet to the EM Dashboard.
@@ -451,6 +451,4 @@ function pushSummaryToDashboard() {
 
   targetSheet.clearContents();
   targetSheet.getRange(1, 1, sourceData.length, sourceData[0].length).setValues(sourceData);
-  
-  sourceSs.toast("Summary synced to EM Dashboard.", "Medical Tracker");
 }

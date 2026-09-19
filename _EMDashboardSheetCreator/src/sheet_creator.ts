@@ -473,11 +473,10 @@ function getHexColor(colorStr: string) {
 
 function onOpen() {
     const ui = SpreadsheetApp.getUi();
-    ui.createMenu('EM Dashboard')
+    ui.createMenu('Otherworld')
         .addItem('Rebuild All Sheets', 'createDashboardSheets')
         .addItem('Rebuild Dashboard Tab ONLY', 'rebuildDashboardOnly')
         .addSeparator()
-        .addItem('Build Arden Sheet Only', 'buildArdenSheetOnly')
         .addItem('Setup Participants-Parties Sheet', 'setupParticipantsPartiesSheet')
         .addItem('Setup Staff/Camp Sheet', 'setupStaffCampSheet')
         .addToUi();

@@ -42,7 +42,7 @@ declare function getMonsterData(): { Monsters: string[] };
 declare function getAllStaffData(): string[];
 
 // EM Dashboard Spreadsheet ID (Replace with actual ID)
-const DASHBOARD_SPREADSHEET_ID = '1E3qwC06aYhplPwexQSHPnLtMXFlekN26EmGM1rytjog';
+const DASHBOARD_SPREADSHEET_ID = '1mrUuGQ3NBbI1rGQ9wPOo0kxs5Btk512mrlMW79rU5d0';
 
 function createTrackerSheet() {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -394,10 +394,9 @@ function darkenColor(hex: string, factor: number): string {
  */
 function onOpen() {
     const ui = SpreadsheetApp.getUi();
-    ui.createMenu('Party Tracker Debug')
+    ui.createMenu('Otherworld')
         .addItem('Sync All to Dashboard', 'syncAllToDashboard')
         .addSeparator()
-        .addItem('Run test_onEdit', 'test_onEdit')
         .addItem('Setup Installable Trigger', 'setupInstallableTrigger')
         .addToUi();
 }
@@ -454,14 +453,7 @@ function handleOnEdit(e: GoogleAppsScript.Events.SheetsOnEdit) {
 
     // Log auth mode and trigger info for debugging
     console.log(`handleOnEdit triggered. AuthMode: ${e.authMode}, TriggerUid: ${e.triggerUid}`);
-
-    // Toast message for visual feedback
-    try {
-        SpreadsheetApp.getActiveSpreadsheet().toast(`Syncing ${sheetName} to EM Dashboard...`, 'Party Tracker');
-    } catch (e) {
-        // Should work fine in installable trigger
-    }
-
+    
     try {
         pushToDashboard(sheetName);
     } catch (err: any) {
