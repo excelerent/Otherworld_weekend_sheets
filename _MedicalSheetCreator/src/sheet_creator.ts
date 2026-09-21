@@ -137,6 +137,25 @@ function createNewIncident(data: IncidentData) {
   sheet.getRange('D2').setValue(data.role || 'N/A');
   sheet.getRange('B3').setValue(data.chiefComplaint);
   
+  // Format the table (Rows 5-34)
+  const medicalStaff = getMedicalStaffData();
+  const rule = SpreadsheetApp.newDataValidation().requireValueInList(medicalStaff).build();
+  
+  for (let i = 0; i < 30; i++) {
+    const row = 5 + i;
+    const rowRange = sheet.getRange(row, 1, 1, 7);
+    
+    // Alternating background colors
+    if (i % 2 === 0) {
+      rowRange.setBackground('#ffffff'); // Light
+    } else {
+      rowRange.setBackground('#f3f3f3'); // Slightly darker
+    }
+    
+    // Dropdown for "Presided" in Column A
+    sheet.getRange(row, 1).setDataValidation(rule);
+  }
+
   // Add first entry if provided
   if (data.presided && (data.situation || data.actionsTaken)) {
     addEntryToIncident(finalSheetName, {
@@ -166,8 +185,17 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
   const sheet = ss.getSheetByName(sheetName);
   if (!sheet) throw new Error("Sheet not found: " + sheetName);
   
-  const lastRow = sheet.getLastRow();
-  const nextRow = Math.max(lastRow + 1, 5);
+  const valuesInSheet = sheet.getRange("A5:A").getValues();
+  let nextRow = 5;
+  for (let i = 0; i < valuesInSheet.length; i++) {
+    if (!valuesInSheet[i][0]) {
+      nextRow = 5 + i;
+      break;
+    }
+    if (i === valuesInSheet.length - 1) {
+      nextRow = 5 + valuesInSheet.length;
+    }
+  }
   
   const timestamp = new Date();
   const values = [
@@ -401,14 +429,126 @@ function toggleIncidentStatus(sheetName: string, newStatus: string, remark?: str
 function handleOnEdit(e: GoogleAppsScript.Events.SheetsOnEdit) {
   if (!e) return;
   
-  // The Summary sheet contains links and formulas that depend on other sheets (e.g., Incident sheets).
-  // Therefore, we trigger a push to the EM Dashboard whenever any sheet is updated to ensure the dashboard
-  // always has the latest summarized data.
+  const range = e.range;
+  const sheet = range.getSheet();
+  const sheetName = sheet.getName();
   
-  try {
-    pushSummaryToDashboard();
-  } catch (err: any) {
-    console.error('Failed to push summary to dashboard:', err);
+  // Check if it's an incident sheet
+  if (isIncidentSheet(sheetName)) {
+    const row = range.getRow();
+    const col = range.getColumn();
+    
+    // Only process edits in the entry area (Rows 5+)
+    if (row >= 5 && col <= 7) {
+      // 1. If Column A (Presided) is changed and Column B (Time) is empty, fill Column B
+      if (col === 1) {
+        const presidedValue = range.getValue();
+        const timeRange = sheet.getRange(row, 2);
+        if (presidedValue && !timeRange.getValue()) {
+          const now = new Date();
+          timeRange.setValue(now);
+          timeRange.setNumberFormat("M/d/yyyy H:mm");
+        }
+      }
+      
+      // 2. Rerun summary and dashboard push for ANY edit in A-G
+      try {
+        rebuildSummaryForSheet(sheetName);
+        pushSummaryToDashboard();
+      } catch (err: any) {
+        console.error('Failed to update summary or push to dashboard:', err);
+      }
+    }
+  } else if (sheetName === 'Summary') {
+    // If Summary itself is edited, push to dashboard
+    try {
+      pushSummaryToDashboard();
+    } catch (err: any) {
+      console.error('Failed to push summary to dashboard:', err);
+    }
+  }
+}
+
+/**
+ * Rebuilds the summary log for a specific incident sheet by reading all its entries.
+ */
+function rebuildSummaryForSheet(sheetName: string) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(sheetName);
+  if (!sheet) return;
+
+  const summarySheet = ss.getSheetByName('Summary');
+  if (!summarySheet) return;
+
+  // Find the row in Summary for this sheet
+  const summaryData = summarySheet.getDataRange().getValues();
+  let summaryRowIndex = -1;
+  for (let i = 2; i < summaryData.length; i++) {
+    const linkFormula = summarySheet.getRange(i + 1, 6).getFormula();
+    if (linkFormula && linkFormula.indexOf(`"${sheetName}"`) !== -1) {
+      summaryRowIndex = i + 1;
+      break;
+    }
+  }
+  
+  if (summaryRowIndex === -1) return;
+
+  // Get incident data from header
+  const complaint = sheet.getRange('B3').getValue();
+  
+  // Get all entries from Rows 5+
+  const entriesRange = sheet.getRange(5, 1, sheet.getLastRow() - 4, 7);
+  const entries = entriesRange.getValues();
+  
+  let logText = `Chief Complaint: ${complaint}.`;
+  let latestTimestamp: Date | string = "";
+  let transportInfo = "";
+
+  for (let i = 0; i < entries.length; i++) {
+    const presided = entries[i][0];
+    const time = entries[i][1];
+    const situation = entries[i][2];
+    const actions = entries[i][3];
+    const recs = entries[i][4];
+    const offeredUC = entries[i][5];
+    const whyUC = entries[i][6];
+
+    if (!presided && !situation && !actions) continue;
+
+    const timeStr = time instanceof Date ? Utilities.formatDate(time, ss.getSpreadsheetTimeZone(), "M/d/yyyy H:mm") : time;
+    if (time instanceof Date) {
+      if (!latestTimestamp || time > latestTimestamp) {
+        latestTimestamp = time;
+      }
+    }
+
+    // Capture transport info from the first entry that has it, or update it
+    if (!transportInfo && offeredUC) {
+      if (offeredUC === 'Yes') {
+        transportInfo = "Offer UC: Y";
+      } else if (offeredUC === 'No') {
+        transportInfo = "Offer UC: N";
+        if (whyUC) transportInfo += ` (Why: ${whyUC})`;
+      }
+    }
+
+    let entryParts = [];
+    if (situation) entryParts.push(situation);
+    if (actions) entryParts.push("Actions: " + actions);
+    if (recs) entryParts.push("Reccomendation: " + recs);
+    
+    const contentText = entryParts.join(" | ");
+    const newEntryText = `${presided} at ${timeStr} - ${contentText}`;
+    logText += "\n" + newEntryText;
+  }
+
+  if (transportInfo) {
+    logText = logText.replace(`Chief Complaint: ${complaint}.`, `Chief Complaint: ${complaint}. | ${transportInfo}`);
+  }
+
+  summarySheet.getRange(summaryRowIndex, 7).setValue(logText);
+  if (latestTimestamp) {
+    summarySheet.getRange(summaryRowIndex, 4).setValue(latestTimestamp);
   }
 }
 
