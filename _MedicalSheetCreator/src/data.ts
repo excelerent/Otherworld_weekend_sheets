@@ -226,6 +226,8 @@ function getStaffData() {
 
 function getMedicalStaffData() {
   return [
+    "Other",
+    "Jeff Anderson",
     "Sherry Rinell",
     "Charlotte Wilson",
     "Julie Leviter",

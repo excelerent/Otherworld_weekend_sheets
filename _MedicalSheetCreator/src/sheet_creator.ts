@@ -152,6 +152,9 @@ function createNewIncident(data: IncidentData) {
   // Update Summary
   updateSummary(data.personName, data.party, data.role, data.chiefComplaint, finalSheetName);
   
+  // Push to Dashboard
+  pushSummaryToDashboard();
+
   return finalSheetName;
 }
 
@@ -228,6 +231,9 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
         const updatedLog = currentLog + (currentLog ? "\n" : "") + newEntryText;
         summarySheet.getRange(i + 1, 7).setValue(updatedLog);
         
+        // Push to Dashboard
+        pushSummaryToDashboard();
+
         break;
       }
     }
@@ -252,7 +258,7 @@ function updateSummary(name: string, party: string, role: string, complaint: str
   
   const range = summarySheet.getRange(nextRow, 1, 1, 7);
   range.setValues([[
-    name, party, role, new Date(), "Active", hyperlink, `Cheif Complaint: ${complaint}.`
+    name, party, role, new Date(), "Active", hyperlink, `Chief Complaint: ${complaint}.`
   ]]);
   summarySheet.getRange(nextRow, 4).setNumberFormat("M/d/yyyy H:mm");
 }
