@@ -143,7 +143,7 @@ function createNewIncident(data: IncidentData) {
   
   for (let i = 0; i < 30; i++) {
     const row = 5 + i;
-    const rowRange = sheet.getRange(row, 1, 1, 7);
+    const rowRange = sheet.getRange(row, 1, 1, 8);
     
     // Alternating background colors
     if (i % 2 === 0) {
@@ -199,10 +199,10 @@ function addEntryToIncident(sheetName: string, entryData: EntryData) {
   
   const timestamp = new Date();
   const values = [
-    [entryData.presided, timestamp, entryData.situation, entryData.actionsTaken, entryData.recommendations, entryData.offeredTransport, entryData.transportWhy]
+    [entryData.presided, timestamp, entryData.situation, entryData.actionsTaken, entryData.recommendations, entryData.offeredTransport, entryData.transportWhy, ""]
   ];
   
-  const range = sheet.getRange(nextRow, 1, 1, 7);
+  const range = sheet.getRange(nextRow, 1, 1, 8);
   range.setValues(values);
   sheet.getRange(nextRow, 2).setNumberFormat("M/d/yyyy H:mm");
   
@@ -439,7 +439,7 @@ function handleOnEdit(e: GoogleAppsScript.Events.SheetsOnEdit) {
     const col = range.getColumn();
     
     // Only process edits in the entry area (Rows 5+)
-    if (row >= 5 && col <= 7) {
+    if (row >= 5 && col <= 8) {
       // 1. If Column A (Presided) is changed and Column B (Time) is empty, fill Column B
       if (col === 1) {
         const presidedValue = range.getValue();
@@ -497,7 +497,7 @@ function rebuildSummaryForSheet(sheetName: string) {
   const complaint = sheet.getRange('B3').getValue();
   
   // Get all entries from Rows 5+
-  const entriesRange = sheet.getRange(5, 1, sheet.getLastRow() - 4, 7);
+  const entriesRange = sheet.getRange(5, 1, Math.max(sheet.getLastRow() - 4, 1), 8);
   const entries = entriesRange.getValues();
   
   let logText = `Chief Complaint: ${complaint}.`;
