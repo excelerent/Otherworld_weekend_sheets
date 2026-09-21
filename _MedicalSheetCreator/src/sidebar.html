@@ -14,9 +14,9 @@
     .container { 
       padding: 10px; 
       flex: 1;
-      overflow-y: auto;
       display: flex;
       flex-direction: column;
+      overflow: hidden; /* Prevent container itself from scrolling */
     }
     .form-group { margin-bottom: 15px; }
     label { display: block; font-weight: bold; margin-bottom: 5px; }
@@ -31,12 +31,10 @@
       padding: 10px 0;
       background: white;
       border-top: 1px solid #eee;
-      margin-top: auto;
-      position: sticky;
-      bottom: 0;
+      flex-shrink: 0; /* Don't let the button bar shrink */
       flex-wrap: nowrap; 
     }
-    #message { margin-top: 5px; padding: 5px; border-radius: 3px; }
+    #message { margin-top: 5px; padding: 5px; border-radius: 3px; flex-shrink: 0; }
     .success { background-color: #d4edda; color: #155724; }
     .error { background-color: #f8d7da; color: #721c24; }
     .action-btn, .secondary-btn, .close-btn { 
@@ -84,6 +82,7 @@
       border-bottom: 1px solid #ccc;
       padding-bottom: 5px;
       margin-bottom: 10px;
+      flex-shrink: 0;
     }
     .status-badge {
       font-size: 10px;
@@ -123,7 +122,7 @@
         </div>
       </div>
 
-      <div id="scrollable-content" style="flex: 1;">
+      <div id="scrollable-content" style="flex: 1; overflow-y: auto;">
         <hr>
         <h4>Action Log Entry</h4>
         
