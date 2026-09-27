@@ -396,8 +396,6 @@ function onOpen() {
     const ui = SpreadsheetApp.getUi();
     ui.createMenu('Otherworld')
         .addItem('Sync All to Dashboard', 'syncAllToDashboard')
-        .addSeparator()
-        .addItem('Setup Installable Trigger', 'setupInstallableTrigger')
         .addToUi();
 }
 

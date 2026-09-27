@@ -3,9 +3,6 @@
   ui.createMenu('Otherworld')
     .addItem('Create New Incident', 'showCreateIncidentPopup')
     .addItem('Show Sidebar', 'showSidebar')
-    .addItem('Initialize Spreadsheet', 'initializeSpreadsheet')
-    .addSeparator()
-    .addItem('Setup Installable Trigger', 'setupInstallableTrigger')
     .addToUi();
   
   // Automatically show sidebar on open
