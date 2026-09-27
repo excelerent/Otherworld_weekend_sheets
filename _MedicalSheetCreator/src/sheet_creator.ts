@@ -64,6 +64,8 @@ interface IncidentData {
   role: string;
   chiefComplaint: string;
   presided: string;
+  offeredTransport: string;
+  transportWhy: string;
   situation: string;
   actionsTaken: string;
   recommendations: string;
@@ -157,11 +159,11 @@ function createNewIncident(data: IncidentData) {
   }
 
   // Add first entry if provided
-  if (data.presided && (data.situation || data.actionsTaken)) {
+  if (data.presided || data.situation || data.actionsTaken || data.recommendations || data.offeredTransport) {
     addEntryToIncident(finalSheetName, {
-      presided: data.presided,
-      offeredTransport: '',
-      transportWhy: '',
+      presided: data.presided || 'System',
+      offeredTransport: data.offeredTransport,
+      transportWhy: data.transportWhy,
       situation: data.situation,
       actionsTaken: data.actionsTaken,
       recommendations: data.recommendations

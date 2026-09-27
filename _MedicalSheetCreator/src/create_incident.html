@@ -85,6 +85,38 @@
         <input type="text" id="chiefComplaint" name="chiefComplaint" required>
       </div>
 
+      <hr>
+      <h4>Initial Action Log Entry (Optional)</h4>
+      <div class="form-group">
+        <label for="presided">Who presided?</label>
+        <select id="presided" name="presided">
+          <option value="">-- Select Staff --</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Offered Transport to urgent care?</label>
+        <div style="display: flex; gap: 10px;">
+          <label style="font-weight: normal;"><input type="radio" name="offeredTransport" value="Yes" onclick="toggleTransportWhy()"> Yes</label>
+          <label style="font-weight: normal;"><input type="radio" name="offeredTransport" value="No" onclick="toggleTransportWhy()"> No</label>
+        </div>
+      </div>
+      <div id="transport-why-group" class="form-group hidden">
+        <label for="transportWhy">If NO: Why?</label>
+        <input type="text" id="transportWhy" name="transportWhy">
+      </div>
+      <div class="form-group">
+        <label for="situation">Situation</label>
+        <textarea id="situation" name="situation"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="actionsTaken">Actions Taken (list)</label>
+        <textarea id="actionsTaken" name="actionsTaken"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="recommendations">Future Recommendations</label>
+        <textarea id="recommendations" name="recommendations"></textarea>
+      </div>
+
       <div id="message"></div>
 
       <div class="button-bar">
@@ -108,11 +140,21 @@
         });
 
         const staffInvolvedSelect = document.getElementById('staffPersonName');
+        const presidedSelect = document.getElementById('presided');
+        const staffList = data.medicalStaff || data.staff;
+        
         data.staff.forEach(s => {
           const opt = document.createElement('option');
           opt.value = s;
           opt.textContent = s;
           staffInvolvedSelect.appendChild(opt);
+        });
+
+        staffList.forEach(s => {
+          const opt = document.createElement('option');
+          opt.value = s;
+          opt.textContent = s;
+          presidedSelect.appendChild(opt);
         });
       })
       .withFailureHandler(function(err) {
@@ -139,6 +181,18 @@
       }
     }
 
+    function toggleTransportWhy() {
+      const offeredElem = document.querySelector('input[name="offeredTransport"]:checked');
+      const offered = offeredElem ? offeredElem.value : '';
+      const whyGroup = document.getElementById('transport-why-group');
+      if (offered === 'No') {
+        whyGroup.classList.remove('hidden');
+      } else {
+        whyGroup.classList.add('hidden');
+        document.getElementById('transportWhy').value = '';
+      }
+    }
+
     document.getElementById('create-incident-form').onsubmit = function(e) {
       e.preventDefault();
       showMessage('Creating incident...', '');
@@ -158,16 +212,18 @@
         role = 'Staff';
       }
 
+      const offeredTransportElem = document.querySelector('input[name="offeredTransport"]:checked');
       const formData = {
         personName: personName,
         party: party,
         role: role,
         chiefComplaint: document.getElementById('chiefComplaint').value,
-        // Empty action log fields for initial creation
-        presided: '',
-        situation: '',
-        actionsTaken: '',
-        recommendations: ''
+        presided: document.getElementById('presided').value,
+        offeredTransport: offeredTransportElem ? offeredTransportElem.value : '',
+        transportWhy: document.getElementById('transportWhy').value,
+        situation: document.getElementById('situation').value,
+        actionsTaken: document.getElementById('actionsTaken').value,
+        recommendations: document.getElementById('recommendations').value
       };
 
       google.script.run.withSuccessHandler(function(sheetName) {
